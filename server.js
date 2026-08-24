@@ -88,6 +88,40 @@ app.post('/api/import', upload.single('dbfile'), (req, res) => {
   });
 });
 
+const mediaUpload = multer({
+  dest: path.join(__dirname, 'uploads'),
+  limits: { fileSize: 50 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    const mimeOk = /^image\//i.test(file.mimetype) || /^video\//i.test(file.mimetype);
+    const extOk = /\.(jpg|jpeg|png|gif|webp|bmp|svg|tif|tiff|jfif|avif|mp4|m4v|mov|webm|avi|mkv|wmv|flv|mpeg|mpg|3gp|3g2)$/i.test(file.originalname || '');
+    if (!mimeOk && !extOk) {
+      return cb(new Error('Only image and video files are allowed'));
+    }
+    cb(null, true);
+  }
+});
+
+app.post('/api/upload', mediaUpload.array('media', 5), (req, res) => {
+  if (!req.files || req.files.length === 0) {
+    return res.status(400).json({ error: 'No media uploaded' });
+  }
+
+  const uploaded = req.files.map(file => {
+    const originalExt = path.extname(file.originalname) || '';
+    const safeName = `${Date.now()}-${Math.random().toString(16).slice(2)}${originalExt}`;
+    const targetPath = path.join(__dirname, 'uploads', safeName);
+    fs.renameSync(file.path, targetPath);
+    return {
+      name: file.originalname,
+      url: `/uploads/${safeName}`
+    };
+  });
+
+  res.json({ ok: true, files: uploaded });
+});
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 // Serve static app for preview (optional)
 app.use(express.static(path.join(__dirname, 'public')));
 
