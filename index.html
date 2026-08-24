@@ -53,6 +53,7 @@
                 <button id="drawerPin" class="drawer-btn" title="Pin drawer">📌</button>
                 <button id="drawerMax" class="drawer-btn" title="Maximize notes">Max</button>
                 <button id="drawerMin" class="drawer-btn" title="Minimize notes" hidden>Min</button>
+                <button id="drawerUploadMedia" class="drawer-btn" type="button">Upload media</button>
                 <button id="drawerEdit" class="drawer-btn">Edit</button>
                 <button id="drawerSave" class="drawer-btn" hidden>Save</button>
                 <button id="drawerClose" class="drawer-btn" aria-label="Close">✕</button>
@@ -60,6 +61,7 @@
             </div>
             <div id="drawerBody" class="drawer-body" contenteditable="false"></div>
           </div>
+          <input id="drawerMediaInput" type="file" accept="image/*,video/*,.jpg,.jpeg,.png,.gif,.webp,.bmp,.svg,.tif,.tiff,.jfif,.avif,.mp4,.m4v,.mov,.webm,.avi,.mkv,.wmv,.flv,.mpeg,.mpg,.3gp,.3g2" multiple hidden />
         </section>
 
         <section id="notes" class="notes">
