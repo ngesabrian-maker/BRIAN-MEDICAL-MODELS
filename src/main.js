@@ -23,12 +23,16 @@ window.addEventListener("DOMContentLoaded", () => {
   const drawerPin = document.getElementById('drawerPin');
   const drawerMax = document.getElementById('drawerMax');
   const drawerMin = document.getElementById('drawerMin');
+  const drawerUploadMedia = document.getElementById('drawerUploadMedia');
+  const drawerMediaInput = document.getElementById('drawerMediaInput');
   const noteModal = document.getElementById("noteModal");
   const modalTitle = document.getElementById("modalTitle");
   const modalBody = document.getElementById("modalBody");
   const closeNoteBtn = document.getElementById("closeNoteBtn");
   const editNoteBtn = document.getElementById('editNoteBtn');
   const saveNoteBtn = document.getElementById('saveNoteBtn');
+
+  if (drawerUploadMedia) drawerUploadMedia.hidden = true;
 
   const SUBJECTS = [
     { id: 'anatomy', label: 'Anatomy' },
@@ -151,6 +155,97 @@ window.addEventListener("DOMContentLoaded", () => {
     if (first) first.classList.add('active');
   }
 
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/\"/g, '&quot;');
+  }
+
+  function resolveMediaPath(value) {
+    if (!value) return value;
+    if (/^(?:[a-z]+:)?\/\//i.test(value) || value.startsWith('data:') || value.startsWith('blob:')) return value;
+    const cleaned = value.replace(/^\.?\//, '').replace(/^uploads\//i, '');
+    if (cleaned.startsWith('http://') || cleaned.startsWith('https://')) return cleaned;
+    return `/${cleaned.startsWith('uploads/') ? cleaned : `uploads/${cleaned}`}`;
+  }
+
+  function formatNoteContent(rawContent) {
+    if (rawContent === null || rawContent === undefined) {
+      return '<p>No notes available.</p>';
+    }
+
+    const source = String(rawContent).trim();
+    if (!source) {
+      return '<p>No notes available.</p>';
+    }
+
+    const hasHtml = /<\/?[a-z][\s\S]*>/i.test(source);
+    if (!hasHtml) {
+      const blocks = source
+        .split(/\n{2,}/)
+        .map(block => block.replace(/\r/g, '').trim())
+        .filter(Boolean);
+
+      if (blocks.length) {
+        return blocks
+          .map(block => {
+            const lines = block
+              .split(/\n+/)
+              .map(line => line.trim())
+              .filter(Boolean)
+              .map(line => {
+                let rendered = escapeHtml(line);
+                rendered = rendered.replace(/(https?:\/\/[^\s]+|uploads\/[^\s]+)/gi, match => {
+                  const resolved = resolveMediaPath(match);
+                  const lower = match.toLowerCase();
+                  if (/\.(png|jpe?g|gif|webp|svg)$/i.test(lower)) {
+                    return `<img src="${resolved}" alt="Uploaded image" loading="lazy" />`;
+                  }
+                  if (/\.(mp4|webm|mov|m4v|avi)$/i.test(lower)) {
+                    return `<video src="${resolved}" controls playsinline></video>`;
+                  }
+                  return `<a href="${resolved}" target="_blank" rel="noreferrer">${escapeHtml(match)}</a>`;
+                });
+                return rendered;
+              })
+              .join('<br>');
+            return `<p>${lines}</p>`;
+          })
+          .join('');
+      }
+
+      return `<p>${escapeHtml(source).replace(/\n/g, '<br>')}</p>`;
+    }
+
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = source;
+    wrapper.querySelectorAll('script, style').forEach(el => el.remove());
+
+    wrapper.querySelectorAll('img, video').forEach(el => {
+      const src = el.getAttribute('src');
+      if (src) {
+        el.setAttribute('src', resolveMediaPath(src));
+      }
+      if (el.tagName === 'VIDEO' && !el.hasAttribute('controls')) {
+        el.setAttribute('controls', 'controls');
+      }
+      if (el.tagName === 'IMG' && !el.hasAttribute('alt')) {
+        el.setAttribute('alt', 'Uploaded media');
+      }
+      if (el.tagName === 'IMG' && !el.hasAttribute('loading')) {
+        el.setAttribute('loading', 'lazy');
+      }
+    });
+
+    if (!wrapper.querySelector('p, ul, ol, h1, h2, h3, h4, blockquote, figure, img, video') && wrapper.textContent.trim()) {
+      wrapper.innerHTML = `<p>${escapeHtml(wrapper.textContent.trim()).replace(/\n/g, '<br>')}</p>`;
+    }
+
+    return wrapper.innerHTML || '<p>No notes available.</p>';
+  }
+
   async function selectOrgan(org) {
     if (!org) return;
 
@@ -218,7 +313,7 @@ window.addEventListener("DOMContentLoaded", () => {
       dbContent = await getNoteRemote(organId, partId, selectedSubject);
     } catch (e) {}
     const content = dbContent || (org.notes && org.notes[selectedSubject]) || org.notes && (org.notes.anatomy || org.notes.biochemistry) || "<p>No notes available.</p>";
-    if (modalBody) modalBody.innerHTML = content;
+    if (modalBody) modalBody.innerHTML = formatNoteContent(content);
     if (saveNoteBtn) saveNoteBtn.hidden = true;
     if (editNoteBtn) editNoteBtn.hidden = false;
     if (noteModal) noteModal.classList.remove("hidden");
@@ -235,6 +330,15 @@ window.addEventListener("DOMContentLoaded", () => {
     if (drawerMin) drawerMin.hidden = !maximized;
   }
 
+  function setDrawerEditing(isEditing) {
+    if (!drawerBody) return;
+    drawerBody.contentEditable = isEditing ? 'true' : 'false';
+    drawerBody.classList.toggle('is-editing', isEditing);
+    if (drawerEdit) drawerEdit.hidden = isEditing;
+    if (drawerSave) drawerSave.hidden = !isEditing;
+    if (drawerUploadMedia) drawerUploadMedia.hidden = !isEditing;
+  }
+
   function closeDrawer() {
     if (!notesDrawer) return;
     const viewer = document.querySelector('.viewer');
@@ -245,6 +349,7 @@ window.addEventListener("DOMContentLoaded", () => {
     notesDrawer.setAttribute('aria-hidden', 'true');
     if (drawerMax) drawerMax.hidden = false;
     if (drawerMin) drawerMin.hidden = true;
+    setDrawerEditing(false);
   }
 
   async function openDrawer(org, part) {
@@ -263,10 +368,8 @@ window.addEventListener("DOMContentLoaded", () => {
     if (!content) {
       content = (part && part.notes && part.notes[selectedSubject]) || (org && org.notes && org.notes[selectedSubject]) || '<p>No notes available.</p>';
     }
-    drawerBody.innerHTML = content;
-    drawerBody.contentEditable = 'false';
-    drawerSave.hidden = true;
-    drawerEdit.hidden = false;
+    drawerBody.innerHTML = formatNoteContent(content);
+    setDrawerEditing(false);
     setDrawerMaximized(false);
     notesDrawer.classList.add('open');
     notesDrawer.setAttribute('aria-hidden', 'false');
@@ -280,6 +383,87 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function closeModal() {
     if (noteModal) noteModal.classList.add("hidden");
+  }
+
+  function buildMediaMarkup(url) {
+    const lower = String(url).toLowerCase();
+    if (/\.(png|jpe?g|gif|webp|bmp|svg|tif|tiff|jfif|avif)$/i.test(lower)) {
+      return `<div class="note-media-item"><button type="button" class="media-remove-btn" aria-label="Delete image">✕</button><img src="${url}" alt="Uploaded image" loading="lazy" /></div>`;
+    }
+    if (/\.(mp4|m4v|mov|webm|avi|mkv|wmv|flv|mpeg|mpg|3gp|3g2)$/i.test(lower)) {
+      return `<div class="note-media-item"><button type="button" class="media-remove-btn" aria-label="Delete video">✕</button><video src="${url}" controls playsinline></video></div>`;
+    }
+    return `<div class="note-media-item"><button type="button" class="media-remove-btn" aria-label="Delete file">✕</button><a href="${url}" target="_blank" rel="noreferrer">${url}</a></div>`;
+  }
+
+  async function readFileAsDataUrl(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result));
+      reader.onerror = () => reject(new Error('Failed to read file'));
+      reader.readAsDataURL(file);
+    });
+  }
+
+  async function insertUploadedMediaFiles(files) {
+    if (!files || files.length === 0) return;
+    const editor = drawerBody && drawerBody.isContentEditable ? drawerBody : null;
+    if (!editor) {
+      alert('Open the note in edit mode before uploading media.');
+      return;
+    }
+
+    try {
+      const results = [];
+      for (const file of files) {
+        const lowerName = String(file.name || '').toLowerCase();
+        const isImage = /^image\//.test(file.type) || /\.(png|jpe?g|gif|webp|bmp|svg|tif|tiff|jfif|avif)$/i.test(lowerName);
+        const isVideo = /^video\//.test(file.type) || /\.(mp4|m4v|mov|webm|avi|mkv|wmv|flv|mpeg|mpg|3gp|3g2)$/i.test(lowerName);
+
+        try {
+          const form = new FormData();
+          form.append('media', file);
+          const res = await fetch('http://localhost:3001/api/upload', { method: 'POST', body: form });
+          if (res.ok) {
+            const json = await res.json();
+            if (json.files) {
+              results.push(...json.files.map(item => ({ url: item.url, kind: isImage ? 'image' : isVideo ? 'video' : 'file' })));
+              continue;
+            }
+          }
+        } catch (e) {
+          console.warn('Server upload unavailable, using local fallback:', e);
+        }
+
+        const dataUrl = await readFileAsDataUrl(file);
+        results.push({ url: dataUrl, kind: isImage ? 'image' : isVideo ? 'video' : 'file' });
+      }
+
+      if (!results.length) return;
+
+      const html = results
+        .map(({ url, kind }) => {
+          if (kind === 'image') {
+            return `<div class="note-media-item"><button type="button" class="media-remove-btn" aria-label="Delete image">✕</button><img src="${url}" alt="Uploaded image" loading="lazy" /></div>`;
+          }
+          if (kind === 'video') {
+            return `<div class="note-media-item"><button type="button" class="media-remove-btn" aria-label="Delete video">✕</button><video src="${url}" controls playsinline></video></div>`;
+          }
+          return `<div class="note-media-item"><button type="button" class="media-remove-btn" aria-label="Delete file">✕</button><a href="${url}" target="_blank" rel="noreferrer">${url}</a></div>`;
+        })
+        .join('');
+
+      if (document.activeElement === editor || editor.contains(document.activeElement)) {
+        document.execCommand('insertHTML', false, html);
+      } else {
+        editor.innerHTML += html;
+      }
+
+      editor.focus();
+    } catch (e) {
+      console.error('Failed to upload media', e);
+      alert('Upload failed. Please make sure the app server is running or try a smaller file.');
+    }
   }
 
   if (navigatorZoomBtn) {
@@ -357,10 +541,16 @@ window.addEventListener("DOMContentLoaded", () => {
   if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
   if (drawerEdit) {
     drawerEdit.addEventListener('click', () => {
-      drawerBody.contentEditable = 'true';
+      setDrawerEditing(true);
       drawerBody.focus();
-      drawerEdit.hidden = true;
-      drawerSave.hidden = false;
+    });
+  }
+  if (drawerBody) {
+    drawerBody.addEventListener('click', (event) => {
+      const removeBtn = event.target.closest('.media-remove-btn');
+      if (!removeBtn || !drawerBody.isContentEditable) return;
+      const mediaItem = removeBtn.closest('.note-media-item');
+      if (mediaItem) mediaItem.remove();
     });
   }
   if (drawerSave) {
@@ -370,14 +560,26 @@ window.addEventListener("DOMContentLoaded", () => {
       const subject = showNotesBtn.dataset.subject || selectedSubject;
       const content = drawerBody.innerHTML;
       upsertNoteRemote(organId, partId, subject, content).then(() => console.log('[db] saved')).catch(e => console.warn('save failed', e));
-      drawerBody.contentEditable = 'false';
-      drawerSave.hidden = true;
-      drawerEdit.hidden = false;
+      setDrawerEditing(false);
     });
   }
   if (drawerPin) {
     drawerPin.addEventListener('click', () => {
       drawerPin.classList.toggle('pinned');
+    });
+  }
+  if (drawerUploadMedia && drawerMediaInput) {
+    drawerUploadMedia.addEventListener('click', () => {
+      if (drawerBody && drawerBody.isContentEditable) {
+        drawerMediaInput.click();
+      } else {
+        alert('Open the note in edit mode before uploading media.');
+      }
+    });
+    drawerMediaInput.addEventListener('change', async (event) => {
+      const files = Array.from(event.target.files || []);
+      await insertUploadedMediaFiles(files);
+      event.target.value = '';
     });
   }
   if (drawerMax) {
