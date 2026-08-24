@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brian Meds — Anatomy</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="app">
+      <aside id="sidebar">
+        <h2>Systems</h2>
+        <div id="subjectList" class="subject-list"></div>
+        <div id="organList"></div>
+      </aside>
+      <main>
+        <header>
+          <h1>Brian MEDS </h1>
+          <div class="header-controls">
+            <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+            <button id="syncNotesBtn" class="sync-notes" title="Sync local notes to server">⇪ Sync</button>
+          </div>
+        </header>
+
+        <section id="viewer" class="viewer">
+          <canvas id="renderCanvas"></canvas>
+          <div id="modelPlaceholder" class="placeholder">Model preview unavailable</div>
+
+          <div id="navigator" class="navigator" aria-live="polite">
+            <div class="nav-box">
+              <div class="nav-label nav-top">Superior</div>
+              <div class="nav-center">
+                <div class="nav-left">Left</div>
+                <div class="nav-cross">+</div>
+                <div class="nav-right">Right</div>
+              </div>
+              <div class="nav-label nav-bottom">Inferior</div>
+            </div>
+            <button id="navigatorZoomBtn" class="navigator-btn" type="button" aria-label="Enlarge view">⤢</button>
+          </div>
+
+          <button id="showNotesBtn" class="show-notes" hidden>Show Notes</button>
+
+          <!-- Notes drawer: visible, large, and easy to read -->
+          <div id="notesDrawer" class="notes-drawer" aria-hidden="true">
+            <div class="drawer-header">
+              <div class="drawer-title">
+                <h2 id="drawerTitle">Notes</h2>
+                <div id="drawerSubtitle" class="drawer-subtitle"></div>
+              </div>
+              <div class="drawer-controls">
+                <button id="drawerPin" class="drawer-btn" title="Pin drawer">📌</button>
+                <button id="drawerMax" class="drawer-btn" title="Maximize notes">Max</button>
+                <button id="drawerMin" class="drawer-btn" title="Minimize notes" hidden>Min</button>
+                <button id="drawerEdit" class="drawer-btn">Edit</button>
+                <button id="drawerSave" class="drawer-btn" hidden>Save</button>
+                <button id="drawerClose" class="drawer-btn" aria-label="Close">✕</button>
+              </div>
+            </div>
+            <div id="drawerBody" class="drawer-body" contenteditable="false"></div>
+          </div>
+        </section>
+
+        <section id="notes" class="notes">
+          <h2 id="notesTitle">Select an organ</h2>
+          <div id="notesContent">Choose an organ from the list to see notes and a 3D preview (if available).</div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="src/organs.js"></script>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
