@@ -80,6 +80,16 @@ export const SYSTEMS = [
           parasitology: `<p>Parasitic CNS infections: Taenia solium (neurocysticercosis) causes seizures.</p>`,
           microbiology: `<p>Bacterial meningitis (Neisseria meningitidis, Streptococcus pneumoniae) impacts the CNS.</p>`
         }
+      },
+      {
+        id: "spinalCord",
+        name: "Spinal Cord",
+        modelPath: null,
+        modelFile: null,
+        notes: {
+          anatomy: `<p>Spinal cord: cylindrical structure; conveys motor and sensory information; protected by vertebrae.</p>`,
+          physiology: `<p>Reflex arcs, conduction of nerve impulses between brain and body.</p>`
+        }
       }
     ]
   },
@@ -186,6 +196,56 @@ export const SYSTEMS = [
           parasitology: `<p>Schistosoma haematobium primarily affects urinary tract causing hematuria.</p>`,
           microbiology: `<p>UTI pathogens: Escherichia coli, Proteus, Klebsiella species.</p>`
         }
+      },
+      {
+        id: "bladder",
+        name: "Bladder",
+        modelPath: null,
+        modelFile: null,
+        notes: {
+          anatomy: `<p>Muscular sac for urine storage; lined by transitional epithelium.</p>`,
+          physiology: `<p>Stores and expels urine via coordinated detrusor muscle contraction and sphincter relaxation.</p>`
+        }
+      },
+      {
+        id: "urethra",
+        name: "Urethra",
+        modelPath: null,
+        modelFile: null,
+        notes: {
+          anatomy: `<p>Tube conveying urine from bladder to exterior; lined by transitional epithelium.</p>`,
+          physiology: `<p>Conducts urine out of the body; in males also conveys semen.</p>`
+        }
+      },
+      {
+        id: "ureter",
+        name: "Ureter",
+        modelPath: null,
+        modelFile: null,
+        notes: {
+          anatomy: `<p>Tube conveying urine from kidney to bladder; lined by transitional epithelium.</p>`,
+          physiology: `<p>Conducts urine from kidney to bladder via peristaltic contractions.</p>`
+        }
+      },
+      {
+        id: "adrenalGlands",
+        name: "Adrenal Glands",
+        modelPath: null,
+        modelFile: null,
+        notes: {
+          anatomy: `<p>Paired glands located above the kidneys; cortex produces corticosteroids, medulla produces catecholamines.</p>`,
+          physiology: `<p>Regulation of metabolism, stress response, and electrolyte balance.</p>`
+        }
+      },
+      {
+        id: "prostate",
+        name: "Prostate",
+        modelPath: null,
+        modelFile: null,
+        notes: {
+          anatomy: `<p>Gland surrounding the urethra in males; produces seminal fluid.</p>`,
+          physiology: `<p>Contributes to semen production and ejaculation.</p>`
+        }
       }
     ]
   },
@@ -280,6 +340,43 @@ export const SYSTEMS = [
           physiology: `<p>Refraction, accommodation, phototransduction.</p>`,
           parasitology: `<p>Some parasites can invade ocular tissues in endemic areas (e.g., Onchocerca volvulus causing river blindness).</p>`,
           microbiology: `<p>Conjunctivitis pathogens include Staphylococcus, Streptococcus, adenovirus.</p>`
+        }
+      },
+      {
+        id: "ear",
+        name: "Ear",
+        modelPath: null,
+        modelFile: null,
+        notes: {
+          anatomy: `<p>Organ for hearing and balance; outer, middle, and inner ear structures.</p>`,
+          biochemistry: `<p>Auditory transduction involves ion channels and neurotransmitters in hair cells.</p>`,
+          physiology: `<p>Hearing, balance, and spatial orientation.</p>`,
+          parasitology: `<p>Rarely affected by parasites; some systemic parasites can impact inner ear function.</p>`,
+          microbiology: `<p>Otitis media commonly caused by Streptococcus pneumoniae, Haemophilus influenzae.</p>`
+        }
+      },
+      {
+        id: "nose",
+        name: "Nose",
+        modelPath: null,
+        modelFile: null,
+        notes: {
+          anatomy: `<p>Organ for olfaction and air passage; nasal cavity, septum, and turbinates.</p>`,
+          physiology: `<p>Olfaction, air filtration, humidification, and resonance of voice.</p>`,
+          parasitology: `<p>Rarely affected by parasites; some systemic parasites can impact nasal tissues.</p>`,
+          microbiology: `<p>Common pathogens include Streptococcus pneumoniae, Haemophilus influenzae, and viruses causing rhinitis.</p>`
+        }
+      },
+      {
+        id: "tongue",
+        name: "Tongue",
+        modelPath: null,
+        modelFile: null,
+        notes: {
+          anatomy: `<p>Muscular organ in the oral cavity; involved in taste, mastication, and speech.</p>`,
+          physiology: `<p>Taste perception, manipulation of food, and articulation of speech.</p>`,
+          parasitology: `<p>Rarely affected by parasites; some systemic parasites can impact tongue tissues.</p>`,
+          microbiology: `<p>Oral flora includes Streptococcus species; Candida can cause oral thrush.</p>`
         }
       }
     ]
