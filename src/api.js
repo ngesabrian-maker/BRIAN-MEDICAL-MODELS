@@ -1,4 +1,5 @@
-// Backend Express server (local) — we try remote first and fall back to localStorage
+// Backend Express server (local) — prefer local DB, then server, then localStorage
+import { getNote as getNoteFromDb } from './db.js';
 const API_ROOT = 'http://localhost:3001';
 const LOCAL_KEY = 'brian_notes_local_v1';
 
@@ -27,7 +28,16 @@ function normalizePartId(value) {
 }
 
 export async function getNoteRemote(organId, partId, subject) {
-  // try remote
+  // 1) Prefer local sqlite/websql DB (fast, offline-capable)
+  try {
+    const dbVal = await getNoteFromDb(organId, partId, subject);
+    if (dbVal) return { content: dbVal, embeds: [] };
+  } catch (e) {
+    // ignore DB errors and continue to server/localStorage fallbacks
+    console.warn('DB lookup failed', e);
+  }
+
+  // 2) Try server API
   try {
     const params = new URLSearchParams();
     params.set('organId', organId || '');
@@ -36,33 +46,43 @@ export async function getNoteRemote(organId, partId, subject) {
     const res = await fetch(`${API_ROOT}/api/note?${params.toString()}`);
     if (res.ok) {
       const j = await res.json();
-      if (j && typeof j.content === 'string' && j.content.length > 0) return j.content;
+      return { content: typeof j.content === 'string' ? j.content : null, embeds: Array.isArray(j.embeds) ? j.embeds : [] };
     }
   } catch (e) {
-    // fall through to local
+    // fall through to localStorage
   }
 
+  // 3) Local storage fallback
   const local = readLocalStore();
-  return local[localKey(organId, normalizePartId(partId), subject)] || null;
+  const v = local[localKey(organId, normalizePartId(partId), subject)];
+  if (!v) return null;
+  try {
+    if (typeof v === 'string') return { content: v, embeds: [] };
+    return v;
+  } catch (e) { return null; }
 }
 
-export async function upsertNoteRemote(organId, partId, subject, content) {
+export async function upsertNoteRemote(organId, partId, subject, content, embeds = []) {
   // try remote
   try {
     const res = await fetch(`${API_ROOT}/api/note`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ organId, partId: normalizePartId(partId), subject, content })
+      body: JSON.stringify({ organId, partId: normalizePartId(partId), subject, content, embeds })
     });
-    if (res.ok) return await res.json();
+    if (res.ok) {
+      const j = await res.json();
+      return { ok: true, savedTo: 'server', data: j };
+    }
   } catch (e) {
     // fall back to local
   }
 
   const local = readLocalStore();
-  local[localKey(organId, normalizePartId(partId), subject)] = content;
+  // store structured object for local fallback
+  local[localKey(organId, normalizePartId(partId), subject)] = { content, embeds };
   writeLocalStore(local);
-  return { ok: true, fallback: true };
+  return { ok: true, savedTo: 'local' };
 }
 
 export async function listNotesRemote() {
@@ -74,7 +94,9 @@ export async function listNotesRemote() {
     const local = readLocalStore();
     return Object.keys(local).map(k => {
       const [organId, partId, subject] = k.split('||');
-      return { organId, partId: partId || null, subject, content: local[k] };
+      const v = local[k];
+      if (typeof v === 'string') return { organId, partId: partId || null, subject, content: v, embeds: [] };
+      return { organId, partId: partId || null, subject, content: v.content || null, embeds: v.embeds || [] };
     });
   }
   return [];
@@ -95,12 +117,14 @@ export async function syncLocalToServer() {
   let migrated = 0;
   for (const k of keys) {
     const [organId, partId, subject] = k.split('||');
-    const content = local[k];
+    const v = local[k];
+    const content = typeof v === 'string' ? v : (v && v.content ? v.content : '');
+    const embeds = typeof v === 'string' ? [] : (v && v.embeds ? v.embeds : []);
     try {
       await fetch(`${API_ROOT}/api/note`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ organId, partId: normalizePartId(partId), subject, content })
+        body: JSON.stringify({ organId, partId: normalizePartId(partId), subject, content, embeds })
       });
       migrated++;
     } catch (e) {
