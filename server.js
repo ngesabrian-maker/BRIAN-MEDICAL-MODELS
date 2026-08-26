@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import fs from 'fs';
+import os from 'os';
 import sqlite3 from 'sqlite3';
 import cors from 'cors';
 import multer from 'multer';
@@ -26,8 +27,23 @@ let db = new sqlite.Database(DB_FILE, (err) => {
       partId TEXT DEFAULT '',
       subject TEXT,
       content TEXT,
+      embeds TEXT DEFAULT '[]',
       PRIMARY KEY (organId, partId, subject)
     )`);
+    // ensure legacy DBs get an embeds column
+    db.all("PRAGMA table_info('notes')", (err, cols) => {
+      if (!err && Array.isArray(cols)) {
+        const hasEmbeds = cols.some(c => c && c.name === 'embeds');
+        if (!hasEmbeds) {
+          try {
+            db.run("ALTER TABLE notes ADD COLUMN embeds TEXT DEFAULT '[]'");
+            console.log('Migrated notes table: added embeds column');
+          } catch (e) {
+            console.warn('Failed to add embeds column', e);
+          }
+        }
+      }
+    });
     console.log('SQLite DB ready at', DB_FILE);
   }
 });
@@ -37,22 +53,49 @@ app.use(cors());
 app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: true }));
 
+function getReachableLanIps() {
+  const interfaces = os.networkInterfaces();
+  const addresses = new Set();
+
+  for (const details of Object.values(interfaces)) {
+    for (const detail of details || []) {
+      if (detail.family !== 'IPv4' || detail.internal) continue;
+      const ip = detail.address;
+      if (/^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(ip) || /^169\.254\./.test(ip)) {
+        addresses.add(ip);
+      }
+    }
+  }
+
+  return Array.from(addresses).sort((a, b) => a.localeCompare(b));
+}
+
+app.get('/api/network-ip', (req, res) => {
+  const ips = getReachableLanIps();
+  res.json({ ips, preferred: ips[0] || 'localhost' });
+});
+
 // API: get a note
 app.get('/api/note', (req, res) => {
   const { organId, partId, subject } = req.query;
   const normalizedPartId = normalizePartId(partId);
-  db.get('SELECT content FROM notes WHERE organId = ? AND COALESCE(partId, "") = ? AND subject = ?', [organId, normalizedPartId, subject], (err, row) => {
+  db.get('SELECT content, embeds FROM notes WHERE organId = ? AND COALESCE(partId, "") = ? AND subject = ?', [organId, normalizedPartId, subject], (err, row) => {
     if (err) return res.status(500).json({ error: err.message });
-    res.json({ content: row ? row.content : null });
+    if (!row) return res.json({ content: null, embeds: [] });
+    let embeds = [];
+    try { embeds = row.embeds ? JSON.parse(row.embeds) : []; } catch (e) { embeds = []; }
+    res.json({ content: row.content, embeds });
   });
 });
 
 // API: upsert note
 app.post('/api/note', (req, res) => {
   const { organId, partId, subject, content } = req.body;
+  let { embeds } = req.body;
+  if (!Array.isArray(embeds)) embeds = embeds ? embeds : [];
   if (!organId || !subject) return res.status(400).json({ error: 'organId and subject required' });
   const normalizedPartId = normalizePartId(partId);
-  db.run('INSERT OR REPLACE INTO notes (organId, partId, subject, content) VALUES (?, ?, ?, ?)', [organId, normalizedPartId, subject, content], function(err) {
+  db.run('INSERT OR REPLACE INTO notes (organId, partId, subject, content, embeds) VALUES (?, ?, ?, ?, ?)', [organId, normalizedPartId, subject, content, JSON.stringify(embeds)], function(err) {
     if (err) return res.status(500).json({ error: err.message });
     res.json({ ok: true });
   });
@@ -60,9 +103,14 @@ app.post('/api/note', (req, res) => {
 
 // API: list all notes
 app.get('/api/notes', (req, res) => {
-  db.all('SELECT organId, partId, subject, content FROM notes', (err, rows) => {
+  db.all('SELECT organId, partId, subject, content, embeds FROM notes', (err, rows) => {
     if (err) return res.status(500).json({ error: err.message });
-    res.json(rows);
+    const normalized = (rows || []).map(r => {
+      let embeds = [];
+      try { embeds = r.embeds ? JSON.parse(r.embeds) : []; } catch (e) { embeds = []; }
+      return { organId: r.organId, partId: r.partId, subject: r.subject, content: r.content, embeds };
+    });
+    res.json(normalized);
   });
 });
 
