@@ -1,3 +1,5 @@
+import { clinicalMethodsNeuroPsychiatry } from "./neuro/clinical_methods.js";
+
 export const nervousSystem = {
   id: "nervous",
   name: "Nervous System",
@@ -1209,7 +1211,7 @@ export const nervousSystem = {
         {
           id: "cerebellum",
           name: "Cerebellum",
-          modelPath: "models/brain/cerebellum/",
+          modelPath: "models/brain/",
           modelFile: "cerebellum.glb",
 
           notes: {
@@ -1880,6 +1882,7 @@ export const nervousSystem = {
           }
         }
       ]
-    }
+    },
+    clinicalMethodsNeuroPsychiatry
   ]
 };
