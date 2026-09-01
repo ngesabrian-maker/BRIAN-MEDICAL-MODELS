@@ -66,7 +66,7 @@ export const surgicalInstrumentation = {
         attire also contributes to control of contamination within the operative
         environment.
       </p>
-
+      <img src="/images/ppe.PNG">
       <h4>Common Theatre Protective Gear</h4>
       <ul>
         <li>Surgical cap or hair cover</li>
@@ -77,7 +77,7 @@ export const surgicalInstrumentation = {
         <li>Protective footwear or theatre shoes</li>
         <li>Aprons where required</li>
       </ul>
-
+      <img src="/images/PPE2.PNG">
       <h4>Principles of PPE Use</h4>
       <ul>
         <li>Select PPE according to the anticipated exposure.</li>
@@ -178,7 +178,7 @@ export const surgicalInstrumentation = {
         <li>General non-infectious waste</li>
         <li>Chemical or pharmaceutical waste where applicable</li>
       </ul>
-
+     <img src="/images/waste.PNG">
       <h4>Principles of Waste Management</h4>
       <ul>
         <li>Segregate waste at the point of generation.</li>
@@ -441,7 +441,7 @@ export const surgicalInstrumentation = {
         patients, personnel, instruments and materials while reducing the
         potential for contamination.
       </p>
-
+        <img src="/images/theatre.PNG">
       <h4>Important Theatre Areas</h4>
       <ul>
         <li>Operating rooms</li>

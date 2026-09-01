@@ -5,7 +5,7 @@ export const patientPreparation = {
   notes: {
     anatomy: `
       <h2>Preparation of Patient for Surgery</h2>
-
+      <img src="/images/monitor.PNG">
       <h3>Introduction</h3>
       <p>
         Preparation of a patient for surgery is a systematic process undertaken
@@ -124,7 +124,7 @@ export const patientPreparation = {
         <li>Transfer the patient safely to the operating area.</li>
         <li>Ensure appropriate documentation accompanies the patient.</li>
       </ul>
-
+      <img src="/images/preparationForm.PNG">
       <h3>5. Patient Positions</h3>
 
       <p>
