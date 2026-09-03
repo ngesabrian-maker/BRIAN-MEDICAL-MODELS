@@ -2,7 +2,7 @@
 
 ## 1. Overview
 
-Brian Notes is a web, android and desktop anatomy and other medical related learning application built to explore human organ systems, view 3D model previews when available, and maintain study notes by organ and subject area. The project combines a Vite frontend, a Babylon.js 3D viewer, an Express API for note storage, and a Tauri desktop shell for packaged application distribution.
+Brian Meds is a web and desktop anatomy learning application built to explore human organ systems, view 3D model previews when available, and maintain study notes by organ and subject area. The project combines a Vite frontend, a Babylon.js 3D viewer, an Express API for note storage, and a Tauri desktop shell for packaged application distribution.
 
 The interface is organized around:
 
