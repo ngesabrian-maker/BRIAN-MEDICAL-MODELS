@@ -2,7 +2,8 @@ export const sociologySystem = {
   id: "sociology",
   name: "Sociology",
 
-  notes: `
+  notes: {
+    anatomy: `
     <h2>Sociology</h2>
 
     <h3>Overview</h3>
@@ -68,7 +69,7 @@ export const sociologySystem = {
       <li>How do societies change over time?</li>
       <li>How does society influence health, illness, and healthcare?</li>
     </ul>
-  `,
+  `},
 
   parts: [
 
@@ -76,7 +77,8 @@ export const sociologySystem = {
       id: "foundations_of_sociology",
       name: "1. Foundations of Sociology",
 
-      notes: `
+      notes: {
+        anatomy: `
         <h2>Foundations of Sociology</h2>
 
         <h3>Meaning of Society</h3>
@@ -137,15 +139,16 @@ export const sociologySystem = {
           <li>Improves understanding of population-level health problems.</li>
           <li>Helps distinguish individual problems from structural problems.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "history_of_sociology",
       name: "2. History and Development of Sociology",
 
-      notes: `
-        <h2>History and Development of Sociology</h2>
+      notes: {
+        anatomy: `
+          <h2>History and Development of Sociology</h2>
 
         <h3>Origins</h3>
 
@@ -199,15 +202,16 @@ export const sociologySystem = {
           <li>Erving Goffman</li>
           <li>Pierre Bourdieu</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "sociological_perspectives",
       name: "3. Sociological Perspectives and Theories",
 
-      notes: `
-        <h2>Sociological Perspectives and Theories</h2>
+      notes: {
+        anatomy: `
+          <h2>Sociological Perspectives and Theories</h2>
 
         <h3>Functionalism</h3>
 
@@ -265,15 +269,16 @@ export const sociologySystem = {
           healthcare workers interpret symptoms, illness labels, diagnoses,
           professional roles, and treatment interactions.
         </p>
-      `
+      `}
     },
 
     {
       id: "culture",
       name: "4. Culture",
 
-      notes: `
-        <h2>Culture</h2>
+      notes: {
+        anatomy: `
+          <h2>Culture</h2>
 
         <p>
           Culture refers to the shared values, beliefs, norms, knowledge,
@@ -327,15 +332,16 @@ export const sociologySystem = {
           attitudes toward mental illness, and relationships with healthcare
           providers.
         </p>
-      `
+      `}
     },
 
     {
       id: "socialization",
       name: "5. Socialization",
 
-      notes: `
-        <h2>Socialization</h2>
+      notes: {
+        anatomy: `
+          <h2>Socialization</h2>
 
         <p>
           Socialization is the lifelong process through which individuals learn
@@ -373,15 +379,16 @@ export const sociologySystem = {
           professional identity, attitudes toward illness, adherence to
           treatment, and expectations concerning healthcare.
         </p>
-      `
+      `}
     },
 
     {
       id: "social_groups",
       name: "6. Social Groups and Social Networks",
 
-      notes: `
-        <h2>Social Groups and Social Networks</h2>
+      notes: {
+        anatomy: `
+          <h2>Social Groups and Social Networks</h2>
 
         <h3>Social Group</h3>
 
@@ -431,15 +438,16 @@ export const sociologySystem = {
           <li>Companionship</li>
           <li>Community support</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "social_institutions",
       name: "7. Social Institutions",
 
-      notes: `
-        <h2>Social Institutions</h2>
+      notes: {
+        anatomy: `
+          <h2>Social Institutions</h2>
 
         <p>
           Social institutions are established patterns of social relationships
@@ -467,15 +475,16 @@ export const sociologySystem = {
           expectations, technologies, and structures for responding to health
           and illness.
         </p>
-      `
+      `}
     },
 
     {
       id: "family_and_marriage",
       name: "8. Family, Marriage and Kinship",
 
-      notes: `
-        <h2>Family, Marriage and Kinship</h2>
+      notes: {
+        anatomy: `
+          <h2>Family, Marriage and Kinship</h2>
 
         <h3>Family</h3>
 
@@ -517,15 +526,16 @@ export const sociologySystem = {
           health decisions, nutrition, child-rearing, treatment support,
           healthcare utilisation, and management of chronic illness.
         </p>
-      `
+      `}
     },
 
     {
       id: "social_status_and_roles",
       name: "9. Social Status, Roles and Identity",
 
-      notes: `
-        <h2>Social Status, Roles and Identity</h2>
+      notes: {
+        anatomy: `
+          <h2>Social Status, Roles and Identity</h2>
 
         <h3>Social Status</h3>
 
@@ -568,15 +578,16 @@ export const sociologySystem = {
           Role strain occurs when competing expectations exist within the same
           social role.
         </p>
-      `
+      `}
     },
 
     {
       id: "social_norms_values_and_beliefs",
       name: "10. Norms, Values, Beliefs and Customs",
 
-      notes: `
-        <h2>Norms, Values, Beliefs and Customs</h2>
+      notes: {
+        anatomy: `
+          <h2>Norms, Values, Beliefs and Customs</h2>
 
         <h3>Values</h3>
 
@@ -619,15 +630,16 @@ export const sociologySystem = {
           Mores are norms regarded as particularly important to the moral
           standards of a society.
         </p>
-      `
+      `}
     },
 
     {
       id: "social_control",
       name: "11. Social Control and Deviance",
 
-      notes: `
-        <h2>Social Control and Deviance</h2>
+      notes: {
+        anatomy: `
+          <h2>Social Control and Deviance</h2>
 
         <h3>Social Control</h3>
 
@@ -682,15 +694,16 @@ export const sociologySystem = {
           <li>Disability-related stigma</li>
           <li>Stigma associated with substance use disorders</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "social_stratification",
       name: "12. Social Stratification and Inequality",
 
-      notes: `
-        <h2>Social Stratification and Inequality</h2>
+      notes: {
+        anatomy: `
+          <h2>Social Stratification and Inequality</h2>
 
         <p>
           Social stratification refers to the structured ranking of individuals
@@ -726,15 +739,16 @@ export const sociologySystem = {
           risks, access to healthcare, living conditions, treatment options,
           and health outcomes.
         </p>
-      `
+      `}
     },
 
     {
       id: "gender_and_society",
       name: "13. Gender and Society",
 
-      notes: `
-        <h2>Gender and Society</h2>
+      notes: {
+        anatomy: `
+          <h2>Gender and Society</h2>
 
         <h3>Sex and Gender</h3>
 
@@ -772,15 +786,16 @@ export const sociologySystem = {
           <li>Mental health</li>
           <li>Health decision-making</li>
         </ul>
-      `
+      `} 
     },
 
     {
       id: "social_mobility",
       name: "14. Social Mobility",
 
-      notes: `
-        <h2>Social Mobility</h2>
+      notes: {
+        anatomy: `
+          <h2>Social Mobility</h2>
 
         <p>
           Social mobility refers to movement of individuals or groups between
@@ -810,15 +825,16 @@ export const sociologySystem = {
           <li>Discrimination</li>
           <li>Geographical location</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "urbanization_and_population",
       name: "15. Population, Urbanization and Migration",
 
-      notes: `
-        <h2>Population, Urbanization and Migration</h2>
+      notes: {
+        anatomy: `
+          <h2>Population, Urbanization and Migration</h2>
 
         <h3>Population</h3>
 
@@ -860,15 +876,16 @@ export const sociologySystem = {
           <li>Social disruption</li>
           <li>Changes in family support systems</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "social_change",
       name: "16. Social Change and Modernization",
 
-      notes: `
-        <h2>Social Change and Modernization</h2>
+      notes: {
+        anatomy: `
+          <h2>Social Change and Modernization</h2>
 
         <p>
           Social change refers to significant alterations in social structures,
@@ -899,15 +916,16 @@ export const sociologySystem = {
           technological development, institutional transformation, and
           changing social values.
         </p>
-      `
+      `}
     },
 
     {
       id: "globalization",
       name: "17. Globalization and Society",
 
-      notes: `
-        <h2>Globalization and Society</h2>
+      notes: {
+        anatomy: `
+          <h2>Globalization and Society</h2>
 
         <p>
           Globalization refers to increasing interconnectedness among societies
@@ -926,15 +944,16 @@ export const sociologySystem = {
           <li>Transfer of medical technology</li>
           <li>Global health inequalities</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "sociology_of_health_and_illness",
       name: "18. Sociology of Health, Illness and Disease",
 
-      notes: `
-        <h2>Sociology of Health, Illness and Disease</h2>
+      notes: {
+        anatomy: `
+          <h2>Sociology of Health, Illness and Disease</h2>
 
         <h3>Health</h3>
 
@@ -985,15 +1004,16 @@ export const sociologySystem = {
           <li>Stigma</li>
           <li>Trust in healthcare providers</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "social_determinants_of_health",
       name: "19. Social Determinants of Health",
 
-      notes: `
-        <h2>Social Determinants of Health</h2>
+      notes: {
+        anatomy: `
+          <h2>Social Determinants of Health</h2>
 
         <p>
           Social determinants of health are the conditions in which people are
@@ -1035,15 +1055,16 @@ export const sociologySystem = {
           responsibilities, limited health literacy, medication availability,
           or cultural beliefs rather than simply lack of motivation.
         </p>
-      `
+      `}
     },
 
     {
       id: "healthcare_utilization",
       name: "20. Healthcare-Seeking Behaviour and Utilization",
 
-      notes: `
-        <h2>Healthcare-Seeking Behaviour and Utilization</h2>
+      notes: {
+        anatomy: `
+          <h2>Healthcare-Seeking Behaviour and Utilization</h2>
 
         <p>
           Healthcare-seeking behaviour describes the actions individuals take
@@ -1079,15 +1100,16 @@ export const sociologySystem = {
           <li>Waiting time</li>
           <li>Social support</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "patient_professional_relationship",
       name: "21. Patient–Healthcare Professional Relationship",
 
-      notes: `
-        <h2>Patient–Healthcare Professional Relationship</h2>
+      notes: {
+        anatomy: `
+          <h2>Patient–Healthcare Professional Relationship</h2>
 
         <p>
           The patient–healthcare professional relationship is a social
@@ -1117,15 +1139,16 @@ export const sociologySystem = {
           should minimise unnecessary power barriers and promote respectful
           patient participation.
         </p>
-      `
+      `}
     },
 
     {
       id: "medicalization",
       name: "22. Medicalization and the Social Construction of Illness",
 
-      notes: `
-        <h2>Medicalization and the Social Construction of Illness</h2>
+      notes: {
+        anatomy: `
+          <h2>Medicalization and the Social Construction of Illness</h2>
 
         <h3>Medicalization</h3>
 
@@ -1151,15 +1174,16 @@ export const sociologySystem = {
           cultural, behavioural, or institutional processes surrounding health
           and illness.
         </p>
-      `
+      `}
     },
 
     {
       id: "sociology_of_healthcare_professions",
       name: "23. Sociology of Healthcare Professions",
 
-      notes: `
-        <h2>Sociology of Healthcare Professions</h2>
+      notes: {
+        anatomy: `
+          <h2>Sociology of Healthcare Professions</h2>
 
         <h3>Professionalization</h3>
 
@@ -1189,15 +1213,16 @@ export const sociologySystem = {
           professional groups. Effective teamwork improves continuity,
           coordination, patient safety, and quality of care.
         </p>
-      `
+      `}
     },
 
     {
       id: "community_and_health",
       name: "24. Community, Social Capital and Health",
 
-      notes: `
-        <h2>Community, Social Capital and Health</h2>
+      notes: {
+        anatomy: `
+          <h2>Community, Social Capital and Health</h2>
 
         <h3>Community Participation</h3>
 
@@ -1225,15 +1250,16 @@ export const sociologySystem = {
           <li>Supports vulnerable populations.</li>
           <li>Promotes collective responses to community health problems.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "sociology_research_methods",
       name: "25. Sociological Research Methods",
 
-      notes: `
-        <h2>Sociological Research Methods</h2>
+      notes: {
+        anatomy: `
+          <h2>Sociological Research Methods</h2>
 
         <h3>Quantitative Research</h3>
 
@@ -1273,15 +1299,16 @@ export const sociologySystem = {
           <li>Voluntary participation</li>
           <li>Scientific integrity</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "applied_medical_sociology",
       name: "26. Applied Medical Sociology",
 
-      notes: `
-        <h2>Applied Medical Sociology</h2>
+      notes: {
+        anatomy: `
+          <h2>Applied Medical Sociology</h2>
 
         <p>
           Medical sociology applies sociological knowledge to practical
@@ -1320,15 +1347,16 @@ export const sociologySystem = {
           community, socioeconomic circumstances, culture, beliefs, resources,
           environment, and ability to access and use healthcare services.
         </p>
-      `
+      `}
     },
 
     {
       id: "sociology_revision",
       name: "27. Sociology Revision and Examination Guide",
 
-      notes: `
-        <h2>Sociology Revision Guide</h2>
+      notes: {
+        anatomy: `
+          <h2>Sociology Revision Guide</h2>
 
         <h3>High-Yield Definitions</h3>
 
@@ -1368,8 +1396,8 @@ export const sociologySystem = {
           <li>Healthcare inequality</li>
           <li>Sociological research methods</li>
         </ul>
-      `
+      `}
     }
 
-  ]
+      ]
 };

@@ -1,2556 +1,2113 @@
 export const growthAndDevelopmentSystem = {
-  id: "growth_and_development",
+  id: "growthAndDevelopmentSystem",
   name: "Growth and Development",
+
+  notes: {
+    anatomy: `
+      <h2>Growth and Development</h2>
+
+      <h3>Introduction</h3>
+
+      <p>
+        Growth and development are continuous processes that begin at conception
+        and continue throughout the lifespan. They involve changes in physical
+        size, body composition, neurological function, cognition, language,
+        emotion, personality, behaviour, social relationships, morality and
+        adaptation to the environment.
+      </p>
+
+      <p>
+        In Behavioural Science, growth and development are particularly
+        important because human behaviour cannot be understood adequately
+        without considering the developmental stage of the individual.
+        Behaviour is influenced by biological maturation, learning, previous
+        experiences, relationships, culture, cognition and the social
+        environment.
+      </p>
+
+      <h3>Definition of Growth</h3>
+
+      <p>
+        <strong>Growth</strong> refers primarily to quantitative changes in the
+        physical characteristics of the body. It includes increases in body
+        weight, length or height, head circumference, organ size, skeletal
+        dimensions, muscle mass and cellular mass.
+      </p>
+
+      <p>
+        Growth is therefore largely measurable. Anthropometric measurements
+        such as weight, height, length, head circumference and body mass index
+        can be used to monitor physical growth.
+      </p>
+
+      <h3>Definition of Development</h3>
+
+      <p>
+        <strong>Development</strong> refers to progressive changes in function,
+        organization, competence and behaviour. It includes the acquisition
+        and refinement of motor, cognitive, language, emotional, social,
+        psychological, moral and adaptive abilities.
+      </p>
+
+      <p>
+        Development is not simply an increase in size. It represents increasing
+        complexity and functional capacity. For example, an infant's early
+        vocalizations progressively develop into babbling, words, phrases and
+        increasingly complex communication.
+      </p>
+
+      <h3>Growth Versus Development</h3>
+
+      <table>
+        <tr>
+          <th>Growth</th>
+          <th>Development</th>
+        </tr>
+        <tr>
+          <td>Primarily quantitative</td>
+          <td>Qualitative as well as quantitative</td>
+        </tr>
+        <tr>
+          <td>Concerned mainly with physical size and mass</td>
+          <td>Concerned with function, behaviour and competence</td>
+        </tr>
+        <tr>
+          <td>Can be measured directly</td>
+          <td>Usually assessed through observation, milestones and standardized assessment</td>
+        </tr>
+        <tr>
+          <td>Examples include weight and height</td>
+          <td>Examples include language, reasoning, walking and social interaction</td>
+        </tr>
+        <tr>
+          <td>Strongly influenced by nutrition, hormones and genetics</td>
+          <td>Strongly influenced by maturation, learning, relationships and environment</td>
+        </tr>
+      </table>
+
+      <h3>Importance of Growth and Development in Behavioural Science</h3>
+
+      <p>
+        Behavioural Science examines how biological, psychological and social
+        factors influence human behaviour. Growth and development provide the
+        framework for understanding how an individual changes from infancy
+        through childhood, adolescence, adulthood and old age.
+      </p>
+
+      <p>
+        A behaviour that is appropriate at one developmental stage may be
+        inappropriate or pathological at another. For example, dependency on
+        caregivers is expected in infancy, whereas excessive dependency may
+        become clinically significant when it persists in a developmental
+        context in which greater independence is expected.
+      </p>
+
+      <p>
+        Knowledge of development therefore enables the clinician to distinguish
+        between normal developmental behaviour and behaviour that may indicate
+        psychopathology, developmental delay, environmental deprivation or
+        neurological disease.
+      </p>
+
+      <h3>Principles of Growth and Development</h3>
+
+      <ul>
+        <li>Growth and development begin before birth.</li>
+        <li>Development continues throughout the lifespan.</li>
+        <li>Development generally follows an orderly and predictable sequence.</li>
+        <li>The rate of development varies between individuals.</li>
+        <li>Different developmental domains mature at different rates.</li>
+        <li>Development proceeds from simple to increasingly complex abilities.</li>
+        <li>Development generally proceeds from general responses to specific responses.</li>
+        <li>Development follows cephalocaudal and proximodistal patterns.</li>
+        <li>Earlier developmental achievements provide foundations for later abilities.</li>
+        <li>Biological maturation interacts continuously with learning and experience.</li>
+        <li>Genetic and environmental factors interact throughout development.</li>
+        <li>Development occurs within a social and cultural context.</li>
+        <li>There are sensitive periods during which particular experiences may have especially important effects.</li>
+        <li>Development is cumulative but remains capable of modification through experience and intervention.</li>
+      </ul>
+
+      <h3>Patterns of Development</h3>
+
+      <h4>Cephalocaudal Development</h4>
+
+      <p>
+        The cephalocaudal principle describes development progressing generally
+        from the head towards the lower parts of the body. Control of the head
+        and neck develops before control of the trunk, followed by increasing
+        control of the lower limbs.
+      </p>
+
+      <h4>Proximodistal Development</h4>
+
+      <p>
+        The proximodistal principle describes development progressing from the
+        central or proximal parts of the body towards the distal parts.
+        Shoulder and arm control generally develops before refined wrist, hand
+        and finger control.
+      </p>
+
+      <h4>General-to-Specific Development</h4>
+
+      <p>
+        Early behaviour is often broad, generalized and poorly coordinated.
+        With maturation, learning and practice, behaviour becomes increasingly
+        specific, purposeful and coordinated.
+      </p>
+
+      <h3>Determinants of Growth and Development</h3>
+
+      <p>
+        Growth and development result from dynamic interaction between
+        biological inheritance and environmental experience. Neither genetics
+        nor environment alone provides an adequate explanation for normal
+        human development.
+      </p>
+
+      <ul>
+        <li>Genetic inheritance</li>
+        <li>Sex and biological characteristics</li>
+        <li>Brain and nervous system maturation</li>
+        <li>Hormonal function</li>
+        <li>Nutrition</li>
+        <li>Maternal health</li>
+        <li>Gestational age and birth weight</li>
+        <li>Chronic disease</li>
+        <li>Infections</li>
+        <li>Neurological disorders</li>
+        <li>Physical activity</li>
+        <li>Family relationships</li>
+        <li>Attachment and emotional security</li>
+        <li>Parenting practices</li>
+        <li>Education</li>
+        <li>Stimulation and learning opportunities</li>
+        <li>Peer relationships</li>
+        <li>Culture</li>
+        <li>Socioeconomic circumstances</li>
+        <li>Housing and physical environment</li>
+        <li>Access to healthcare</li>
+      </ul>
+
+      <h3>Prenatal Growth and Development</h3>
+
+      <p>
+        Prenatal development begins with fertilization and continues until
+        birth. It is conventionally divided into the germinal, embryonic and
+        fetal periods.
+      </p>
+
+      <h4>Germinal Period</h4>
+
+      <p>
+        The germinal period begins at fertilization and includes early cell
+        division, formation of the morula and blastocyst and implantation into
+        the endometrium.
+      </p>
+
+      <h4>Embryonic Period</h4>
+
+      <p>
+        The embryonic period is characterized by rapid cellular differentiation,
+        tissue organization and organogenesis. The basic structures of the
+        major organ systems are established during this period.
+      </p>
+
+      <p>
+        Because organ formation is occurring rapidly, exposure to certain
+        teratogens during critical developmental periods may produce structural
+        abnormalities.
+      </p>
+
+      <h4>Fetal Period</h4>
+
+      <p>
+        The fetal period is characterized predominantly by rapid growth,
+        differentiation and functional maturation of already established organ
+        systems. Neurological, respiratory, immune and other physiological
+        systems continue to mature substantially.
+      </p>
+
+      <h3>Factors Affecting Prenatal Development</h3>
+
+      <ul>
+        <li>Maternal nutrition</li>
+        <li>Maternal infections</li>
+        <li>Alcohol and substance exposure</li>
+        <li>Certain medications</li>
+        <li>Radiation</li>
+        <li>Environmental toxins</li>
+        <li>Maternal diabetes and other chronic illnesses</li>
+        <li>Placental dysfunction</li>
+        <li>Multiple pregnancy</li>
+        <li>Genetic and chromosomal abnormalities</li>
+        <li>Maternal stress</li>
+        <li>Adverse psychosocial circumstances</li>
+      </ul>
+
+      <h3>Neonatal Development</h3>
+
+      <p>
+        The neonatal period extends from birth to 28 completed days. The
+        newborn undergoes major physiological and behavioural adaptation as
+        the individual transitions from the intrauterine to the extrauterine
+        environment.
+      </p>
+
+      <h4>Behavioural Characteristics of the Newborn</h4>
+
+      <ul>
+        <li>Sleep-wake cycling</li>
+        <li>Feeding behaviour</li>
+        <li>Crying</li>
+        <li>Orientation towards sensory stimuli</li>
+        <li>Response to sound</li>
+        <li>Response to touch</li>
+        <li>Early social responsiveness</li>
+        <li>Primitive reflexes</li>
+      </ul>
+
+      <h4>Primitive Reflexes</h4>
+
+      <ul>
+        <li>
+          <strong>Rooting reflex:</strong>
+          turning towards stimulation of the cheek or corner of the mouth.
+        </li>
+        <li>
+          <strong>Sucking reflex:</strong>
+          rhythmic sucking following stimulation of the mouth.
+        </li>
+        <li>
+          <strong>Moro reflex:</strong>
+          sudden extension and abduction of the limbs followed by flexion in
+          response to a sudden stimulus.
+        </li>
+        <li>
+          <strong>Palmar grasp:</strong>
+          flexion of the fingers following stimulation of the palm.
+        </li>
+        <li>
+          <strong>Plantar grasp:</strong>
+          flexion of the toes following stimulation of the sole.
+        </li>
+        <li>
+          <strong>Asymmetric tonic neck reflex:</strong>
+          extension of limbs on the face side and relative flexion on the
+          opposite side when the head is turned.
+        </li>
+        <li>
+          <strong>Stepping reflex:</strong>
+          stepping-like movements when the infant is held upright with the feet
+          contacting a surface.
+        </li>
+      </ul>
+
+      <p>
+        Primitive reflexes provide useful information about neurological
+        maturation. Their presence, symmetry and persistence must be
+        interpreted according to gestational and developmental age. Absent,
+        markedly asymmetrical or unusually persistent reflexes may indicate
+        neurological dysfunction.
+      </p>
+
+      <h3>Infancy</h3>
+
+      <p>
+        Infancy is characterized by rapid physical growth, neurological
+        maturation and acquisition of fundamental motor, cognitive,
+        communicative, emotional and social abilities.
+      </p>
+
+      <h4>Motor Development</h4>
+
+      <ul>
+        <li>Head control</li>
+        <li>Rolling</li>
+        <li>Sitting</li>
+        <li>Mobility, including crawling or other forms of movement</li>
+        <li>Standing</li>
+        <li>Walking</li>
+        <li>Reaching</li>
+        <li>Grasping</li>
+        <li>Pincer manipulation</li>
+      </ul>
+
+      <h4>Communication Development</h4>
+
+      <ul>
+        <li>Crying and early vocalization</li>
+        <li>Babbling</li>
+        <li>Responding to voices</li>
+        <li>Gestural communication</li>
+        <li>Understanding familiar words</li>
+        <li>Emergence of meaningful words</li>
+      </ul>
+
+      <h4>Social and Emotional Development</h4>
+
+      <p>
+        Infants progressively recognize familiar caregivers, develop social
+        responsiveness and form attachment relationships. Increasingly
+        organized emotional responses emerge as the infant interacts with
+        caregivers.
+      </p>
+
+      <h3>Early Childhood</h3>
+
+      <p>
+        Early childhood is characterized by rapid language development,
+        increasing independence, symbolic thinking, imaginative play and
+        expanding social relationships.
+      </p>
+
+      <p>
+        Children progressively acquire self-care abilities such as feeding,
+        dressing, toileting and personal hygiene. They also develop increasing
+        capacity to follow instructions, express needs, identify emotions and
+        participate in social activities.
+      </p>
+
+      <h3>Middle Childhood</h3>
+
+      <p>
+        Middle childhood is characterized by relatively steady physical
+        growth, improved coordination, increasing cognitive organization and
+        growing independence.
+      </p>
+
+      <p>
+        School becomes an important developmental environment. Academic
+        performance, peer relationships, family relationships and teacher
+        interactions contribute to self-esteem, competence, motivation and
+        social development.
+      </p>
+
+      <h3>Adolescence</h3>
+
+      <p>
+        Adolescence represents the transition between childhood and adulthood.
+        It involves major biological, cognitive, emotional, psychological and
+        social changes.
+      </p>
+
+      <h4>Puberty</h4>
+
+      <p>
+        Puberty is the biological process through which the reproductive system
+        matures and secondary sexual characteristics develop. It involves
+        activation of the hypothalamic-pituitary-gonadal axis and associated
+        endocrine changes.
+      </p>
+
+      <p>
+        Adolescence also involves development of increasingly sophisticated
+        abstract reasoning, identity formation, autonomy, peer relationships,
+        emotional regulation and future-oriented thinking.
+      </p>
+
+      <h3>Cognitive Development</h3>
+
+      <p>
+        Cognitive development refers to changes in attention, perception,
+        memory, learning, reasoning, problem-solving, language, planning,
+        executive function and understanding of the environment.
+      </p>
+
+      <p>
+        Cognitive development results from interaction between neurological
+        maturation, experience, learning, education, social interaction and
+        active exploration of the environment.
+      </p>
+
+      <h3>Language Development</h3>
+
+      <p>
+        Language development involves acquisition of the ability to understand
+        and communicate information. <strong>Receptive language</strong> refers
+        to understanding communication, while <strong>expressive language</strong>
+        refers to communicating through speech, gestures, writing or other
+        systems.
+      </p>
+
+      <p>
+        Language development is influenced by neurological maturation, hearing,
+        cognitive development, social interaction and environmental exposure
+        to language.
+      </p>
+
+      <h3>Emotional Development</h3>
+
+      <p>
+        Emotional development involves increasing capacity to experience,
+        identify, express and regulate emotions.
+      </p>
+
+      <p>
+        Early emotional regulation depends substantially on caregivers. With
+        maturation and supportive relationships, children progressively develop
+        self-soothing, frustration tolerance, emotional regulation, empathy and
+        understanding of emotional states in themselves and others.
+      </p>
+
+      <h3>Social Development</h3>
+
+      <p>
+        Social development involves acquisition of skills required to establish
+        relationships and function within families, peer groups, schools,
+        communities and wider society.
+      </p>
+
+      <ul>
+        <li>Attachment</li>
+        <li>Social responsiveness</li>
+        <li>Imitation</li>
+        <li>Sharing</li>
+        <li>Cooperation</li>
+        <li>Empathy</li>
+        <li>Friendship formation</li>
+        <li>Understanding social rules</li>
+        <li>Conflict resolution</li>
+        <li>Group participation</li>
+      </ul>
+
+      <h3>Psychosocial Development</h3>
+
+      <p>
+        Psychosocial development describes the interaction between psychological
+        processes and social experiences. It includes development of identity,
+        autonomy, relationships, emotional adjustment, social roles and
+        adaptation.
+      </p>
+
+      <p>
+        Family relationships, parenting, education, peers, culture,
+        socioeconomic circumstances and community environment all influence
+        psychosocial development.
+      </p>
+
+      <h3>Moral Development</h3>
+
+      <p>
+        Moral development refers to progressive changes in understanding rules,
+        values, responsibility, fairness, social expectations and concepts of
+        right and wrong.
+      </p>
+
+      <p>
+        Young children often understand morality primarily through external
+        rules and consequences. With increasing cognitive and social maturity,
+        individuals develop greater ability to consider intentions, social
+        contracts, fairness, principles and competing moral values.
+      </p>
+
+      <h3>Personality Development</h3>
+
+      <p>
+        Personality development involves the emergence and organization of
+        relatively enduring patterns of thinking, feeling and behaving.
+      </p>
+
+      <p>
+        Personality is influenced by temperament, biological characteristics,
+        attachment, parenting, learning, culture, peer relationships and life
+        experiences.
+      </p>
+
+      <h3>Attachment</h3>
+
+      <p>
+        Attachment is the enduring emotional bond between an individual,
+        particularly a child, and an important caregiver. Attachment provides
+        an important foundation for emotional security, exploration, social
+        interaction and regulation of distress.
+      </p>
+
+      <p>
+        Responsive and consistent caregiving generally supports secure
+        attachment. Significant disruption, inconsistency or unavailability
+        of caregivers may interfere with emotional and social development.
+      </p>
+
+      <h3>Play and Development</h3>
+
+      <p>
+        Play is a major mechanism through which children explore their
+        environment, practise skills, communicate, develop relationships and
+        express emotions.
+      </p>
+
+      <ul>
+        <li>
+          <strong>Physical play:</strong>
+          develops strength, coordination, balance and motor competence.
+        </li>
+        <li>
+          <strong>Exploratory play:</strong>
+          allows investigation of objects and environmental properties.
+        </li>
+        <li>
+          <strong>Constructive play:</strong>
+          involves building, assembling and creating.
+        </li>
+        <li>
+          <strong>Imaginative play:</strong>
+          promotes symbolic thought, creativity and social understanding.
+        </li>
+        <li>
+          <strong>Parallel play:</strong>
+          children play alongside one another with limited direct interaction.
+        </li>
+        <li>
+          <strong>Associative play:</strong>
+          children interact and share materials but may not have a common goal.
+        </li>
+        <li>
+          <strong>Cooperative play:</strong>
+          children work or play together towards a shared goal.
+        </li>
+      </ul>
+
+      <h3>Developmental Assessment</h3>
+
+      <p>
+        Developmental assessment determines whether an individual's physical,
+        cognitive, emotional, social, communicative and adaptive abilities are
+        consistent with the expected developmental stage.
+      </p>
+
+      <h4>Major Developmental Domains</h4>
+
+      <ul>
+        <li>Gross motor development</li>
+        <li>Fine motor development</li>
+        <li>Language and communication</li>
+        <li>Cognitive development</li>
+        <li>Social interaction</li>
+        <li>Emotional development</li>
+        <li>Adaptive functioning</li>
+        <li>Self-care abilities</li>
+      </ul>
+
+      <h3>Developmental Delay</h3>
+
+      <p>
+        Developmental delay occurs when an individual, particularly a child,
+        fails to acquire expected abilities within the anticipated developmental
+        range. Delay may affect one domain or several domains.
+      </p>
+
+      <h4>Types</h4>
+
+      <ul>
+        <li>Gross motor delay</li>
+        <li>Fine motor delay</li>
+        <li>Language delay</li>
+        <li>Cognitive delay</li>
+        <li>Social-developmental delay</li>
+        <li>Adaptive-functioning delay</li>
+        <li>Global developmental delay</li>
+      </ul>
+
+      <h4>Important Developmental Red Flags</h4>
+
+      <ul>
+        <li>Loss of previously acquired skills</li>
+        <li>Failure to achieve important developmental milestones</li>
+        <li>Marked abnormalities of muscle tone</li>
+        <li>Persistent abnormal primitive reflexes</li>
+        <li>Significant asymmetry of movement</li>
+        <li>Persistent feeding difficulties</li>
+        <li>Significant communication delay</li>
+        <li>Poor response to sound</li>
+        <li>Significant visual concerns</li>
+        <li>Poor social interaction</li>
+        <li>Markedly unusual or repetitive behaviour</li>
+        <li>Global developmental delay</li>
+        <li>Developmental regression</li>
+      </ul>
+
+      <h3>Clinical Importance of Developmental Assessment</h3>
+
+      <p>
+        Behavioural and developmental assessment allows the clinician to
+        distinguish normal developmental variation from developmental
+        pathology. Assessment should consider biological, psychological,
+        family, educational, cultural and socioeconomic factors.
+      </p>
+
+      <p>
+        Developmental abnormalities may arise from genetic conditions,
+        neurological disorders, sensory impairment, chronic disease,
+        malnutrition, prematurity, psychosocial deprivation, inadequate
+        stimulation or combinations of these factors.
+      </p>
+    `
+  },
 
   parts: [
 
-    // ============================================================
-    // 1. INTRODUCTION
-    // ============================================================
-
     {
-      id: "introduction_to_growth_and_development",
+      id: "introduction_growth_development",
       name: "Introduction to Growth and Development",
 
-      notes: `
-        <h2>Introduction to Growth and Development</h2>
+      notes: {
+        anatomy: `
+          <h2>Introduction to Growth and Development</h2>
 
-        <h3>Overview</h3>
+          <h3>Definition</h3>
 
-        <p>
-          Growth and development are continuous processes through which an
-          individual changes from conception through infancy, childhood,
-          adolescence, adulthood and old age. Although the terms growth and
-          development are closely related, they describe different aspects
-          of human maturation.
-        </p>
+          <p>
+            Growth refers primarily to quantitative physical changes, whereas
+            development refers to progressive acquisition of abilities,
+            functions and behavioural competencies.
+          </p>
 
-        <p>
-          Knowledge of normal growth and development is fundamental to
-          medicine because it enables health professionals to determine
-          whether an individual's physical, neurological, cognitive,
-          language, emotional and social functioning is appropriate for
-          their developmental stage. Recognition of deviations from normal
-          development allows early investigation and intervention.
-          <sup>[1,2]</sup>
-        </p>
+          <h3>Developmental Domains</h3>
 
-        <h3>Definition of Growth</h3>
+          <ul>
+            <li>Physical development</li>
+            <li>Motor development</li>
+            <li>Cognitive development</li>
+            <li>Language development</li>
+            <li>Emotional development</li>
+            <li>Social development</li>
+            <li>Psychosocial development</li>
+            <li>Moral development</li>
+            <li>Personality development</li>
+            <li>Adaptive development</li>
+          </ul>
 
-        <p>
-          Growth refers primarily to quantitative increases in the physical
-          size or dimensions of the body or its components. It can be
-          measured objectively using parameters such as weight, length,
-          height, head circumference, body mass index and other body
-          measurements.
-        </p>
+          <h3>Clinical Importance</h3>
 
-        <h3>Definition of Development</h3>
+          <p>
+            Understanding normal development allows clinicians to recognize
+            developmental delay, regression, behavioural abnormalities,
+            psychosocial problems and disorders affecting cognition,
+            communication or social functioning.
+          </p>
 
-        <p>
-          Development refers to the progressive acquisition of skills,
-          abilities, functions and behavioural capacities as an individual
-          matures. Development includes physical, motor, cognitive,
-          language, emotional, social and adaptive changes.
-        </p>
-
-        <h3>Growth versus Development</h3>
-
-        <table>
-          <thead>
-            <tr>
-              <th>Growth</th>
-              <th>Development</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Primarily quantitative.</td>
-              <td>Primarily qualitative and functional.</td>
-            </tr>
-            <tr>
-              <td>Refers mainly to increase in physical size.</td>
-              <td>Refers to acquisition and refinement of abilities.</td>
-            </tr>
-            <tr>
-              <td>Can be measured directly.</td>
-              <td>Often assessed through observation and developmental assessment.</td>
-            </tr>
-            <tr>
-              <td>Examples include weight, height and head circumference.</td>
-              <td>Examples include walking, speaking, reasoning and social interaction.</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3>Domains of Development</h3>
-
-        <p>
-          Human development occurs across several interacting domains:
-        </p>
-
-        <ol>
-          <li>
-            <strong>Physical development:</strong> changes in body size,
-            body composition and physical maturation.
-          </li>
-
-          <li>
-            <strong>Motor development:</strong> acquisition of gross and
-            fine motor abilities.
-          </li>
-
-          <li>
-            <strong>Cognitive development:</strong> development of thinking,
-            reasoning, memory, problem solving and understanding.
-          </li>
-
-          <li>
-            <strong>Language development:</strong> development of receptive
-            and expressive communication.
-          </li>
-
-          <li>
-            <strong>Emotional development:</strong> development of emotional
-            expression, regulation and understanding.
-          </li>
-
-          <li>
-            <strong>Social development:</strong> development of relationships,
-            social competence and interaction with others.
-          </li>
-
-          <li>
-            <strong>Psychosocial development:</strong> development of identity,
-            personality, relationships and adaptation to social roles.
-          </li>
-
-          <li>
-            <strong>Adaptive development:</strong> development of skills
-            required for self-care and independent functioning.
-          </li>
-        </ol>
-
-        <h3>Developmental Milestones</h3>
-
-        <p>
-          Developmental milestones are skills or abilities that most children
-          acquire by a particular age range. They are useful for surveillance
-          and screening but should not be interpreted as rigid deadlines.
-          Normal development shows individual variation.
-        </p>
-
-        <p>
-          Important milestone categories include gross motor, fine motor,
-          language, cognitive, social and adaptive skills.
-        </p>
-
-        <h3>Importance in Clinical Practice</h3>
-
-        <ul>
-          <li>Provides a framework for assessing normal maturation.</li>
-          <li>Helps identify developmental delay.</li>
-          <li>Allows early identification of neurological disorders.</li>
-          <li>Supports assessment of nutritional status.</li>
-          <li>Helps identify psychosocial problems.</li>
-          <li>Guides anticipatory counselling for parents.</li>
-          <li>Supports preventive health care.</li>
-          <li>Helps determine appropriate expectations for behaviour.</li>
-        </ul>
-      `
+          <p>
+            Developmental assessment should always consider the individual's
+            age, developmental stage, biological health, family environment,
+            culture and opportunities for learning.
+          </p>
+        `
+      }
     },
 
-
-    // ============================================================
-    // 2. PRINCIPLES
-    // ============================================================
-
     {
-      id: "principles_of_growth_and_development",
+      id: "principles_growth_development",
       name: "Principles of Growth and Development",
 
-      notes: `
-        <h2>Principles of Growth and Development</h2>
+      notes: {
+        anatomy: `
+          <h2>Principles of Growth and Development</h2>
 
-        <p>
-          Human growth and development follow recognizable patterns, although
-          the timing and rate of development vary between individuals.
-        </p>
+          <h3>1. Development is Continuous</h3>
 
-        <h3>Major Principles</h3>
+          <p>
+            Development begins before birth and continues throughout life.
+            Although different developmental tasks become prominent at
+            different stages, development does not simply stop when physical
+            maturity is reached.
+          </p>
 
-        <ol>
+          <h3>2. Development Follows an Orderly Sequence</h3>
 
-          <li>
-            <strong>Development is continuous.</strong>
-            Development begins before birth and continues throughout the
-            lifespan.
-          </li>
+          <p>
+            Development generally follows a predictable sequence. The exact
+            timing varies, but later abilities usually emerge on the foundation
+            of earlier abilities.
+          </p>
 
-          <li>
-            <strong>Development follows an orderly sequence.</strong>
-            Certain abilities generally develop before others. For example,
-            children generally develop head control before sitting and sitting
-            before independent walking.
-          </li>
+          <h3>3. Developmental Rate Varies</h3>
 
-          <li>
-            <strong>Development proceeds from simple to complex.</strong>
-            Basic abilities become progressively more refined and integrated.
-          </li>
+          <p>
+            Individuals do not develop at identical rates. Normal developmental
+            variation should therefore be distinguished from pathological delay.
+          </p>
 
-          <li>
-            <strong>Development proceeds from general to specific.</strong>
-            Broad movements and responses become increasingly precise.
-          </li>
+          <h3>4. Developmental Domains Interact</h3>
 
-          <li>
-            <strong>Development proceeds from head to toe.</strong>
-            This is known as the <strong>cephalocaudal principle</strong>.
-          </li>
+          <p>
+            Motor, cognitive, emotional, language and social development are
+            interdependent. A problem affecting one domain may have secondary
+            effects on other domains.
+          </p>
 
-          <li>
-            <strong>Development proceeds from the centre outward.</strong>
-            This is referred to as the <strong>proximodistal principle</strong>.
-          </li>
+          <h3>5. Maturation Interacts With Learning</h3>
 
-          <li>
-            <strong>Development is multidimensional.</strong>
-            Physical, cognitive, emotional, social and language development
-            occur simultaneously.
-          </li>
+          <p>
+            Biological maturation provides important developmental capacity,
+            while experience and learning influence how that capacity becomes
+            expressed in behaviour.
+          </p>
 
-          <li>
-            <strong>Developmental domains interact.</strong>
-            Delay in one domain can affect other areas.
-          </li>
+          <h3>6. Development Is Influenced by Context</h3>
 
-          <li>
-            <strong>There is individual variation.</strong>
-            Children do not all acquire milestones at exactly the same age.
-          </li>
-
-          <li>
-            <strong>Development is influenced by heredity and environment.</strong>
-            Genetic potential interacts with nutrition, health, stimulation,
-            relationships and socioeconomic circumstances.
-          </li>
-
-          <li>
-            <strong>There are sensitive periods.</strong>
-            Certain periods of development are particularly important for
-            acquiring particular abilities.
-          </li>
-
-          <li>
-            <strong>Development involves both maturation and learning.</strong>
-            Biological maturation provides capacities while experience and
-            learning refine them.
-          </li>
-
-        </ol>
-
-        <h3>Critical and Sensitive Periods</h3>
-
-        <p>
-          A critical period is a developmental period during which a particular
-          biological or behavioural process is especially dependent on
-          appropriate conditions. A sensitive period is a broader period when
-          an individual is particularly receptive to particular experiences.
-        </p>
-
-        <p>
-          The distinction is clinically important because severe deprivation,
-          nutritional deficiency, environmental hazards or other adverse
-          exposures during important developmental periods may have lasting
-          consequences.
-        </p>
-      `
+          <p>
+            Development occurs within families, schools, peer groups,
+            communities and cultures. Behaviour therefore cannot always be
+            understood by examining the individual in isolation.
+          </p>
+        `
+      }
     },
-
-
-    // ============================================================
-    // 3. DETERMINANTS
-    // ============================================================
 
     {
-      id: "determinants_of_growth_and_development",
+      id: "determinants_growth_development",
       name: "Determinants of Growth and Development",
 
-      notes: `
-        <h2>Determinants of Growth and Development</h2>
+      notes: {
+        anatomy: `
+          <h2>Determinants of Growth and Development</h2>
 
-        <p>
-          Growth and development result from interactions between genetic,
-          biological, nutritional, psychological, social, cultural and
-          environmental factors.
-        </p>
+          <p>
+            Human development results from interaction between biological
+            predisposition and environmental experience.
+          </p>
 
-        <h3>1. Genetic Factors</h3>
+          <h3>Biological Determinants</h3>
 
-        <p>
-          Genetic factors influence growth potential, body proportions,
-          maturation, temperament, susceptibility to disease and many
-          aspects of neurological development.
-        </p>
+          <ul>
+            <li>Genetic inheritance</li>
+            <li>Chromosomal characteristics</li>
+            <li>Brain maturation</li>
+            <li>Hormonal influences</li>
+            <li>Sex-related biological factors</li>
+            <li>Gestational age</li>
+            <li>Birth weight</li>
+            <li>Physical health</li>
+          </ul>
 
-        <h3>2. Prenatal Factors</h3>
+          <h3>Psychological Determinants</h3>
 
-        <ul>
-          <li>Maternal nutrition.</li>
-          <li>Maternal infections.</li>
-          <li>Maternal chronic disease.</li>
-          <li>Alcohol and substance exposure.</li>
-          <li>Medication and toxin exposure.</li>
-          <li>Placental function.</li>
-          <li>Fetal genetic abnormalities.</li>
-          <li>Intrauterine growth restriction.</li>
-          <li>Prematurity.</li>
-        </ul>
+          <ul>
+            <li>Temperament</li>
+            <li>Cognitive ability</li>
+            <li>Emotional regulation</li>
+            <li>Motivation</li>
+            <li>Self-concept</li>
+            <li>Previous learning experiences</li>
+          </ul>
 
-        <h3>3. Nutrition</h3>
+          <h3>Social Determinants</h3>
 
-        <p>
-          Adequate energy, protein, vitamins and minerals are essential for
-          normal physical and neurological development. Malnutrition may
-          impair growth, immune function, cognitive development and physical
-          performance.
-        </p>
+          <ul>
+            <li>Parenting</li>
+            <li>Attachment relationships</li>
+            <li>Family structure</li>
+            <li>Peer relationships</li>
+            <li>Education</li>
+            <li>Culture</li>
+            <li>Socioeconomic status</li>
+            <li>Community environment</li>
+          </ul>
 
-        <h3>4. Endocrine Factors</h3>
+          <h3>Environmental Determinants</h3>
 
-        <p>
-          Hormones including growth hormone, thyroid hormones, insulin,
-          glucocorticoids and sex hormones contribute to growth and
-          maturation.
-        </p>
-
-        <h3>5. Health and Disease</h3>
-
-        <p>
-          Chronic diseases, recurrent infections, congenital disorders,
-          endocrine disease, neurological disorders and chronic
-          inflammation may interfere with growth and development.
-        </p>
-
-        <h3>6. Environment</h3>
-
-        <p>
-          Housing, sanitation, pollution, climate, safety and access to
-          health services can influence development.
-        </p>
-
-        <h3>7. Family and Parenting</h3>
-
-        <p>
-          Stable and responsive relationships provide important foundations
-          for emotional, social and cognitive development.
-        </p>
-
-        <h3>8. Socioeconomic Status</h3>
-
-        <p>
-          Poverty may affect nutrition, housing, education, health-care
-          access, stimulation and exposure to chronic stress.
-        </p>
-
-        <h3>9. Culture</h3>
-
-        <p>
-          Cultural practices influence child-rearing, expectations,
-          communication, independence, social roles and interpretation of
-          developmental behaviour.
-        </p>
-
-        <h3>10. Education and Stimulation</h3>
-
-        <p>
-          Opportunities for play, communication, exploration and learning
-          contribute to cognitive, language and social development.
-        </p>
-      `
+          <ul>
+            <li>Nutrition</li>
+            <li>Housing</li>
+            <li>Sanitation</li>
+            <li>Access to healthcare</li>
+            <li>Exposure to toxins</li>
+            <li>Opportunities for stimulation</li>
+            <li>Safety and security</li>
+          </ul>
+        `
+      }
     },
-
-
-    // ============================================================
-    // 4. PRENATAL DEVELOPMENT
-    // ============================================================
 
     {
       id: "prenatal_development",
-      name: "Prenatal Development",
+      name: "Prenatal Growth and Development",
 
-      notes: `
-        <h2>Prenatal Development</h2>
+      notes: {
+        anatomy: `
+          <h2>Prenatal Growth and Development</h2>
 
-        <p>
-          Prenatal development begins at conception and continues until birth.
-          It is traditionally divided into the germinal, embryonic and fetal
-          periods.
-        </p>
+          <h3>Germinal Period</h3>
 
-        <h3>1. Germinal Period</h3>
+          <p>
+            Begins at fertilization and includes cleavage, blastocyst formation
+            and implantation.
+          </p>
 
-        <p>
-          The germinal period begins at fertilization and includes cleavage,
-          formation of the blastocyst and implantation in the uterine wall.
-        </p>
+          <h3>Embryonic Period</h3>
 
-        <h3>2. Embryonic Period</h3>
+          <p>
+            Characterized by cellular differentiation and organogenesis.
+            Environmental insults during critical periods may interfere with
+            normal development.
+          </p>
 
-        <p>
-          The embryonic period is characterized by rapid differentiation and
-          organogenesis. Major body structures begin to form during this
-          period.
-        </p>
+          <h3>Fetal Period</h3>
 
-        <h3>3. Fetal Period</h3>
+          <p>
+            Characterized predominantly by growth, differentiation and
+            functional maturation.
+          </p>
 
-        <p>
-          The fetal period is characterized predominantly by growth,
-          maturation and functional development of organs and body systems.
-        </p>
+          <h3>Behavioural Science Perspective</h3>
 
-        <h3>Factors Affecting Prenatal Development</h3>
+          <p>
+            Prenatal development provides the biological foundation for later
+            behavioural development. Genetic factors, maternal nutrition,
+            maternal illness, substances, environmental exposures and
+            psychosocial circumstances may influence developmental outcomes.
+          </p>
 
-        <ul>
-          <li>Maternal nutrition.</li>
-          <li>Maternal infections.</li>
-          <li>Alcohol.</li>
-          <li>Tobacco exposure.</li>
-          <li>Illicit drugs.</li>
-          <li>Teratogenic medications.</li>
-          <li>Radiation.</li>
-          <li>Toxic chemicals.</li>
-          <li>Maternal diabetes.</li>
-          <li>Hypertension and other maternal diseases.</li>
-          <li>Placental abnormalities.</li>
-          <li>Genetic and chromosomal abnormalities.</li>
-        </ul>
-
-        <h3>Clinical Importance</h3>
-
-        <p>
-          Prenatal history is an important component of paediatric assessment.
-          Information about maternal health, antenatal care, infections,
-          medications, substance exposure, gestational age and complications
-          of pregnancy may help explain abnormalities in growth or development.
-        </p>
-      `
+          <p>
+            The developing fetus is therefore not independent of the maternal
+            and environmental context in which development occurs.
+          </p>
+        `
+      }
     },
-
-
-    // ============================================================
-    // 5. NEONATAL DEVELOPMENT
-    // ============================================================
 
     {
-      id: "neonatal_period",
-      name: "Neonatal Period",
+      id: "neonatal_development",
+      name: "Neonatal Growth and Development",
 
-      notes: `
-        <h2>Neonatal Period</h2>
+      notes: {
+        anatomy: `
+          <h2>Neonatal Growth and Development</h2>
 
-        <p>
-          The neonatal period comprises the first 28 days of life. It is a
-          period of major physiological adaptation as the newborn transitions
-          from intrauterine to extrauterine life.
-        </p>
+          <p>
+            The neonatal period extends from birth to 28 completed days.
+          </p>
 
-        <h3>Major Areas of Adaptation</h3>
+          <h3>Major Areas of Assessment</h3>
 
-        <ul>
-          <li>Establishment of independent respiration.</li>
-          <li>Transition from fetal to neonatal circulation.</li>
-          <li>Thermoregulation.</li>
-          <li>Establishment of feeding.</li>
-          <li>Glucose homeostasis.</li>
-          <li>Neurological adaptation.</li>
-        </ul>
+          <ul>
+            <li>Feeding</li>
+            <li>Sleep and wakefulness</li>
+            <li>Crying</li>
+            <li>Muscle tone</li>
+            <li>Primitive reflexes</li>
+            <li>Response to sound</li>
+            <li>Response to visual stimuli</li>
+            <li>Neurological function</li>
+            <li>Weight change</li>
+            <li>Temperature regulation</li>
+          </ul>
 
-        <h3>Neonatal Reflexes</h3>
+          <h3>Behavioural Significance</h3>
 
-        <p>
-          Primitive reflexes provide useful information about neurological
-          function in newborns.
-        </p>
-
-        <ul>
-          <li>Moro reflex.</li>
-          <li>Rooting reflex.</li>
-          <li>Sucking reflex.</li>
-          <li>Palmar grasp.</li>
-          <li>Plantar grasp.</li>
-          <li>Asymmetric tonic neck reflex.</li>
-          <li>Stepping reflex.</li>
-        </ul>
-
-        <p>
-          Persistence, absence or asymmetry of primitive reflexes may indicate
-          neurological dysfunction and should be interpreted according to
-          the infant's age and clinical context.
-        </p>
-      `
+          <p>
+            Neonatal behaviour provides early evidence of neurological
+            organization and the infant's ability to respond to the environment.
+            Feeding, crying, orientation and early social responsiveness are
+            important components of early behavioural adaptation.
+          </p>
+        `
+      }
     },
-
-
-    // ============================================================
-    // 6. INFANCY
-    // ============================================================
 
     {
       id: "infancy",
       name: "Infancy",
 
-      notes: `
-        <h2>Infancy</h2>
+      notes: {
+        anatomy: `
+          <h2>Infancy</h2>
 
-        <p>
-          Infancy is a period of rapid physical growth and neurological,
-          cognitive, motor, language, emotional and social development.
-        </p>
+          <p>
+            Infancy is characterized by rapid physical growth, neurological
+            maturation and acquisition of motor, cognitive, communicative,
+            emotional and social abilities.
+          </p>
 
-        <h3>Physical Growth</h3>
+          <h3>Motor Development</h3>
 
-        <p>
-          Weight and length increase rapidly during infancy. Growth should
-          be assessed using serial measurements rather than a single
-          measurement.
-        </p>
+          <ul>
+            <li>Head control</li>
+            <li>Rolling</li>
+            <li>Sitting</li>
+            <li>Mobility</li>
+            <li>Standing</li>
+            <li>Walking</li>
+            <li>Reaching</li>
+            <li>Grasping</li>
+            <li>Pincer manipulation</li>
+          </ul>
 
-        <h3>Gross Motor Development</h3>
+          <h3>Language and Communication</h3>
 
-        <p>
-          Infants progressively develop head control, rolling, sitting,
-          crawling, standing and eventually independent walking.
-        </p>
+          <p>
+            Early communication develops from crying and vocalization through
+            babbling, gestures and eventually meaningful words.
+          </p>
 
-        <h3>Fine Motor Development</h3>
+          <h3>Social Development</h3>
 
-        <p>
-          Hand function progresses from reflexive grasping to voluntary
-          reaching, transferring objects, pincer grasp and increasingly
-          precise manipulation.
-        </p>
+          <p>
+            Infants progressively distinguish familiar caregivers, respond to
+            social stimuli and establish attachment relationships.
+          </p>
 
-        <h3>Language Development</h3>
+          <h3>Behavioural Science Perspective</h3>
 
-        <p>
-          Early communication includes crying, cooing, babbling,
-          vocal imitation and eventually meaningful words.
-        </p>
-
-        <h3>Social and Emotional Development</h3>
-
-        <p>
-          Infants develop attachment to caregivers, social smiling, stranger
-          awareness and increasing reciprocal interaction.
-        </p>
-
-        <h3>Cognitive Development</h3>
-
-        <p>
-          Infants increasingly understand cause and effect, object permanence,
-          familiar people and environmental patterns.
-        </p>
-      `
+          <p>
+            Infancy represents an important period for the development of
+            attachment, emotional regulation, social responsiveness and early
+            learning. Caregiver responsiveness provides an important context
+            within which these abilities develop.
+          </p>
+        `
+      }
     },
 
-
-    // ============================================================
-    // 7. TODDLERHOOD
-    // ============================================================
-
     {
-      id: "toddlerhood",
-      name: "Toddlerhood",
-
-      notes: `
-        <h2>Toddlerhood</h2>
-
-        <p>
-          Toddlerhood is characterized by rapid development of mobility,
-          language, autonomy, social interaction and self-care skills.
-        </p>
-
-        <h3>Physical Development</h3>
-
-        <p>
-          Growth continues but the rate is slower than during infancy.
-          Body proportions progressively change toward those of the older
-          child.
-        </p>
-
-        <h3>Motor Development</h3>
-
-        <ul>
-          <li>Independent walking.</li>
-          <li>Running.</li>
-          <li>Climbing.</li>
-          <li>Beginning to jump.</li>
-          <li>Improved hand manipulation.</li>
-          <li>Beginning to use utensils.</li>
-          <li>Beginning to scribble.</li>
-        </ul>
-
-        <h3>Language</h3>
-
-        <p>
-          Vocabulary increases rapidly. Children begin combining words and
-          progressively develop more complex sentences.
-        </p>
-
-        <h3>Psychosocial Development</h3>
-
-        <p>
-          According to Erikson, the major psychosocial task of early
-          childhood is developing autonomy while managing emerging
-          independence.
-          <sup>[3]</sup>
-        </p>
-
-        <h3>Behaviour</h3>
-
-        <p>
-          Toddlers commonly demonstrate curiosity, exploration, negativism,
-          temper tantrums and increasing desire for independence.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 8. PRESCHOOL
-    // ============================================================
-
-    {
-      id: "preschool_period",
-      name: "Preschool Period",
-
-      notes: `
-        <h2>Preschool Development</h2>
-
-        <p>
-          The preschool period is characterized by increasing independence,
-          language development, imagination, symbolic thinking and expanding
-          social interaction.
-        </p>
-
-        <h3>Physical Development</h3>
-
-        <p>
-          Growth becomes slower and more steady compared with infancy.
-          Children develop improved coordination and body control.
-        </p>
-
-        <h3>Gross Motor Skills</h3>
-
-        <ul>
-          <li>Running efficiently.</li>
-          <li>Jumping.</li>
-          <li>Hopping.</li>
-          <li>Climbing.</li>
-          <li>Throwing and catching.</li>
-          <li>Pedalling.</li>
-        </ul>
-
-        <h3>Fine Motor Skills</h3>
-
-        <ul>
-          <li>Drawing simple shapes.</li>
-          <li>Using scissors.</li>
-          <li>Building with blocks.</li>
-          <li>Using utensils.</li>
-          <li>Beginning to write or copy letters.</li>
-        </ul>
-
-        <h3>Cognitive Development</h3>
-
-        <p>
-          Piaget describes this period as the preoperational stage, during
-          which symbolic thought and language expand but logical operations
-          remain limited.
-          <sup>[4]</sup>
-        </p>
-
-        <h3>Social Development</h3>
-
-        <p>
-          Children increasingly engage in cooperative play, develop
-          friendships and learn social rules.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 9. SCHOOL AGE
-    // ============================================================
-
-    {
-      id: "school_age",
-      name: "School-Age Development",
-
-      notes: `
-        <h2>School-Age Development</h2>
-
-        <p>
-          School-age children demonstrate steady physical growth,
-          increasingly sophisticated cognitive abilities, expanding social
-          relationships and development of competence.
-        </p>
-
-        <h3>Physical Development</h3>
-
-        <p>
-          Growth is relatively steady before the acceleration associated
-          with puberty.
-        </p>
-
-        <h3>Motor Development</h3>
-
-        <p>
-          Coordination, strength, speed and fine motor control improve,
-          allowing participation in sports, handwriting and increasingly
-          complex practical activities.
-        </p>
-
-        <h3>Cognitive Development</h3>
-
-        <p>
-          Piaget's concrete operational stage is characterized by increasing
-          ability to use logical operations involving concrete objects and
-          events.
-          <sup>[4]</sup>
-        </p>
-
-        <h3>Social Development</h3>
-
-        <p>
-          Peer relationships become increasingly important. Children learn
-          cooperation, competition, rules and group membership.
-        </p>
-
-        <h3>Psychosocial Development</h3>
-
-        <p>
-          Erikson identifies industry versus inferiority as the major
-          psychosocial conflict of the school-age period. Children develop
-          competence through learning, achievement and productive activity.
-          <sup>[3]</sup>
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 10. ADOLESCENCE
-    // ============================================================
-
-    {
-      id: "adolescence",
-      name: "Adolescent Development",
-
-      notes: `
-        <h2>Adolescent Development</h2>
-
-        <p>
-          Adolescence is a developmental period characterized by substantial
-          biological, psychological, cognitive and social changes between
-          childhood and adulthood.
-        </p>
-
-        <h3>Puberty</h3>
-
-        <p>
-          Puberty involves activation of the hypothalamic-pituitary-gonadal
-          axis and development of secondary sexual characteristics,
-          reproductive maturation and the adolescent growth spurt.
-        </p>
-
-        <h3>Physical Changes</h3>
-
-        <ul>
-          <li>Rapid increase in height and weight.</li>
-          <li>Development of secondary sexual characteristics.</li>
-          <li>Changes in body composition.</li>
-          <li>Development of reproductive capacity.</li>
-          <li>Changes in skin and hair.</li>
-          <li>Sex-specific changes in body proportions.</li>
-        </ul>
-
-        <h3>Cognitive Development</h3>
-
-        <p>
-          Adolescents develop increasing capacity for abstract thinking,
-          hypothetical reasoning, planning and consideration of complex
-          alternatives. Piaget associates this with the formal operational
-          stage.
-          <sup>[4]</sup>
-        </p>
-
-        <h3>Emotional Development</h3>
-
-        <p>
-          Adolescence involves increasing emotional complexity, development
-          of self-awareness and increasing independence from parents.
-        </p>
-
-        <h3>Identity Development</h3>
-
-        <p>
-          Erikson describes adolescence as the period of identity versus
-          role confusion. Development of a coherent sense of identity is
-          a major psychosocial task.
-          <sup>[3]</sup>
-        </p>
-
-        <h3>Peer Influence</h3>
-
-        <p>
-          Peer relationships become increasingly influential. Peer acceptance,
-          social identity and belonging can affect behaviour and decision
-          making.
-        </p>
-
-        <h3>Risk Behaviour</h3>
-
-        <p>
-          Adolescence may involve experimentation and increased exposure to
-          behaviours such as substance use, unsafe sexual practices,
-          violence and other risk-taking activities. Clinical assessment
-          should therefore include confidential, developmentally appropriate
-          psychosocial history.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 11. EARLY ADULTHOOD
-    // ============================================================
-
-    {
-      id: "early_adulthood",
-      name: "Early Adulthood",
-
-      notes: `
-        <h2>Early Adulthood</h2>
-
-        <p>
-          Early adulthood is generally associated with physical maturity,
-          establishment of intimate relationships, occupational development,
-          increasing independence and consolidation of adult identity.
-        </p>
-
-        <h3>Physical Development</h3>
-
-        <p>
-          Most individuals reach their peak physical capacity during early
-          adulthood, although patterns vary.
-        </p>
-
-        <h3>Cognitive Development</h3>
-
-        <p>
-          Cognitive abilities remain highly developed, while experience and
-          knowledge increasingly contribute to practical judgement and
-          decision making.
-        </p>
-
-        <h3>Psychosocial Development</h3>
-
-        <p>
-          Erikson describes the major psychosocial conflict as intimacy
-          versus isolation. Establishment of meaningful relationships is an
-          important developmental task.
-          <sup>[3]</sup>
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 12. MIDDLE ADULTHOOD
-    // ============================================================
-
-    {
-      id: "middle_adulthood",
-      name: "Middle Adulthood",
-
-      notes: `
-        <h2>Middle Adulthood</h2>
-
-        <p>
-          Middle adulthood involves gradual biological changes together
-          with continuing psychological, social and occupational development.
-        </p>
-
-        <h3>Physical Changes</h3>
-
-        <ul>
-          <li>Gradual reduction in physical reserve.</li>
-          <li>Changes in body composition.</li>
-          <li>Changes in skin and hair.</li>
-          <li>Changes in vision and hearing.</li>
-          <li>Reproductive changes.</li>
-        </ul>
-
-        <h3>Psychosocial Development</h3>
-
-        <p>
-          Erikson identifies generativity versus stagnation as a major
-          developmental conflict. Generativity includes productive work,
-          parenting, mentoring and contribution to society.
-          <sup>[3]</sup>
-        </p>
-
-        <h3>Clinical Importance</h3>
-
-        <p>
-          Middle adulthood is an important period for prevention and
-          screening because the cumulative effects of lifestyle, occupational
-          exposure and chronic disease risk become increasingly important.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 13. OLD AGE
-    // ============================================================
-
-    {
-      id: "older_adulthood",
-      name: "Older Adulthood",
-
-      notes: `
-        <h2>Older Adulthood</h2>
-
-        <p>
-          Ageing is a lifelong biological and psychosocial process involving
-          progressive changes in physiological reserve, function and social
-          roles. Normal ageing should be distinguished from pathological
-          disease.
-        </p>
-
-        <h3>Physical Changes</h3>
-
-        <ul>
-          <li>Reduction in muscle mass and strength.</li>
-          <li>Changes in bone density.</li>
-          <li>Reduced skin elasticity.</li>
-          <li>Changes in sensory function.</li>
-          <li>Reduced physiological reserve.</li>
-          <li>Changes in cardiovascular and respiratory function.</li>
-        </ul>
-
-        <h3>Cognitive Changes</h3>
-
-        <p>
-          Some cognitive functions may change with normal ageing, particularly
-          processing speed and aspects of memory. Significant progressive
-          impairment that interferes with daily functioning is not considered
-          an inevitable consequence of normal ageing and requires clinical
-          assessment.
-        </p>
-
-        <h3>Psychosocial Development</h3>
-
-        <p>
-          Erikson identifies integrity versus despair as a major psychosocial
-          conflict of later life. Older adults may reflect on their lives,
-          relationships, achievements and sense of meaning.
-          <sup>[3]</sup>
-        </p>
-
-        <h3>Social Changes</h3>
-
-        <ul>
-          <li>Retirement.</li>
-          <li>Changes in family roles.</li>
-          <li>Bereavement.</li>
-          <li>Changes in social networks.</li>
-          <li>Potential social isolation.</li>
-          <li>Increasing dependence in some individuals.</li>
-        </ul>
-      `
-    },
-
-
-    // ============================================================
-    // 14. PHYSICAL GROWTH
-    // ============================================================
-
-    {
-      id: "physical_growth",
-      name: "Physical Growth",
-
-      notes: `
-        <h2>Physical Growth</h2>
-
-        <p>
-          Physical growth refers to measurable changes in body size and
-          composition.
-        </p>
-
-        <h3>Important Growth Parameters</h3>
-
-        <ul>
-          <li>Weight.</li>
-          <li>Length or standing height.</li>
-          <li>Head circumference.</li>
-          <li>Body mass index.</li>
-          <li>Mid-upper arm circumference where appropriate.</li>
-          <li>Body proportions.</li>
-        </ul>
-
-        <h3>Weight</h3>
-
-        <p>
-          Weight is a sensitive indicator of nutritional status and acute
-          changes in health. Serial measurements provide more useful
-          information than isolated measurements.
-        </p>
-
-        <h3>Length and Height</h3>
-
-        <p>
-          Recumbent length is generally measured in younger children while
-          standing height is used once the child can stand reliably.
-        </p>
-
-        <h3>Head Circumference</h3>
-
-        <p>
-          Head circumference is particularly useful during infancy and early
-          childhood because it provides information about brain and skull
-          growth.
-        </p>
-
-        <h3>Growth Charts</h3>
-
-        <p>
-          Growth charts allow measurements to be compared with reference
-          populations and, more importantly, allow clinicians to evaluate
-          growth trajectories over time.
-        </p>
-
-        <h3>Growth Velocity</h3>
-
-        <p>
-          Growth velocity describes the rate of growth over time. A change
-          in growth velocity may be clinically more informative than a single
-          measurement.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 15. MOTOR DEVELOPMENT
-    // ============================================================
-
-    {
-      id: "motor_development",
-      name: "Motor Development",
-
-      notes: `
-        <h2>Motor Development</h2>
-
-        <p>
-          Motor development refers to the progressive acquisition of control
-          over body movement.
-        </p>
-
-        <h3>Gross Motor Development</h3>
-
-        <p>
-          Gross motor skills involve large muscle groups and include head
-          control, sitting, crawling, standing, walking, running, jumping
-          and climbing.
-        </p>
-
-        <h3>Fine Motor Development</h3>
-
-        <p>
-          Fine motor skills involve precise movements of smaller muscles,
-          particularly the hands and fingers. Examples include reaching,
-          grasping, transferring objects, pincer grasp, drawing and writing.
-        </p>
-
-        <h3>General Sequence</h3>
-
-        <p>
-          Motor development generally progresses from head control toward
-          lower body control and from proximal movements toward increasingly
-          distal and precise movements.
-        </p>
-
-        <h3>Clinical Assessment</h3>
-
-        <p>
-          Assessment should consider symmetry, muscle tone, strength,
-          coordination, posture, reflexes, movement quality and achievement
-          of age-appropriate motor skills.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 16. PERCEPTION
-    // ============================================================
-
-    {
-      id: "perception",
-      name: "Perception",
-
-      notes: `
-        <h2>Perception</h2>
-
-        <p>
-          Perception is the process through which sensory information is
-          organized and interpreted to produce an understanding of the
-          environment.
-        </p>
-
-        <h3>Major Sensory Modalities</h3>
-
-        <ul>
-          <li>Vision.</li>
-          <li>Hearing.</li>
-          <li>Touch.</li>
-          <li>Taste.</li>
-          <li>Smell.</li>
-          <li>Proprioception.</li>
-          <li>Vestibular sensation.</li>
-        </ul>
-
-        <h3>Development of Perception</h3>
-
-        <p>
-          Sensory systems begin functioning before birth, but perceptual
-          abilities become progressively more organized and refined through
-          neurological maturation and experience.
-        </p>
-
-        <h3>Clinical Importance</h3>
-
-        <p>
-          Abnormal vision or hearing can interfere with language, learning,
-          social interaction and school performance. Sensory assessment is
-          therefore an important component of developmental evaluation.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 17. COGNITIVE / MENTAL DEVELOPMENT
-    // ============================================================
-
-    {
-      id: "mental_and_cognitive_development",
-      name: "Mental and Cognitive Development",
-
-      notes: `
-        <h2>Mental and Cognitive Development</h2>
-
-        <p>
-          Cognitive development refers to changes in the ability to think,
-          learn, remember, reason, solve problems, understand relationships
-          and adapt to the environment.
-        </p>
-
-        <h3>Major Components</h3>
-
-        <ul>
-          <li>Attention.</li>
-          <li>Memory.</li>
-          <li>Learning.</li>
-          <li>Reasoning.</li>
-          <li>Problem solving.</li>
-          <li>Executive functioning.</li>
-          <li>Concept formation.</li>
-          <li>Decision making.</li>
-        </ul>
-
-        <h3>Piaget's Theory of Cognitive Development</h3>
-
-        <h4>1. Sensorimotor Stage</h4>
-
-        <p>
-          During the sensorimotor period, infants learn through sensory
-          experiences and physical interaction with their environment.
-          Development of object permanence is an important achievement.
-          <sup>[4]</sup>
-        </p>
-
-        <h4>2. Preoperational Stage</h4>
-
-        <p>
-          Children develop symbolic thought and language but remain limited
-          in logical operations and may demonstrate egocentric thinking.
-          <sup>[4]</sup>
-        </p>
-
-        <h4>3. Concrete Operational Stage</h4>
-
-        <p>
-          Children develop greater ability to perform logical operations
-          involving concrete objects and situations.
-          <sup>[4]</sup>
-        </p>
-
-        <h4>4. Formal Operational Stage</h4>
-
-        <p>
-          Adolescents increasingly develop abstract, hypothetical and
-          systematic reasoning.
-          <sup>[4]</sup>
-        </p>
-
-        <h3>Clinical Importance</h3>
-
-        <p>
-          Cognitive development should be considered when evaluating school
-          performance, developmental delay, intellectual disability,
-          neurological disorders and behavioural problems.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 18. SPEECH AND LANGUAGE
-    // ============================================================
-
-    {
-      id: "speech_and_language_development",
-      name: "Speech and Language Development",
-
-      notes: `
-        <h2>Speech and Language Development</h2>
-
-        <p>
-          Language is a structured system used for communication, while
-          speech refers to the motor production of spoken language.
-          Communication also includes non-verbal methods such as gestures,
-          facial expressions and body language.
-        </p>
-
-        <h3>Components of Language</h3>
-
-        <ul>
-          <li><strong>Receptive language:</strong> understanding communication.</li>
-          <li><strong>Expressive language:</strong> producing meaningful communication.</li>
-          <li><strong>Vocabulary:</strong> knowledge and use of words.</li>
-          <li><strong>Grammar:</strong> rules governing language structure.</li>
-          <li><strong>Pragmatics:</strong> appropriate social use of language.</li>
-        </ul>
-
-        <h3>Early Language Sequence</h3>
-
-        <ol>
-          <li>Crying.</li>
-          <li>Cooing.</li>
-          <li>Babbling.</li>
-          <li>Gestures and communicative vocalization.</li>
-          <li>First meaningful words.</li>
-          <li>Word combinations.</li>
-          <li>Increasing vocabulary.</li>
-          <li>Complex sentences.</li>
-        </ol>
-
-        <h3>Factors Affecting Language Development</h3>
-
-        <ul>
-          <li>Hearing ability.</li>
-          <li>Neurological development.</li>
-          <li>Cognitive ability.</li>
-          <li>Social interaction.</li>
-          <li>Language exposure.</li>
-          <li>Environmental stimulation.</li>
-          <li>Developmental disorders.</li>
-        </ul>
-
-        <h3>Clinical Importance</h3>
-
-        <p>
-          Language delay may result from hearing impairment, global
-          developmental delay, intellectual disability, autism spectrum
-          disorder, environmental deprivation or specific language disorders.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 19. EMOTIONAL DEVELOPMENT
-    // ============================================================
-
-    {
-      id: "emotional_development",
-      name: "Emotional Development",
-
-      notes: `
-        <h2>Emotional Development</h2>
-
-        <p>
-          Emotional development involves the emergence and progressive
-          refinement of emotional expression, emotional understanding,
-          attachment, self-regulation and the ability to respond
-          appropriately to social situations.
-        </p>
-
-        <h3>Early Emotional Development</h3>
-
-        <p>
-          Infants express basic emotional states and progressively learn to
-          regulate arousal through interaction with caregivers.
-        </p>
-
-        <h3>Attachment</h3>
-
-        <p>
-          Attachment refers to the emotional bond between a child and
-          caregiver. Secure and responsive relationships provide an important
-          foundation for emotional regulation and social development.
-          <sup>[5]</sup>
-        </p>
-
-        <h3>Emotional Regulation</h3>
-
-        <p>
-          Young children initially depend heavily on caregivers for emotional
-          regulation. With maturation and experience, they progressively
-          develop independent strategies for regulating emotions.
-        </p>
-
-        <h3>Development of Empathy</h3>
-
-        <p>
-          Understanding another person's emotional state develops gradually
-          as cognitive and social abilities mature.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 20. SOCIAL DEVELOPMENT
-    // ============================================================
-
-    {
-      id: "social_development",
-      name: "Social Development",
-
-      notes: `
-        <h2>Social Development</h2>
-
-        <p>
-          Social development refers to the progressive ability to establish
-          relationships, understand social rules, cooperate with others and
-          participate effectively within families, peer groups and society.
-        </p>
-
-        <h3>Major Components</h3>
-
-        <ul>
-          <li>Attachment.</li>
-          <li>Social interaction.</li>
-          <li>Imitation.</li>
-          <li>Reciprocity.</li>
-          <li>Peer relationships.</li>
-          <li>Cooperation.</li>
-          <li>Understanding social rules.</li>
-          <li>Empathy.</li>
-          <li>Social identity.</li>
-        </ul>
-
-        <h3>Play</h3>
-
-        <p>
-          Play is an important mechanism through which children develop
-          cognitive, motor, emotional and social skills.
-        </p>
-
-        <h3>Types of Play</h3>
-
-        <ul>
-          <li>Solitary play.</li>
-          <li>Parallel play.</li>
-          <li>Associative play.</li>
-          <li>Cooperative play.</li>
-        </ul>
-      `
-    },
-
-
-    // ============================================================
-    // 21. PSYCHOSOCIAL DEVELOPMENT
-    // ============================================================
-
-    {
-      id: "psychosocial_development",
-      name: "Psychosocial Development",
-
-      notes: `
-        <h2>Psychosocial Development</h2>
-
-        <p>
-          Psychosocial development describes the interaction between
-          psychological maturation and social experience.
-        </p>
-
-        <h3>Erikson's Psychosocial Theory</h3>
-
-        <table>
-          <thead>
+      id: "developmental_theories",
+      name: "Theories of Growth and Development",
+
+      notes: {
+        anatomy: `
+          <h2>Theories of Growth and Development</h2>
+
+          <p>
+            Developmental theories provide conceptual frameworks for explaining
+            how human beings change psychologically, cognitively, emotionally
+            and socially across the lifespan. No single theory completely
+            explains human development. Different theories emphasize different
+            mechanisms, including unconscious processes, psychosocial conflicts,
+            cognitive maturation, social interaction, observational learning,
+            attachment and environmental systems.
+          </p>
+
+          <h3>Why Developmental Theories Are Important</h3>
+
+          <p>
+            Developmental theories are useful in Behavioural Science because
+            they help clinicians understand why behaviour changes with age and
+            why individuals exposed to apparently similar circumstances may
+            develop differently.
+          </p>
+
+          <ul>
+            <li>Explain developmental changes.</li>
+            <li>Provide frameworks for understanding behaviour.</li>
+            <li>Help identify developmental expectations.</li>
+            <li>Assist in understanding abnormal development.</li>
+            <li>Guide communication with patients at different developmental stages.</li>
+            <li>Help clinicians understand family and social influences.</li>
+            <li>Provide frameworks for psychological and behavioural interventions.</li>
+          </ul>
+
+          <!-- =========================================================
+               FREUD
+          ========================================================== -->
+
+          <h3>1. Freud's Psychosexual Theory</h3>
+
+          <p>
+            Sigmund Freud proposed the psychosexual theory of personality
+            development. Freud argued that personality develops through a series
+            of stages in which psychological energy, or libido, becomes focused
+            on different bodily areas.
+          </p>
+          <img src="/images/Sigmund_Freud_colorized.jpg" alt="Freud's Psychosexual Stages" class="img-fluid" />
+          <p>
+            According to Freud, early childhood experiences have a major
+            influence on later personality. Development involves conflicts
+            associated with biological drives, parental expectations and social
+            demands.
+          </p>
+
+          <h4>Central Concepts</h4>
+
+          <ul>
+            <li>
+              <strong>Unconscious processes:</strong>
+              behaviour may be influenced by thoughts, memories and wishes
+              outside conscious awareness.
+            </li>
+            <li>
+              <strong>Psychosexual stages:</strong>
+              development progresses through a sequence of stages.
+            </li>
+            <li>
+              <strong>Fixation:</strong>
+              unresolved conflict at a developmental stage was proposed to
+              contribute to persistent patterns of behaviour.
+            </li>
+            <li>
+              <strong>Early experience:</strong>
+              childhood experiences were considered important determinants of
+              later personality.
+            </li>
+          </ul>
+
+          <h4>Stages of Psychosexual Development</h4>
+
+          <ol>
+            <li>
+              <strong>Oral Stage — approximately birth to 1 year</strong>
+
+              <p>
+                The mouth is considered the primary source of gratification.
+                Feeding, sucking and oral exploration are central activities.
+              </p>
+
+              <p>
+                Freud proposed that difficulties associated with this stage
+                could contribute to later oral-related behaviours.
+              </p>
+            </li>
+
+            <li>
+              <strong>Anal Stage — approximately 1 to 3 years</strong>
+
+              <p>
+                Attention becomes focused on elimination and control. Toilet
+                training is considered particularly important in Freud's model.
+              </p>
+
+              <p>
+                The stage was associated with developing autonomy, control and
+                regulation.
+              </p>
+            </li>
+
+            <li>
+              <strong>Phallic Stage — approximately 3 to 6 years</strong>
+
+              <p>
+                Attention becomes focused on the genital region. Freud proposed
+                that children develop increased awareness of sexual identity and
+                identify with parents.
+              </p>
+
+              <p>
+                Freud's concepts concerning the Oedipus and Electra complexes
+                belong to this stage, although these ideas remain controversial
+                and have limited empirical support in contemporary developmental
+                science.
+              </p>
+            </li>
+
+            <li>
+              <strong>Latency Stage — approximately 6 years to puberty</strong>
+
+              <p>
+                Freud proposed that sexual drives become relatively less
+                prominent while energy is increasingly directed towards school,
+                friendships, learning and social activities.
+              </p>
+            </li>
+
+            <li>
+              <strong>Genital Stage — puberty onward</strong>
+
+              <p>
+                Sexual interests re-emerge in a more mature form. Freud proposed
+                that psychological development becomes oriented towards mature
+                interpersonal relationships and productive adult functioning.
+              </p>
+            </li>
+          </ol>
+
+          <h4>Clinical Relevance of Freud's Theory</h4>
+
+          <p>
+            Freud's theory introduced the important idea that behaviour may have
+            psychological causes that are not immediately conscious. It also
+            emphasized the importance of early relationships and childhood
+            experiences.
+          </p>
+
+          <p>
+            Historically, these concepts influenced psychoanalysis and modern
+            psychodynamic approaches to understanding behaviour.
+          </p>
+
+          <h4>Strengths</h4>
+
+          <ul>
+            <li>Emphasized the importance of childhood experiences.</li>
+            <li>Highlighted unconscious psychological processes.</li>
+            <li>Influenced development of psychodynamic psychology.</li>
+            <li>Encouraged clinicians to consider psychological meaning behind behaviour.</li>
+          </ul>
+
+          <h4>Limitations</h4>
+
+          <ul>
+            <li>Many propositions are difficult to test scientifically.</li>
+            <li>Several concepts have limited empirical support.</li>
+            <li>The theory places strong emphasis on sexuality.</li>
+            <li>Some concepts are culturally and historically specific.</li>
+          </ul>
+
+          <div class="clinical-box">
+            <strong>Clinical Point:</strong>
+            Freud's theory is historically important but should not be treated
+            as a complete contemporary explanation of human development.
+          </div>
+
+          <!-- =========================================================
+               ERIKSON
+          ========================================================== -->
+
+          <h3>2. Erikson's Psychosocial Theory</h3>
+
+          <p>
+            Erik Erikson developed a psychosocial theory of development that
+            expanded developmental psychology beyond childhood. He proposed
+            eight stages extending from infancy through old age.
+          </p>
+          <img src="/images/Erikson.jpg" alt="Erikson's Psychosocial Stages" class="img-fluid" />
+          <p>
+            Each stage contains a central psychosocial conflict. Successful
+            resolution contributes to development of a psychological strength,
+            while difficulties in resolving the conflict may create vulnerability
+            that can influence later development.
+          </p>
+
+          <h4>The Eight Psychosocial Stages</h4>
+
+          <ol>
+
+            <li>
+              <strong>Trust versus Mistrust — infancy</strong>
+
+              <p>
+                The infant develops basic expectations about whether the world
+                and caregivers are reliable, responsive and safe.
+              </p>
+
+              <p>
+                Consistent feeding, comfort, protection and responsive caregiving
+                promote a sense of trust.
+              </p>
+
+              <p>
+                The developmental virtue associated with successful resolution
+                is <strong>hope</strong>.
+              </p>
+            </li>
+
+            <li>
+              <strong>Autonomy versus Shame and Doubt — early childhood</strong>
+
+              <p>
+                The child develops increasing independence and control over
+                actions such as feeding, toileting, movement and choices.
+              </p>
+
+              <p>
+                Excessive criticism, humiliation or overcontrol may contribute
+                to shame and doubt.
+              </p>
+
+              <p>
+                The associated virtue is <strong>will</strong>.
+              </p>
+            </li>
+
+            <li>
+              <strong>Initiative versus Guilt — preschool period</strong>
+
+              <p>
+                Children increasingly initiate activities, explore their
+                environment, ask questions and develop purposeful behaviour.
+              </p>
+
+              <p>
+                Excessive punishment for initiative may contribute to guilt.
+              </p>
+
+              <p>
+                The associated virtue is <strong>purpose</strong>.
+              </p>
+            </li>
+
+            <li>
+              <strong>Industry versus Inferiority — school age</strong>
+
+              <p>
+                The child develops competence through school, work, learning,
+                problem-solving and achievement.
+              </p>
+
+              <p>
+                Repeated failure, excessive comparison or negative feedback may
+                contribute to feelings of inferiority.
+              </p>
+
+              <p>
+                The associated virtue is <strong>competence</strong>.
+              </p>
+            </li>
+
+            <li>
+              <strong>Identity versus Role Confusion — adolescence</strong>
+
+              <p>
+                The adolescent develops a coherent sense of personal identity,
+                including values, goals, beliefs, relationships and future
+                direction.
+              </p>
+
+              <p>
+                Failure to establish a coherent identity may result in
+                uncertainty concerning social roles and future direction.
+              </p>
+
+              <p>
+                The associated virtue is <strong>fidelity</strong>.
+              </p>
+            </li>
+
+            <li>
+              <strong>Intimacy versus Isolation — young adulthood</strong>
+
+              <p>
+                The individual develops the capacity for close, reciprocal and
+                meaningful relationships.
+              </p>
+
+              <p>
+                Difficulty forming meaningful relationships may contribute to
+                social isolation.
+              </p>
+
+              <p>
+                The associated virtue is <strong>love</strong>.
+              </p>
+            </li>
+
+            <li>
+              <strong>Generativity versus Stagnation — middle adulthood</strong>
+
+              <p>
+                Adults seek to contribute to the development of younger
+                generations, family, work, community and society.
+              </p>
+
+              <p>
+                Generativity may occur through parenting, teaching, professional
+                work, mentorship, creativity or community service.
+              </p>
+
+              <p>
+                The associated virtue is <strong>care</strong>.
+              </p>
+            </li>
+
+            <li>
+              <strong>Integrity versus Despair — later adulthood</strong>
+
+              <p>
+                Older adults review and evaluate their lives. A sense of
+                acceptance and meaning supports integrity, whereas excessive
+                regret may contribute to despair.
+              </p>
+
+              <p>
+                The associated virtue is <strong>wisdom</strong>.
+              </p>
+            </li>
+
+          </ol>
+
+          <h4>Clinical Applications of Erikson's Theory</h4>
+
+          <ul>
+            <li>
+              <strong>Infants:</strong>
+              emphasize consistent, responsive caregiving.
+            </li>
+            <li>
+              <strong>Young children:</strong>
+              encourage appropriate independence and choice.
+            </li>
+            <li>
+              <strong>School-age children:</strong>
+              support competence and realistic achievement.
+            </li>
+            <li>
+              <strong>Adolescents:</strong>
+              support identity formation and autonomy.
+            </li>
+            <li>
+              <strong>Adults:</strong>
+              recognize relationships, occupational roles and contribution to society.
+            </li>
+            <li>
+              <strong>Older adults:</strong>
+              facilitate meaning, dignity, life review and adaptation to ageing.
+            </li>
+          </ul>
+
+          <h4>Strengths</h4>
+
+          <ul>
+            <li>Covers the entire lifespan.</li>
+            <li>Emphasizes social relationships.</li>
+            <li>Useful for understanding psychosocial tasks at different ages.</li>
+            <li>Has significant relevance to counselling and clinical practice.</li>
+          </ul>
+
+          <h4>Limitations</h4>
+
+          <ul>
+            <li>Developmental stages may not occur in exactly the same sequence or timing for everyone.</li>
+            <li>Some concepts are difficult to operationalize precisely.</li>
+            <li>Cultural differences may influence developmental tasks.</li>
+          </ul>
+
+          <!-- =========================================================
+               PIAGET
+          ========================================================== -->
+
+          <h3>3. Piaget's Cognitive Development Theory</h3>
+
+          <p>
+            Jean Piaget proposed that children are active participants in their
+            own cognitive development. Rather than simply receiving information
+            from adults, children construct knowledge through interaction with
+            their environment.
+          </p>
+          <img src="/images/Jean-Piaget.jpg" alt="Jean Piaget" class="img-fluid" />
+          <p>
+            Cognitive development involves adaptation of mental structures to
+            new experiences. Piaget described two major processes:
+            <strong>assimilation</strong> and <strong>accommodation</strong>.
+          </p>
+
+          <h4>Assimilation</h4>
+
+          <p>
+            Assimilation occurs when a new experience is interpreted using an
+            existing cognitive structure.
+          </p>
+
+          <h4>Accommodation</h4>
+
+          <p>
+            Accommodation occurs when existing cognitive structures are modified
+            because they are insufficient to explain a new experience.
+          </p>
+
+          <h4>Equilibration</h4>
+
+          <p>
+            Equilibration refers to the process through which individuals
+            attempt to achieve cognitive balance between existing knowledge and
+            new information.
+          </p>
+
+          <h4>Stages of Cognitive Development</h4>
+
+          <ol>
+
+            <li>
+              <strong>Sensorimotor Stage — birth to approximately 2 years</strong>
+
+              <p>
+                Infants learn primarily through sensory experiences and motor
+                actions.
+              </p>
+
+              <p>
+                A major achievement is <strong>object permanence</strong>:
+                understanding that an object continues to exist even when it
+                cannot currently be seen.
+              </p>
+            </li>
+
+            <li>
+              <strong>Preoperational Stage — approximately 2 to 7 years</strong>
+
+              <p>
+                Symbolic thought, language and imagination develop rapidly.
+              </p>
+
+              <p>
+                Thinking remains relatively intuitive and may be characterized
+                by egocentrism, centration and difficulty understanding
+                conservation.
+              </p>
+            </li>
+
+            <li>
+              <strong>Concrete Operational Stage — approximately 7 to 11 years</strong>
+
+              <p>
+                Children develop more logical reasoning concerning concrete
+                objects and situations.
+              </p>
+
+              <p>
+                They increasingly understand conservation, classification,
+                reversibility and relationships between concrete concepts.
+              </p>
+            </li>
+
+            <li>
+              <strong>Formal Operational Stage — adolescence onward</strong>
+
+              <p>
+                The individual develops increasing capacity for abstract,
+                hypothetical and systematic reasoning.
+              </p>
+
+              <p>
+                Adolescents can increasingly consider possibilities, formulate
+                hypotheses and reason about abstract principles.
+              </p>
+            </li>
+
+          </ol>
+
+          <h4>Clinical Application</h4>
+
+          <p>
+            Piaget's theory helps clinicians adapt explanations and health
+            education to the patient's developmental level.
+          </p>
+
+          <p>
+            A young child may understand illness primarily through concrete
+            experiences, whereas an adolescent may be increasingly capable of
+            understanding abstract mechanisms, probability, future consequences
+            and hypothetical situations.
+          </p>
+
+          <h4>Limitations</h4>
+
+          <p>
+            Contemporary research suggests that children's cognitive abilities
+            may emerge earlier and be more context-dependent than some of
+            Piaget's original stage descriptions suggested.
+          </p>
+
+          <!-- =========================================================
+               VYGOTSKY
+          ========================================================== -->
+
+          <h3>4. Vygotsky's Sociocultural Theory</h3>
+
+          <p>
+            Lev Vygotsky emphasized that cognitive development occurs within a
+            social and cultural environment. Learning is strongly influenced by
+            interaction with parents, teachers, peers and other more capable
+            individuals.
+          </p>
+
+          <h4>Zone of Proximal Development</h4>
+
+          <p>
+            The <strong>zone of proximal development (ZPD)</strong> is the
+            range between what a learner can accomplish independently and what
+            the learner can accomplish with appropriate assistance.
+          </p>
+
+          <h4>Scaffolding</h4>
+
+          <p>
+            Scaffolding refers to temporary support provided to a learner while
+            acquiring a new skill. As competence increases, assistance can be
+            progressively reduced.
+          </p>
+
+          <h4>Role of Language</h4>
+
+          <p>
+            Vygotsky regarded language as an important psychological tool.
+            Social communication becomes increasingly internalized and
+            contributes to thinking, self-regulation and problem-solving.
+          </p>
+          <img src="/images/Vygotsky's_Sociocultural_Theory.jpg" alt="Lev Vygotsky" class="img-fluid" />
+          <h4>Clinical Application</h4>
+
+          <p>
+            The theory is relevant to patient education, rehabilitation,
+            counselling and teaching. A learner may successfully perform a task
+            when appropriately guided even though the learner cannot yet perform
+            it independently.
+          </p>
+
+          <!-- =========================================================
+               BANDURA
+          ========================================================== -->
+
+          <h3>5. Bandura's Social Learning Theory</h3>
+
+          <p>
+            Albert Bandura proposed that much human behaviour is learned through
+            observation, imitation and interaction with the environment.
+          </p>
+
+          <p>
+            An individual does not necessarily need to experience a consequence
+            directly in order to learn from it. Observing another person's
+            behaviour and its consequences can influence subsequent behaviour.
+          </p>
+
+          <h4>Observational Learning</h4>
+
+          <p>
+            Observational learning occurs when an individual acquires or changes
+            behaviour after observing another person.
+          </p>
+
+          <h4>Four Major Processes</h4>
+
+          <ol>
+            <li>
+              <strong>Attention:</strong>
+              the individual must notice the modelled behaviour.
+            </li>
+            <li>
+              <strong>Retention:</strong>
+              the observed behaviour must be remembered.
+            </li>
+            <li>
+              <strong>Reproduction:</strong>
+              the individual must have the ability to reproduce the behaviour.
+            </li>
+            <li>
+              <strong>Motivation:</strong>
+              there must be sufficient reason or incentive to perform the behaviour.
+            </li>
+          </ol>
+            <img src="/images/social-learning-theory.jpg" alt="Albert Bandura" class="img-fluid" />
+          <h4>Modelling</h4>
+
+          <p>
+            Children may model behaviour observed in parents, siblings, teachers,
+            peers, healthcare workers, community members and media figures.
+          </p>
+
+          <h4>Self-Efficacy</h4>
+
+          <p>
+            Bandura later placed substantial emphasis on
+            <strong>self-efficacy</strong>, which refers to an individual's
+            belief in their ability to perform a particular behaviour or
+            successfully manage a particular situation.
+          </p>
+
+          <p>
+            High self-efficacy can promote persistence and engagement, whereas
+            low self-efficacy may contribute to avoidance and reduced effort.
+          </p>
+
+          <h4>Clinical Applications</h4>
+
+          <ul>
+            <li>Health behaviour modification</li>
+            <li>Smoking cessation</li>
+            <li>Medication adherence</li>
+            <li>Exercise behaviour</li>
+            <li>Dietary behaviour</li>
+            <li>Parenting interventions</li>
+            <li>Psychological rehabilitation</li>
+            <li>Patient education</li>
+          </ul>
+
+          <!-- =========================================================
+               BRONFENBRENNER
+          ========================================================== -->
+
+          <h3>6. Bronfenbrenner's Ecological Systems Theory</h3>
+          <img src="/images/Urie-Bronfenbrenner.jpg" alt="Urie Bronfenbrenner" class="img-fluid" />
+          <p>
+            Urie Bronfenbrenner proposed that development occurs within multiple
+            interacting environmental systems. Human development therefore
+            cannot be understood by considering the individual separately from
+            the social and physical environment.
+          </p>
+
+          <h4>Microsystem</h4>
+
+          <p>
+            The microsystem consists of environments in which the individual has
+            direct interaction, such as family, school, peers and healthcare
+            settings.
+          </p>
+
+          <h4>Mesosystem</h4>
+
+          <p>
+            The mesosystem refers to interactions between different parts of the
+            individual's microsystem, such as relationships between parents and
+            teachers.
+          </p>
+
+          <h4>Exosystem</h4>
+
+          <p>
+            The exosystem consists of environments that may not involve the
+            individual directly but can nevertheless influence development.
+            Examples include parental employment conditions and community
+            services.
+          </p>
+
+          <h4>Macrosystem</h4>
+
+          <p>
+            The macrosystem includes broader cultural values, social norms,
+            economic structures, laws and beliefs.
+          </p>
+
+          <h4>Chronosystem</h4>
+
+          <p>
+            The chronosystem incorporates changes over time, including major
+            life transitions and historical circumstances.
+          </p>
+
+          <h4>Clinical Application</h4>
+
+          <p>
+            The ecological model encourages clinicians to consider the patient's
+            family, school, community, economic circumstances, culture and
+            healthcare environment rather than attributing all behavioural
+            problems to individual psychological characteristics.
+          </p>
+
+          <!-- =========================================================
+               ATTACHMENT
+          ========================================================== -->
+
+          <h3>7. Attachment Theory</h3>
+
+          <p>
+            Attachment theory, particularly associated with John Bowlby and
+            later research by Mary Ainsworth, explains the development of
+            emotional bonds between children and caregivers.
+          </p>
+
+          <p>
+            Bowlby proposed that attachment has an important adaptive function:
+            maintaining proximity to protective caregivers increases the child's
+            chances of survival.
+          </p>
+
+          <h4>Secure Base</h4>
+
+          <p>
+            A responsive caregiver can function as a secure base from which the
+            child explores the environment and to which the child returns when
+            distressed or threatened.
+          </p>
+
+          <h4>Attachment Patterns</h4>
+
+          <ul>
+            <li>
+              <strong>Secure attachment:</strong>
+              the child generally uses the caregiver as a source of security
+              while exploring the environment.
+            </li>
+            <li>
+              <strong>Insecure-avoidant pattern:</strong>
+              the child may show limited overt dependence or avoidant behaviour
+              toward the caregiver.
+            </li>
+            <li>
+              <strong>Insecure-resistant/ambivalent pattern:</strong>
+              the child may show marked distress and difficulty being comforted.
+            </li>
+            <li>
+              <strong>Disorganized pattern:</strong>
+              behaviour may appear inconsistent, contradictory or disoriented.
+            </li>
+          </ul>
+
+          <h4>Clinical Importance</h4>
+
+          <p>
+            Attachment concepts are relevant when assessing child behaviour,
+            separation distress, parent-child relationships, psychosocial
+            adversity and some patterns of interpersonal functioning.
+          </p>
+
+          <!-- =========================================================
+               KOHLBERG
+          ========================================================== -->
+
+          <h3>8. Kohlberg's Theory of Moral Development</h3>
+
+          <p>
+            Lawrence Kohlberg proposed that moral reasoning develops through
+            increasingly complex levels of reasoning about rules, consequences,
+            social expectations and ethical principles.
+          </p>
+
+          <h4>Level I: Preconventional Morality</h4>
+
+          <p>
+            Moral reasoning is primarily based on punishment, reward and personal
+            consequences.
+          </p>
+
+          <ul>
+            <li>
+              <strong>Stage 1:</strong>
+              obedience and punishment orientation.
+            </li>
+            <li>
+              <strong>Stage 2:</strong>
+              instrumental or exchange orientation.
+            </li>
+          </ul>
+
+          <h4>Level II: Conventional Morality</h4>
+
+          <p>
+            Moral reasoning becomes increasingly focused on social relationships,
+            approval, rules and maintaining social order.
+          </p>
+
+          <ul>
+            <li>
+              <strong>Stage 3:</strong>
+              interpersonal accord and approval.
+            </li>
+            <li>
+              <strong>Stage 4:</strong>
+              law-and-order orientation.
+            </li>
+          </ul>
+
+          <h4>Level III: Postconventional Morality</h4>
+
+          <p>
+            Moral reasoning becomes increasingly concerned with broader ethical
+            principles, rights and justice.
+          </p>
+
+          <ul>
+            <li>
+              <strong>Stage 5:</strong>
+              social contract and individual rights.
+            </li>
+            <li>
+              <strong>Stage 6:</strong>
+              universal ethical principles.
+            </li>
+          </ul>
+
+          <h4>Clinical Relevance</h4>
+
+          <p>
+            Moral-development concepts may assist clinicians in understanding
+            how children and adolescents reason about rules, responsibility,
+            honesty, health behaviours and ethical decisions.
+          </p>
+
+          <h4>Limitation</h4>
+
+          <p>
+            Moral reasoning does not always predict moral behaviour. Individuals
+            may understand an ethical principle without consistently acting
+            according to it.
+          </p>
+
+          <!-- =========================================================
+               NATURE AND NURTURE
+          ========================================================== -->
+
+          <h3>9. Nature and Nurture</h3>
+
+          <p>
+            The nature-nurture perspective concerns the relative contribution of
+            biological inheritance and environmental experience to development.
+          </p>
+
+          <h4>Nature</h4>
+
+          <p>
+            Nature refers to genetic, biological and constitutional influences
+            on development.
+          </p>
+
+          <h4>Nurture</h4>
+
+          <p>
+            Nurture refers to environmental influences, including parenting,
+            education, culture, nutrition, relationships, learning and life
+            experiences.
+          </p>
+
+          <h4>Contemporary View</h4>
+
+          <p>
+            Contemporary developmental science does not generally regard nature
+            and nurture as competing explanations. Development results from
+            continuous interaction between genetic predisposition and experience.
+          </p>
+
+          <p>
+            Genes may influence developmental potential, while environmental
+            conditions influence how that potential is expressed.
+          </p>
+
+          <div class="clinical-box">
+            <strong>Key Behavioural Science Principle:</strong>
+            Human behaviour is best understood using a biopsychosocial
+            perspective in which biological, psychological and social influences
+            interact.
+          </div>
+
+          <!-- =========================================================
+               MATURATION
+          ========================================================== -->
+
+          <h3>10. Maturation Theory</h3>
+
+          <p>
+            Maturation refers to biologically programmed changes associated
+            with physical and neurological development.
+          </p>
+
+          <p>
+            Maturation provides an important biological foundation for the
+            emergence of developmental abilities. However, maturation alone does
+            not completely determine behavioural outcomes.
+          </p>
+
+          <p>
+            Experience, practice, education, nutrition, social interaction and
+            environmental opportunity interact with biological maturation.
+          </p>
+
+          <h3>Comparison of Major Developmental Theories</h3>
+
+          <table>
             <tr>
-              <th>Stage</th>
-              <th>Approximate Period</th>
-              <th>Major Conflict</th>
+              <th>Theorist</th>
+              <th>Main Focus</th>
+              <th>Central Idea</th>
             </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Infancy</td>
-              <td>Early life</td>
-              <td>Trust vs. mistrust</td>
-            </tr>
-            <tr>
-              <td>Early childhood</td>
-              <td>Toddler period</td>
-              <td>Autonomy vs. shame and doubt</td>
-            </tr>
-            <tr>
-              <td>Preschool</td>
-              <td>Early childhood</td>
-              <td>Initiative vs. guilt</td>
-            </tr>
-            <tr>
-              <td>School age</td>
-              <td>Middle childhood</td>
-              <td>Industry vs. inferiority</td>
-            </tr>
-            <tr>
-              <td>Adolescence</td>
-              <td>Adolescence</td>
-              <td>Identity vs. role confusion</td>
-            </tr>
-            <tr>
-              <td>Early adulthood</td>
-              <td>Young adulthood</td>
-              <td>Intimacy vs. isolation</td>
-            </tr>
-            <tr>
-              <td>Middle adulthood</td>
-              <td>Middle age</td>
-              <td>Generativity vs. stagnation</td>
-            </tr>
-            <tr>
-              <td>Late adulthood</td>
-              <td>Older age</td>
-              <td>Integrity vs. despair</td>
-            </tr>
-          </tbody>
-        </table>
 
-        <p>
-          Erikson's framework emphasizes that psychological development
-          continues throughout life and that each developmental period
-          presents characteristic psychosocial tasks.
-          <sup>[3]</sup>
-        </p>
-      `
+            <tr>
+              <td>Sigmund Freud</td>
+              <td>Psychosexual development</td>
+              <td>Early psychological conflicts and unconscious processes influence personality.</td>
+            </tr>
+
+            <tr>
+              <td>Erik Erikson</td>
+              <td>Psychosocial development</td>
+              <td>Development involves psychosocial conflicts across the lifespan.</td>
+            </tr>
+
+            <tr>
+              <td>Jean Piaget</td>
+              <td>Cognitive development</td>
+              <td>Children actively construct knowledge through interaction with the environment.</td>
+            </tr>
+
+            <tr>
+              <td>Lev Vygotsky</td>
+              <td>Sociocultural development</td>
+              <td>Social interaction and culture strongly influence cognitive development.</td>
+            </tr>
+
+            <tr>
+              <td>Albert Bandura</td>
+              <td>Social learning</td>
+              <td>Behaviour can be learned through observation, modelling and reinforcement.</td>
+            </tr>
+
+            <tr>
+              <td>John Bowlby / Mary Ainsworth</td>
+              <td>Attachment</td>
+              <td>Early caregiver relationships influence emotional security and social development.</td>
+            </tr>
+
+            <tr>
+              <td>Lawrence Kohlberg</td>
+              <td>Moral development</td>
+              <td>Moral reasoning develops through increasingly complex levels of reasoning.</td>
+            </tr>
+
+            <tr>
+              <td>Urie Bronfenbrenner</td>
+              <td>Ecological development</td>
+              <td>Development occurs within interconnected environmental systems.</td>
+            </tr>
+          </table>
+
+          <h3>Clinical Integration of Developmental Theories</h3>
+
+          <p>
+            Developmental theories should not be applied in isolation. A
+            clinician can integrate different perspectives when evaluating a
+            patient's behaviour.
+          </p>
+
+          <p>
+            For example, behavioural difficulties in an adolescent may be
+            examined from an Eriksonian perspective in terms of identity
+            development, from a Piagetian perspective in terms of cognitive
+            reasoning, from a Bandurian perspective in terms of observed models
+            and reinforcement, and from an ecological perspective in terms of
+            family, peers, school, culture and socioeconomic circumstances.
+          </p>
+
+          <p>
+            This multidimensional approach is particularly useful in Behavioural
+            Science because human behaviour is rarely caused by a single factor.
+          </p>
+
+          <h3>Overall Clinical Significance</h3>
+
+          <p>
+            Developmental theories provide conceptual tools rather than rigid
+            rules. Individual development varies, and cultural, biological,
+            psychological and environmental differences must be considered when
+            applying developmental concepts to clinical practice.
+          </p>
+
+          <p>
+            The clinician should therefore use developmental theories alongside
+            history taking, behavioural observation, physical examination,
+            developmental assessment and appropriate psychological or
+            neurodevelopmental assessment.
+          </p>
+        `
+      }
     },
-
-
-    // ============================================================
-    // 22. MORAL DEVELOPMENT
-    // ============================================================
-
-    {
-      id: "moral_development",
-      name: "Moral Development",
-
-      notes: `
-        <h2>Moral Development</h2>
-
-        <p>
-          Moral development involves the progressive development of concepts
-          concerning right and wrong, fairness, responsibility, rules and
-          ethical behaviour.
-        </p>
-
-        <h3>Kohlberg's Theory</h3>
-
-        <h4>Preconventional Level</h4>
-
-        <p>
-          Moral reasoning is strongly influenced by punishment, reward and
-          personal consequences.
-        </p>
-
-        <h4>Conventional Level</h4>
-
-        <p>
-          Behaviour is increasingly influenced by social expectations,
-          relationships, rules and maintaining social order.
-        </p>
-
-        <h4>Postconventional Level</h4>
-
-        <p>
-          Moral reasoning may involve principles, rights, justice and
-          consideration of broader ethical values.
-        </p>
-
-        <p>
-          Moral development is influenced by cognitive maturation, social
-          interaction, parenting, education and cultural context.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 23. PERSONALITY AND TEMPERAMENT
-    // ============================================================
-
-    {
-      id: "temperament_and_personality",
-      name: "Temperament and Personality Development",
-
-      notes: `
-        <h2>Temperament and Personality Development</h2>
-
-        <h3>Temperament</h3>
-
-        <p>
-          Temperament refers to relatively early-emerging patterns of
-          emotional reactivity, activity and self-regulation that show
-          biological influences.
-        </p>
-
-        <h3>Personality</h3>
-
-        <p>
-          Personality refers to relatively enduring patterns of thinking,
-          feeling and behaving that characterize an individual.
-        </p>
-
-        <h3>Factors Influencing Personality</h3>
-
-        <ul>
-          <li>Genetic factors.</li>
-          <li>Temperament.</li>
-          <li>Parenting.</li>
-          <li>Attachment.</li>
-          <li>Culture.</li>
-          <li>Peer relationships.</li>
-          <li>Education.</li>
-          <li>Life experiences.</li>
-        </ul>
-
-        <h3>Clinical Importance</h3>
-
-        <p>
-          Understanding temperament and personality helps clinicians
-          interpret behavioural differences and establish effective
-          communication with patients across developmental stages.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 24. ATTACHMENT
-    // ============================================================
-
-    {
-      id: "attachment_and_relationships",
-      name: "Attachment and Early Relationships",
-
-      notes: `
-        <h2>Attachment and Early Relationships</h2>
-
-        <p>
-          Attachment describes the enduring emotional relationship between
-          a child and significant caregivers. Early caregiver-child
-          relationships influence emotional regulation, exploration,
-          interpersonal expectations and later relationships.
-          <sup>[5]</sup>
-        </p>
-
-        <h3>Attachment Patterns</h3>
-
-        <ul>
-          <li>Secure attachment.</li>
-          <li>Insecure-avoidant patterns.</li>
-          <li>Insecure-resistant patterns.</li>
-          <li>Disorganized attachment patterns.</li>
-        </ul>
-
-        <h3>Factors Supporting Secure Attachment</h3>
-
-        <ul>
-          <li>Consistent caregiving.</li>
-          <li>Responsive interaction.</li>
-          <li>Emotional availability.</li>
-          <li>Protection and safety.</li>
-          <li>Appropriate stimulation.</li>
-        </ul>
-
-        <h3>Clinical Relevance</h3>
-
-        <p>
-          Disturbances in early relationships, neglect, abuse and severe
-          deprivation may affect emotional and social development and may
-          contribute to later behavioural difficulties.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 25. PLAY
-    // ============================================================
-
-    {
-      id: "play_and_development",
-      name: "Play and Development",
-
-      notes: `
-        <h2>Play and Development</h2>
-
-        <p>
-          Play is an important component of childhood development. It
-          provides opportunities for exploration, learning, communication,
-          emotional expression and social interaction.
-        </p>
-
-        <h3>Developmental Functions of Play</h3>
-
-        <ul>
-          <li>Develops motor skills.</li>
-          <li>Promotes language development.</li>
-          <li>Encourages problem solving.</li>
-          <li>Supports imagination.</li>
-          <li>Promotes social interaction.</li>
-          <li>Allows emotional expression.</li>
-          <li>Develops cooperation and negotiation.</li>
-        </ul>
-
-        <h3>Clinical Importance</h3>
-
-        <p>
-          Observation of play can provide useful information about a child's
-          motor, cognitive, language and social functioning.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 26. DEVELOPMENTAL ASSESSMENT
-    // ============================================================
 
     {
       id: "developmental_assessment",
       name: "Developmental Assessment",
 
-      notes: `
-        <h2>Developmental Assessment</h2>
+      notes: {
+        anatomy: `
+          <h2>Developmental Assessment</h2>
 
-        <p>
-          Developmental assessment is the systematic evaluation of a child's
-          developmental progress across multiple domains.
-        </p>
+          <p>
+            Developmental assessment evaluates whether an individual's abilities
+            are appropriate for the developmental stage.
+          </p>
 
-        <h3>Components</h3>
+          <h3>Areas Assessed</h3>
 
-        <ol>
-          <li>Developmental history.</li>
-          <li>Growth assessment.</li>
-          <li>Physical examination.</li>
-          <li>Neurological examination.</li>
-          <li>Developmental milestone assessment.</li>
-          <li>Vision assessment.</li>
-          <li>Hearing assessment.</li>
-          <li>Behavioural assessment.</li>
-          <li>Social and family assessment.</li>
-        </ol>
+          <ul>
+            <li>Gross motor function</li>
+            <li>Fine motor function</li>
+            <li>Language</li>
+            <li>Cognition</li>
+            <li>Social interaction</li>
+            <li>Emotional regulation</li>
+            <li>Adaptive functioning</li>
+            <li>Self-care</li>
+          </ul>
 
-        <h3>Developmental History</h3>
+          <h3>History</h3>
 
-        <p>
-          History should explore pregnancy, birth, neonatal complications,
-          feeding, illnesses, developmental milestones, school performance,
-          behaviour, family relationships and environmental circumstances.
-        </p>
+          <ul>
+            <li>Prenatal history</li>
+            <li>Birth history</li>
+            <li>Neonatal history</li>
+            <li>Feeding history</li>
+            <li>Developmental milestones</li>
+            <li>Medical history</li>
+            <li>Family history</li>
+            <li>Psychosocial history</li>
+            <li>Educational history</li>
+            <li>Environmental circumstances</li>
+          </ul>
 
-        <h3>Important Questions</h3>
+          <h3>Observation</h3>
 
-        <ul>
-          <li>When did the child first smile socially?</li>
-          <li>When was head control achieved?</li>
-          <li>When did the child sit independently?</li>
-          <li>When did the child crawl?</li>
-          <li>When did independent walking begin?</li>
-          <li>When were the first meaningful words spoken?</li>
-          <li>When did the child begin combining words?</li>
-          <li>How does the child interact with caregivers and peers?</li>
-          <li>Has the child lost any previously acquired skills?</li>
-        </ul>
+          <p>
+            Direct observation provides information about spontaneous movement,
+            communication, play, social responsiveness, attention, emotional
+            regulation and interaction with caregivers.
+          </p>
 
-        <h3>Regression</h3>
+          <h3>Screening Versus Diagnosis</h3>
 
-        <p>
-          Loss of previously acquired developmental skills is particularly
-          important clinically. Developmental regression should prompt
-          appropriate assessment rather than being assumed to represent
-          normal variation.
-        </p>
-      `
+          <p>
+            Developmental screening identifies individuals who may be at
+            increased risk of developmental difficulty. Screening does not by
+            itself establish a diagnosis.
+          </p>
+
+          <p>
+            An abnormal screening result should lead to appropriate clinical
+            assessment and, where necessary, specialist referral.
+          </p>
+        `
+      }
     },
-
-
-    // ============================================================
-    // 27. DEVELOPMENTAL SURVEILLANCE
-    // ============================================================
-
-    {
-      id: "developmental_surveillance_and_screening",
-      name: "Developmental Surveillance and Screening",
-
-      notes: `
-        <h2>Developmental Surveillance and Screening</h2>
-
-        <h3>Developmental Surveillance</h3>
-
-        <p>
-          Developmental surveillance is an ongoing process of monitoring a
-          child's development through history, observation, physical
-          examination and discussion with caregivers.
-        </p>
-
-        <h3>Developmental Screening</h3>
-
-        <p>
-          Developmental screening uses standardized tools to identify
-          children who may require more detailed developmental evaluation.
-        </p>
-
-        <h3>Important Principle</h3>
-
-        <p>
-          Screening does not establish a definitive diagnosis. A child who
-          screens positive requires appropriate clinical assessment and,
-          where indicated, formal diagnostic evaluation.
-        </p>
-
-        <h3>Reasons for Developmental Screening</h3>
-
-        <ul>
-          <li>Early identification of developmental delay.</li>
-          <li>Identification of autism-related concerns.</li>
-          <li>Identification of language delay.</li>
-          <li>Identification of motor delay.</li>
-          <li>Identification of hearing or vision problems.</li>
-          <li>Early referral for intervention.</li>
-        </ul>
-      `
-    },
-
-
-    // ============================================================
-    // 28. DEVELOPMENTAL DELAY
-    // ============================================================
 
     {
       id: "developmental_delay",
       name: "Developmental Delay",
 
-      notes: `
-        <h2>Developmental Delay</h2>
-
-        <p>
-          Developmental delay refers to significant delay in acquisition of
-          expected developmental abilities relative to age expectations.
-        </p>
-
-        <h3>Types</h3>
-
-        <ul>
-          <li>Gross motor delay.</li>
-          <li>Fine motor delay.</li>
-          <li>Language delay.</li>
-          <li>Cognitive delay.</li>
-          <li>Social or adaptive delay.</li>
-          <li>Global developmental delay.</li>
-        </ul>
-
-        <h3>Global Developmental Delay</h3>
-
-        <p>
-          Global developmental delay refers to significant delay affecting
-          multiple developmental domains in a young child.
-        </p>
-
-        <h3>Possible Causes</h3>
-
-        <ul>
-          <li>Genetic disorders.</li>
-          <li>Chromosomal abnormalities.</li>
-          <li>Congenital infections.</li>
-          <li>Perinatal hypoxic-ischaemic injury.</li>
-          <li>Prematurity.</li>
-          <li>Malnutrition.</li>
-          <li>Endocrine disorders.</li>
-          <li>Neurological disease.</li>
-          <li>Hearing impairment.</li>
-          <li>Visual impairment.</li>
-          <li>Environmental deprivation.</li>
-          <li>Neurodevelopmental disorders.</li>
-        </ul>
-
-        <h3>Clinical Approach</h3>
-
-        <ol>
-          <li>Confirm the developmental concern.</li>
-          <li>Determine which domains are affected.</li>
-          <li>Establish whether regression has occurred.</li>
-          <li>Review pregnancy and birth history.</li>
-          <li>Assess growth and nutrition.</li>
-          <li>Perform physical and neurological examination.</li>
-          <li>Assess hearing and vision.</li>
-          <li>Investigate suspected causes.</li>
-          <li>Refer for appropriate developmental services.</li>
-        </ol>
-      `
-    },
-
-
-    // ============================================================
-    // 29. DEVELOPMENTAL RED FLAGS
-    // ============================================================
-
-    {
-      id: "developmental_red_flags",
-      name: "Developmental Red Flags",
-
-      notes: `
-        <h2>Developmental Red Flags</h2>
-
-        <p>
-          Developmental red flags are findings that raise concern for
-          possible developmental, neurological, sensory or psychosocial
-          problems and warrant further assessment.
-        </p>
-
-        <h3>General Red Flags</h3>
-
-        <ul>
-          <li>Loss of previously acquired skills.</li>
-          <li>Significant delay across multiple developmental domains.</li>
-          <li>Marked asymmetry of movement.</li>
-          <li>Abnormal muscle tone.</li>
-          <li>Persistent abnormal neurological findings.</li>
-          <li>Failure to respond appropriately to sound.</li>
-          <li>Failure to respond appropriately to visual stimuli.</li>
-          <li>Marked difficulty with social interaction.</li>
-          <li>Persistent concerns from caregivers.</li>
-        </ul>
-
-        <h3>Motor Red Flags</h3>
-
-        <ul>
-          <li>Persistent poor head control beyond the expected period.</li>
-          <li>Marked asymmetry of movement.</li>
-          <li>Persistent abnormal tone.</li>
-          <li>Failure to progress through motor milestones.</li>
-          <li>Loss of motor abilities.</li>
-        </ul>
-
-        <h3>Language Red Flags</h3>
-
-        <ul>
-          <li>Absence or marked delay of expected communicative behaviours.</li>
-          <li>Poor response to spoken language.</li>
-          <li>Loss of previously acquired language.</li>
-          <li>Markedly limited communication.</li>
-        </ul>
-
-        <h3>Social Red Flags</h3>
-
-        <ul>
-          <li>Limited social reciprocity.</li>
-          <li>Markedly reduced eye contact in appropriate contexts.</li>
-          <li>Limited response to social interaction.</li>
-          <li>Loss of previously acquired social skills.</li>
-        </ul>
-
-        <p>
-          Red flags should prompt assessment rather than immediate
-          diagnostic labelling. Development must always be interpreted in
-          relation to age, prematurity, cultural context and the child's
-          overall clinical picture.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 30. THEORIES OF DEVELOPMENT
-    // ============================================================
-
-    {
-      id: "theories_of_development",
-      name: "Theories of Human Development",
-
-      notes: `
-        <h2>Theories of Human Development</h2>
-
-        <p>
-          Developmental theories provide frameworks for understanding how
-          individuals change across the lifespan.
-        </p>
-
-        <h3>Major Developmental Theories</h3>
-
-        <ul>
-          <li>Piaget's cognitive-developmental theory.</li>
-          <li>Erikson's psychosocial theory.</li>
-          <li>Freud's psychosexual theory.</li>
-          <li>Kohlberg's theory of moral development.</li>
-          <li>Vygotsky's sociocultural theory.</li>
-          <li>Bandura's social learning theory.</li>
-          <li>Attachment theory.</li>
-          <li>Ecological systems theory.</li>
-        </ul>
-
-        <h3>Clinical Relevance</h3>
-
-        <p>
-          Developmental theories should be regarded as conceptual frameworks
-          rather than rigid descriptions of every individual's development.
-          They help clinicians understand developmental tasks, behaviour,
-          learning, relationships and environmental influences.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 31. FREUD
-    // ============================================================
-
-    {
-      id: "freud_psychosexual_development",
-      name: "Freud's Psychosexual Theory",
-
-      notes: `
-        <h2>Freud's Psychosexual Theory</h2>
-
-        <p>
-          Sigmund Freud proposed that personality development occurs through
-          a series of psychosexual stages in which psychological energy is
-          focused on different bodily zones.
-        </p>
-
-        <h3>Stages</h3>
-
-        <ol>
-          <li>Oral stage.</li>
-          <li>Anal stage.</li>
-          <li>Phallic stage.</li>
-          <li>Latency stage.</li>
-          <li>Genital stage.</li>
-        </ol>
-
-        <p>
-          Freud's theory has historical importance in developmental psychology
-          and psychiatry, although many aspects of the theory remain
-          controversial and are not considered empirically established in
-          the same manner as contemporary developmental science.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 32. VYGOTSKY
-    // ============================================================
-
-    {
-      id: "vygotsky_sociocultural_theory",
-      name: "Vygotsky's Sociocultural Theory",
-
-      notes: `
-        <h2>Vygotsky's Sociocultural Theory</h2>
-
-        <p>
-          Lev Vygotsky emphasized the role of social interaction, language
-          and culture in cognitive development.
-        </p>
-
-        <h3>Zone of Proximal Development</h3>
-
-        <p>
-          The zone of proximal development describes tasks that a learner
-          cannot yet perform independently but can accomplish with
-          appropriate guidance or assistance.
-        </p>
-
-        <h3>Scaffolding</h3>
-
-        <p>
-          Scaffolding refers to temporary support provided by a more
-          knowledgeable person to help a learner perform a task until
-          increasing independence is achieved.
-        </p>
-
-        <h3>Clinical and Educational Relevance</h3>
-
-        <p>
-          The theory emphasizes the importance of communication, social
-          interaction, caregivers, teachers and culturally appropriate
-          learning environments.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 33. BANDURA
-    // ============================================================
-
-    {
-      id: "bandura_social_learning",
-      name: "Bandura's Social Learning Theory",
-
-      notes: `
-        <h2>Bandura's Social Learning Theory</h2>
-
-        <p>
-          Albert Bandura proposed that people can acquire behaviours through
-          observation and imitation of others.
-        </p>
-
-        <h3>Major Concepts</h3>
-
-        <ul>
-          <li>Observational learning.</li>
-          <li>Modelling.</li>
-          <li>Imitation.</li>
-          <li>Reinforcement.</li>
-          <li>Self-efficacy.</li>
-        </ul>
-
-        <p>
-          The theory is important in understanding how children acquire
-          behaviours from parents, peers, teachers and media.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 34. ECOLOGICAL THEORY
-    // ============================================================
-
-    {
-      id: "ecological_systems_theory",
-      name: "Ecological Systems Theory",
-
-      notes: `
-        <h2>Ecological Systems Theory</h2>
-
-        <p>
-          Bronfenbrenner's ecological systems theory emphasizes that
-          development occurs within multiple interacting environmental
-          systems.
-        </p>
-
-        <h3>Major Systems</h3>
-
-        <ul>
-          <li>
-            <strong>Microsystem:</strong> immediate environments such as
-            family, school and peers.
-          </li>
-
-          <li>
-            <strong>Mesosystem:</strong> interactions between immediate
-            environments.
-          </li>
-
-          <li>
-            <strong>Exosystem:</strong> environments that indirectly affect
-            the child.
-          </li>
-
-          <li>
-            <strong>Macrosystem:</strong> cultural, economic and societal
-            structures.
-          </li>
-
-          <li>
-            <strong>Chronosystem:</strong> changes occurring over time.
-          </li>
-        </ul>
-
-        <p>
-          The model is particularly useful in understanding how family,
-          school, community, culture and socioeconomic circumstances interact
-          to influence development.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 35. NATURE AND NURTURE
-    // ============================================================
-
-    {
-      id: "nature_and_nurture",
-      name: "Nature and Nurture",
-
-      notes: `
-        <h2>Nature and Nurture</h2>
-
-        <p>
-          The nature-nurture question concerns the relative contribution of
-          inherited biological factors and environmental experiences to
-          human development.
-        </p>
-
-        <h3>Nature</h3>
-
-        <p>
-          Nature refers to genetic and biological influences on development.
-        </p>
-
-        <h3>Nurture</h3>
-
-        <p>
-          Nurture refers to environmental experiences, learning,
-          relationships, education, culture and other external influences.
-        </p>
-
-        <p>
-          Contemporary developmental science recognizes that genes and
-          environment interact continuously. Development is therefore best
-          understood as the product of dynamic interactions between biological
-          predispositions and environmental experiences.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 36. MATURATION
-    // ============================================================
-
-    {
-      id: "maturation",
-      name: "Maturation",
-
-      notes: `
-        <h2>Maturation</h2>
-
-        <p>
-          Maturation refers to biologically programmed changes associated
-          with physical and neurological development.
-        </p>
-
-        <p>
-          Maturation provides an important biological foundation for
-          development, but environmental experience and learning also
-          influence how abilities are expressed.
-        </p>
-
-        <h3>Maturation versus Learning</h3>
-
-        <table>
-          <thead>
-            <tr>
-              <th>Maturation</th>
-              <th>Learning</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Strongly influenced by biological processes.</td>
-              <td>Strongly influenced by experience.</td>
-            </tr>
-            <tr>
-              <td>Follows biological developmental patterns.</td>
-              <td>Occurs through practice and interaction.</td>
-            </tr>
-            <tr>
-              <td>Provides readiness for certain abilities.</td>
-              <td>Refines and expands abilities.</td>
-            </tr>
-          </tbody>
-        </table>
-      `
-    },
-
-
-    // ============================================================
-    // 37. ADOLESCENT DEVELOPMENTAL HEALTH
-    // ============================================================
-
-    {
-      id: "adolescent_health_and_development",
-      name: "Adolescent Health and Development",
-
-      notes: `
-        <h2>Adolescent Health and Development</h2>
-
-        <p>
-          Adolescence represents an important period for establishing
-          lifelong patterns of health behaviour and psychological functioning.
-        </p>
-
-        <h3>Areas Requiring Clinical Attention</h3>
-
-        <ul>
-          <li>Nutrition.</li>
-          <li>Physical activity.</li>
-          <li>Sexual and reproductive health.</li>
-          <li>Substance use.</li>
-          <li>Mental health.</li>
-          <li>Peer relationships.</li>
-          <li>School performance.</li>
-          <li>Family relationships.</li>
-          <li>Violence and injury prevention.</li>
-          <li>Risk-taking behaviour.</li>
-        </ul>
-
-        <h3>Confidentiality</h3>
-
-        <p>
-          Adolescent assessment should provide an appropriate degree of
-          privacy and confidentiality consistent with clinical ethics,
-          applicable law and safeguarding requirements.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 38. GROWTH AND NUTRITION
-    // ============================================================
-
-    {
-      id: "nutrition_and_growth",
-      name: "Nutrition and Growth",
-
-      notes: `
-        <h2>Nutrition and Growth</h2>
-
-        <p>
-          Adequate nutrition is essential for normal physical growth,
-          neurological development, immune function and cognitive performance.
-        </p>
-
-        <h3>Effects of Undernutrition</h3>
-
-        <ul>
-          <li>Growth faltering.</li>
-          <li>Wasting.</li>
-          <li>Stunting.</li>
-          <li>Micronutrient deficiencies.</li>
-          <li>Reduced immunity.</li>
-          <li>Delayed development.</li>
-          <li>Reduced school performance.</li>
-        </ul>
-
-        <h3>Effects of Excess Nutrition</h3>
-
-        <p>
-          Excess energy intake can contribute to overweight and obesity,
-          which may increase the long-term risk of metabolic and
-          cardiovascular disease.
-        </p>
-
-        <h3>Clinical Assessment</h3>
-
-        <ul>
-          <li>Dietary history.</li>
-          <li>Weight.</li>
-          <li>Length or height.</li>
-          <li>Body mass index where appropriate.</li>
-          <li>Growth trajectory.</li>
-          <li>Clinical signs of nutritional deficiency.</li>
-        </ul>
-      `
-    },
-
-
-    // ============================================================
-    // 39. ENVIRONMENTAL DEPRIVATION
-    // ============================================================
-
-    {
-      id: "environmental_and_psychosocial_deprivation",
-      name: "Environmental and Psychosocial Deprivation",
-
-      notes: `
-        <h2>Environmental and Psychosocial Deprivation</h2>
-
-        <p>
-          Children require adequate nutrition, safety, responsive
-          relationships, stimulation and opportunities for learning.
-          Prolonged deprivation can adversely affect development.
-        </p>
-
-        <h3>Risk Factors</h3>
-
-        <ul>
-          <li>Neglect.</li>
-          <li>Abuse.</li>
-          <li>Severe poverty.</li>
-          <li>Food insecurity.</li>
-          <li>Family instability.</li>
-          <li>Chronic caregiver stress.</li>
-          <li>Lack of educational stimulation.</li>
-          <li>Social isolation.</li>
-          <li>Chronic exposure to violence.</li>
-        </ul>
-
-        <h3>Clinical Role</h3>
-
-        <p>
-          Health professionals should identify environmental risks and
-          coordinate appropriate social, nutritional, psychological and
-          safeguarding interventions when necessary.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 40. LIFESPAN DEVELOPMENT
-    // ============================================================
-
-    {
-      id: "lifespan_development",
-      name: "Lifespan Development",
-
-      notes: `
-        <h2>Lifespan Development</h2>
-
-        <p>
-          Human development does not stop at childhood. Physical,
-          psychological, cognitive and social changes continue throughout
-          adulthood and old age.
-        </p>
-
-        <h3>Major Lifespan Periods</h3>
-
-        <ol>
-          <li>Prenatal period.</li>
-          <li>Neonatal period.</li>
-          <li>Infancy.</li>
-          <li>Toddlerhood.</li>
-          <li>Early childhood.</li>
-          <li>Middle childhood.</li>
-          <li>Adolescence.</li>
-          <li>Early adulthood.</li>
-          <li>Middle adulthood.</li>
-          <li>Late adulthood.</li>
-        </ol>
-
-        <p>
-          Each stage involves characteristic developmental tasks and
-          transitions, but the boundaries between stages are approximate and
-          individual developmental trajectories vary.
-        </p>
-      `
-    },
-
-
-    // ============================================================
-    // 41. CLINICAL APPLICATION
-    // ============================================================
-
-    {
-      id: "clinical_application_of_growth_and_development",
-      name: "Clinical Application of Growth and Development",
-
-      notes: `
-        <h2>Clinical Application of Growth and Development</h2>
-
-        <p>
-          Understanding development allows clinicians to interpret behaviour,
-          recognize disease and communicate appropriately with patients at
-          different stages of life.
-        </p>
-
-        <h3>In Paediatrics</h3>
-
-        <ul>
-          <li>Monitor growth.</li>
-          <li>Assess developmental milestones.</li>
-          <li>Identify developmental delay.</li>
-          <li>Identify regression.</li>
-          <li>Assess nutrition.</li>
-          <li>Identify sensory impairment.</li>
-          <li>Provide anticipatory guidance.</li>
-          <li>Support parents and caregivers.</li>
-        </ul>
-
-        <h3>In Adolescent Medicine</h3>
-
-        <ul>
-          <li>Assess puberty.</li>
-          <li>Assess mental health.</li>
-          <li>Discuss sexual and reproductive health.</li>
-          <li>Assess substance use.</li>
-          <li>Assess risk behaviour.</li>
-          <li>Address peer and family relationships.</li>
-        </ul>
-
-        <h3>In Adult Medicine</h3>
-
-        <ul>
-          <li>Consider developmental and psychosocial roles.</li>
-          <li>Assess occupational and family functioning.</li>
-          <li>Recognize psychological responses to disease.</li>
-          <li>Promote preventive health behaviours.</li>
-        </ul>
-
-        <h3>In Geriatric Medicine</h3>
-
-        <ul>
-          <li>Distinguish normal ageing from disease.</li>
-          <li>Assess functional status.</li>
-          <li>Assess cognition.</li>
-          <li>Assess mobility.</li>
-          <li>Assess social support.</li>
-          <li>Identify risks of frailty and falls.</li>
-        </ul>
-      `
-    },
-
-
-    // ============================================================
-    // 42. SUMMARY
-    // ============================================================
-
-    {
-      id: "growth_and_development_summary",
-      name: "Growth and Development — Summary and Key Points",
-
-      notes: `
-        <h2>Summary</h2>
-
-        <p>
-          Growth refers primarily to quantitative physical changes, whereas
-          development refers to progressive acquisition of functional,
-          behavioural and psychological abilities. Both processes begin
-          before birth and continue across the lifespan.
-        </p>
-
-        <p>
-          Development occurs across multiple domains, including physical,
-          motor, cognitive, language, emotional, social, psychosocial and
-          adaptive functioning. These domains interact and should therefore
-          be assessed together.
-        </p>
-
-        <h3>Key Points for Clinical Practice</h3>
-
-        <ul>
-          <li>Growth should be assessed using serial measurements.</li>
-          <li>Development should be assessed across multiple domains.</li>
-          <li>Normal development has individual variation.</li>
-          <li>Prematurity must be considered when interpreting early milestones.</li>
-          <li>Regression is an important clinical warning sign.</li>
-          <li>Hearing and vision are important determinants of development.</li>
-          <li>Nutrition strongly influences growth and development.</li>
-          <li>Caregiver relationships influence emotional and social development.</li>
-          <li>Biological and environmental factors interact throughout development.</li>
-          <li>Developmental screening identifies children requiring further assessment.</li>
-          <li>A screening result is not equivalent to a diagnosis.</li>
-          <li>Early recognition of developmental problems allows earlier intervention.</li>
-        </ul>
-      `
+      notes: {
+        anatomy: `
+          <h2>Developmental Delay</h2>
+
+          <p>
+            Developmental delay refers to failure to acquire expected abilities
+            within the anticipated developmental range.
+          </p>
+
+          <h3>Types</h3>
+
+          <ul>
+            <li>Gross motor delay</li>
+            <li>Fine motor delay</li>
+            <li>Language delay</li>
+            <li>Cognitive delay</li>
+            <li>Social-developmental delay</li>
+            <li>Adaptive-functioning delay</li>
+            <li>Global developmental delay</li>
+          </ul>
+
+          <h3>Possible Causes</h3>
+
+          <ul>
+            <li>Genetic disorders</li>
+            <li>Chromosomal abnormalities</li>
+            <li>Congenital abnormalities</li>
+            <li>Prematurity</li>
+            <li>Perinatal neurological injury</li>
+            <li>Central nervous system infections</li>
+            <li>Epileptic disorders</li>
+            <li>Hearing impairment</li>
+            <li>Visual impairment</li>
+            <li>Malnutrition</li>
+            <li>Endocrine and metabolic disease</li>
+            <li>Chronic systemic illness</li>
+            <li>Environmental deprivation</li>
+            <li>Psychosocial adversity</li>
+          </ul>
+
+          <h3>Developmental Regression</h3>
+
+          <p>
+            Developmental regression refers to loss of previously acquired
+            developmental abilities. It is particularly important clinically
+            and should prompt timely assessment to identify neurological,
+            developmental, metabolic or other underlying causes.
+          </p>
+
+          <h3>Management Principles</h3>
+
+          <p>
+            Management depends on the underlying cause and may involve
+            nutritional intervention, treatment of medical disease,
+            physiotherapy, occupational therapy, speech and language therapy,
+            psychological intervention, educational support and specialist
+            referral.
+          </p>
+        `
+      }
     }
-  ],
 
-  references: [
-    {
-      id: "ref_1",
-      citation:
-        "Santrock, J. W. A Topical Approach to Lifespan Development. McGraw-Hill Education."
-    },
-
-    {
-      id: "ref_2",
-      citation:
-        "World Health Organization. WHO Child Growth Standards."
-    },
-
-    {
-      id: "ref_3",
-      citation:
-        "Erikson, E. H. Childhood and Society. W. W. Norton & Company."
-    },
-
-    {
-      id: "ref_4",
-      citation:
-        "Piaget, J. The Origins of Intelligence in Children. International Universities Press."
-    },
-
-    {
-      id: "ref_5",
-      citation:
-        "Bowlby, J. Attachment and Loss. Basic Books."
-    },
-
-    {
-      id: "ref_6",
-      citation:
-        "American Academy of Pediatrics. Developmental Surveillance and Screening."
-    },
-
-    {
-      id: "ref_7",
-      citation:
-        "Centers for Disease Control and Prevention. Developmental Milestones."
-    },
-
-    {
-      id: "ref_8",
-      citation:
-        "Bandura, A. Social Learning Theory. Prentice-Hall."
-    },
-
-    {
-      id: "ref_9",
-      citation:
-        "Bronfenbrenner, U. The Ecology of Human Development. Harvard University Press."
-    },
-
-    {
-      id: "ref_10",
-      citation:
-        "Kohlberg, L. Essays on Moral Development. Harper & Row."
-    },
-
-    {
-      id: "ref_11",
-      citation:
-        "Feldman, R. S. Essentials of Understanding Psychology. McGraw-Hill Education."
-    }
   ]
 };

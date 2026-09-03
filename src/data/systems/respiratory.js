@@ -1,5 +1,3 @@
-import { clinicalMethodsRespiratory } from "./respiratory/clinical_methods.js";
-
 export const respiratorySystem = {
   id: "respiratory",
   name: "Respiratory System",
@@ -8,7 +6,7 @@ export const respiratorySystem = {
     {
       id: "lungs",
       name: "Lungs",
-      modelPath: "models/respiratory/",
+      modelPath: "models/respiratory/lungs/",
       modelFile: "lungs.glb",
 
       notes: {
@@ -116,7 +114,6 @@ export const respiratorySystem = {
             with some drainage contributing to physiological venous admixture.
           </p>
         `,
-        
 
         physiology: `
           <h2>Lung Physiology</h2>
@@ -1495,7 +1492,6 @@ export const respiratorySystem = {
           </p>
         `
       }
-    },
-    clinicalMethodsRespiratory
+    }
   ]
 };

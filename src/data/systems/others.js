@@ -6,7 +6,7 @@ import {basicPharmacology} from "./others/basic_pharmacology.js";
 
 export const otherSystems = {
     id: "others",
-    name: "Other Systems",
+    name: "Other Units",
     organs: [
         introductonOtherSystems,
         communityBasedPharmacology,

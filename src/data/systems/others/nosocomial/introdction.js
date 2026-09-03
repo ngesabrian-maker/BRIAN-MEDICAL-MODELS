@@ -11,7 +11,7 @@ involves handling Operation Theatre instruments and patients in the Operation Th
 Necessary precautions are taken in the context of theatre setting to avoid infections.
         
       </p>
-      <img src="public/images/nosocomial.PNG" />
+      <img src="/images/nosocomial.PNG" />
       <p> <h3>Summary of Learning Outcomes </h3>
         Prepare surgical instruments <br>
         Prepare patient for surgery <br>

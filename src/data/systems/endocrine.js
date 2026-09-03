@@ -1,5 +1,3 @@
-import {clinicalMethodsEndocrine} from "./endocrine/clinical_methods.js";
-
 export const endocrineSystem = {
   id: "endocrine",
   name: "Endocrine System",
@@ -839,7 +837,6 @@ export const endocrineSystem = {
           </p>
         `
       }
-    },
-    clinicalMethodsEndocrine
+    }
   ]
 };

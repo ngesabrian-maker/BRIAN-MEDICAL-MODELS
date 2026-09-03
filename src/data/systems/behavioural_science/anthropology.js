@@ -2,7 +2,8 @@ export const anthropologySystem = {
   id: "anthropology",
   name: "Anthropology System",
 
-  notes: `
+  notes:{
+    anatomy: `
     <h2>Anthropology</h2>
 
     <h3>Overview</h3>
@@ -32,7 +33,7 @@ export const anthropologySystem = {
       <li>Medical anthropology.</li>
       <li>Applied anthropology.</li>
     </ul>
-  `,
+  `},
 
   parts: [
 
@@ -40,7 +41,7 @@ export const anthropologySystem = {
       id: "introduction_to_anthropology",
       name: "1. Introduction to Anthropology",
 
-      notes: `
+      notes:{ anatomy: `
         <h2>Introduction to Anthropology</h2>
 
         <p>
@@ -68,14 +69,14 @@ export const anthropologySystem = {
           comparative analysis, cultural context, and observation of human
           behaviour within real social environments.
         </p>
-      `
+      `}
     },
 
     {
       id: "branches_of_anthropology",
       name: "2. Branches of Anthropology",
 
-      notes: `
+      notes:{ anatomy: `
         <h2>Branches of Anthropology</h2>
 
         <h3>1. Biological Anthropology</h3>
@@ -123,14 +124,14 @@ export const anthropologySystem = {
           as healthcare, education, development, public policy, community
           programmes, and social services.
         </p>
-      `
+      `}
     },
 
     {
       id: "biological_anthropology",
       name: "3. Biological Anthropology",
 
-      notes: `
+      notes:{ anatomy: `
         <h2>Biological Anthropology</h2>
 
         <p>
@@ -150,14 +151,14 @@ export const anthropologySystem = {
           <li>Population biology.</li>
           <li>Human ecology.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "human_evolution",
       name: "4. Human Evolution",
 
-      notes: `
+      notes:{ anatomy: `
         <h2>Human Evolution</h2>
 
         <p>
@@ -183,14 +184,14 @@ export const anthropologySystem = {
           Humans are primates and share evolutionary ancestry with other living
           primates.
         </p>
-      `
+      `}
     },
 
     {
       id: "human_biological_variation",
       name: "5. Human Biological Variation",
 
-      notes: `
+      notes:{ anatomy: `
         <h2>Human Biological Variation</h2>
 
         <p>
@@ -214,14 +215,14 @@ export const anthropologySystem = {
           Human biological variation exists on a continuum and does not map
           neatly onto socially constructed racial categories.
         </p>
-      `
+      `}
     },
 
     {
       id: "human_adaptation",
       name: "6. Human Adaptation",
 
-      notes: `
+      notes:{ anatomy: `
         <h2>Human Adaptation</h2>
 
         <p>
@@ -243,14 +244,14 @@ export const anthropologySystem = {
           Humans possess extensive cultural and technological mechanisms for
           adapting to diverse environments.
         </p>
-      `
+      `}
     },
 
     {
       id: "primatology",
       name: "7. Primatology",
 
-      notes: `
+      notes:{ anatomy: `
         <h2>Primatology</h2>
 
         <p>
@@ -270,14 +271,14 @@ export const anthropologySystem = {
           <li>Feeding behaviour.</li>
           <li>Cognition.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "cultural_anthropology",
       name: "8. Cultural Anthropology",
 
-      notes: `
+      notes:{ anatomy: `
         <h2>Cultural Anthropology</h2>
 
         <p>
@@ -299,14 +300,14 @@ export const anthropologySystem = {
           <li>Political organisation.</li>
           <li>Health practices.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "culture",
       name: "9. Culture",
 
-      notes: `
+      notes:{ anatomy: `
         <h2>Culture</h2>
 
         <p>
@@ -326,14 +327,14 @@ export const anthropologySystem = {
           <li>Transmitted between generations.</li>
           <li>Influenced by social and environmental conditions.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "elements_of_culture",
       name: "10. Elements of Culture",
 
-      notes: `
+      notes:{ anatomy: `
         <h2>Elements of Culture</h2>
 
         <ul>
@@ -363,14 +364,14 @@ export const anthropologySystem = {
           Includes beliefs, values, norms, language, knowledge, traditions,
           and other symbolic systems.
         </p>
-      `
+      `}
     },
 
     {
       id: "culture_and_behaviour",
       name: "11. Culture and Human Behaviour",
 
-      notes: `
+      notes:{ anatomy: `
         <h2>Culture and Human Behaviour</h2>
 
         <p>
@@ -391,14 +392,14 @@ export const anthropologySystem = {
           <li>Concepts of illness.</li>
           <li>Death and mourning.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "enculturation",
       name: "12. Enculturation",
 
-      notes: `
+      notes:{ anatomy: `
         <h2>Enculturation</h2>
 
         <p>
@@ -421,14 +422,14 @@ export const anthropologySystem = {
           Enculturation begins early in life and continues throughout the
           lifespan.
         </p>
-      `
+      `}
     },
 
     {
       id: "acculturation",
       name: "13. Acculturation",
 
-      notes: `
+      notes:{ anatomy: `
         <h2>Acculturation</h2>
 
         <p>
@@ -445,14 +446,14 @@ export const anthropologySystem = {
           <li>Cultural conflict.</li>
           <li>Changes in identity.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "ethnocentrism",
       name: "14. Ethnocentrism",
 
-      notes: `
+      notes:{ anatomy: `
         <h2>Ethnocentrism</h2>
 
         <p>
@@ -465,14 +466,14 @@ export const anthropologySystem = {
           stereotyping, discrimination, and ineffective cross-cultural
           communication.
         </p>
-      `
+      `}
     },
 
     {
       id: "cultural_relativism",
       name: "15. Cultural Relativism",
 
-      notes: `
+      notes:{ anatomy: `
         <h2>Cultural Relativism</h2>
 
         <p>
@@ -487,14 +488,14 @@ export const anthropologySystem = {
           respect with evidence-based practice, patient safety, ethics, and
           applicable law.
         </p>
-      `
+      `}    
     },
 
     {
       id: "kinship",
       name: "16. Kinship and Family",
 
-      notes: `
+      notes:{ anatomy: `
         <h2>Kinship and Family</h2>
 
         <p>
@@ -515,14 +516,14 @@ export const anthropologySystem = {
           <li>Residence patterns.</li>
           <li>Kinship obligations.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "marriage_and_family",
       name: "17. Marriage and Family Systems",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Marriage and Family Systems</h2>
 
         <p>
@@ -541,14 +542,14 @@ export const anthropologySystem = {
           <li>Inheritance systems.</li>
           <li>Family roles.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "gender_and_culture",
       name: "18. Gender and Culture",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Gender and Culture</h2>
 
         <p>
@@ -571,14 +572,14 @@ export const anthropologySystem = {
           <li>Caregiving roles.</li>
           <li>Health-seeking behaviour.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "language_anthropology",
       name: "19. Linguistic Anthropology",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Linguistic Anthropology</h2>
 
         <p>
@@ -597,14 +598,14 @@ export const anthropologySystem = {
           <li>Language change.</li>
           <li>Communication norms.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "medical_anthropology",
       name: "20. Medical Anthropology",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Medical Anthropology</h2>
 
         <p>
@@ -627,14 +628,14 @@ export const anthropologySystem = {
           <li>Culture and mental health.</li>
           <li>Culture and reproductive health.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "health_disease_illness",
       name: "21. Health, Disease and Illness",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Health, Disease and Illness</h2>
 
         <h3>Disease</h3>
@@ -662,14 +663,14 @@ export const anthropologySystem = {
           Medical anthropology examines how these concepts may differ across
           cultural settings.
         </p>
-      `
+      `}
     },
 
     {
       id: "explanatory_models",
       name: "22. Explanatory Models of Illness",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Explanatory Models of Illness</h2>
 
         <p>
@@ -691,14 +692,14 @@ export const anthropologySystem = {
           Patients may hold biomedical, religious, traditional, social, or
           mixed explanatory models simultaneously.
         </p>
-      `
+      `}
     },
 
     {
       id: "medical_pluralism",
       name: "23. Medical Pluralism",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Medical Pluralism</h2>
 
         <p>
@@ -724,14 +725,14 @@ export const anthropologySystem = {
           being used because some practices may affect adherence, delay
           treatment, or interact with biomedical therapies.
         </p>
-      `
+      `}
     },
 
     {
       id: "traditional_medicine",
       name: "24. Traditional Medicine",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Traditional Medicine</h2>
 
         <p>
@@ -755,14 +756,14 @@ export const anthropologySystem = {
           interactions, contamination, toxicity, and whether use delays
           effective treatment.
         </p>
-      `
+      `}
     },
 
     {
       id: "health_seeking_behaviour",
       name: "25. Healthcare-Seeking Behaviour",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Healthcare-Seeking Behaviour</h2>
 
         <p>
@@ -785,14 +786,14 @@ export const anthropologySystem = {
           <li>Stigma.</li>
           <li>Perceived severity.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "culture_and_mental_health",
       name: "26. Culture and Mental Health",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Culture and Mental Health</h2>
 
         <p>
@@ -817,14 +818,14 @@ export const anthropologySystem = {
           experiences from psychopathology while assessing distress,
           dysfunction, impairment, and risk.
         </p>
-      `
+      `}
     },
 
     {
       id: "culture_and_child_development",
       name: "27. Culture and Child Development",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Culture and Child Development</h2>
 
         <p>
@@ -843,14 +844,14 @@ export const anthropologySystem = {
           <li>Gender expectations.</li>
           <li>Family responsibilities.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "food_and_nutrition_anthropology",
       name: "28. Food, Nutrition and Culture",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Food, Nutrition and Culture</h2>
 
         <p>
@@ -870,14 +871,14 @@ export const anthropologySystem = {
           <li>Chronic disease management.</li>
           <li>Religious dietary practices.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "anthropology_and_religion",
       name: "29. Anthropology of Religion",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Anthropology of Religion</h2>
 
         <p>
@@ -898,14 +899,14 @@ export const anthropologySystem = {
           <li>Rites of passage.</li>
           <li>Healing traditions.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "rites_of_passage",
       name: "30. Rites of Passage",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Rites of Passage</h2>
 
         <p>
@@ -928,14 +929,14 @@ export const anthropologySystem = {
           These practices may provide identity, social recognition, community
           support, and meaning during major life transitions.
         </p>
-      `
+      `}
     },
 
     {
       id: "anthropology_and_communication",
       name: "31. Anthropology and Communication",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Anthropology and Communication</h2>
 
         <p>
@@ -951,14 +952,14 @@ export const anthropologySystem = {
           informed consent, disclosure, patient education, adherence, and
           clinician-patient relationships.
         </p>
-      `
+      `}
     },
 
     {
       id: "anthropology_and_healthcare",
       name: "32. Anthropology and Healthcare",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Anthropology and Healthcare</h2>
 
         <p>
@@ -978,14 +979,14 @@ export const anthropologySystem = {
           <li>Designing culturally appropriate interventions.</li>
           <li>Reducing barriers to healthcare.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "culture_and_treatment_adherence",
       name: "33. Culture and Treatment Adherence",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Culture and Treatment Adherence</h2>
 
         <p>
@@ -1005,14 +1006,14 @@ export const anthropologySystem = {
           <li>Address misconceptions respectfully.</li>
           <li>Use shared decision-making.</li>
         </ol>
-      `
+      `}
     },
 
     {
       id: "anthropology_and_public_health",
       name: "34. Anthropology and Public Health",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Anthropology and Public Health</h2>
 
         <p>
@@ -1033,14 +1034,14 @@ export const anthropologySystem = {
           <li>Mental health programmes.</li>
           <li>Health education.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "applied_anthropology",
       name: "35. Applied Anthropology",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Applied Anthropology</h2>
 
         <p>
@@ -1059,14 +1060,14 @@ export const anthropologySystem = {
           <li>Social policy.</li>
           <li>Environmental programmes.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "anthropological_research_methods",
       name: "36. Anthropological Research Methods",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Anthropological Research Methods</h2>
 
         <h3>Participant Observation</h3>
@@ -1103,14 +1104,14 @@ export const anthropologySystem = {
           Used to investigate kinship, descent, family relationships, and
           social organisation.
         </p>
-      `
+      `}
     },
 
     {
       id: "ethnography",
       name: "37. Ethnography",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Ethnography</h2>
 
         <p>
@@ -1128,14 +1129,14 @@ export const anthropologySystem = {
           <li>Contextual interpretation.</li>
           <li>Long-term engagement where appropriate.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "anthropology_and_social_determinants",
       name: "38. Anthropology and Social Determinants of Health",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Anthropology and Social Determinants of Health</h2>
 
         <p>
@@ -1158,14 +1159,14 @@ export const anthropologySystem = {
           <li>Geographical access.</li>
           <li>Health systems.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "anthropology_and_inequality",
       name: "39. Culture, Inequality and Health",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Culture, Inequality and Health</h2>
 
         <p>
@@ -1183,14 +1184,14 @@ export const anthropologySystem = {
           <li>Differences in treatment access.</li>
           <li>Differences in health outcomes.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "anthropology_and_globalisation",
       name: "40. Anthropology and Globalisation",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Anthropology and Globalisation</h2>
 
         <p>
@@ -1210,14 +1211,14 @@ export const anthropologySystem = {
           <li>Health information through digital media.</li>
           <li>Transnational healthcare practices.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "anthropology_and_migration",
       name: "41. Anthropology of Migration",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Anthropology of Migration</h2>
 
         <p>
@@ -1235,14 +1236,14 @@ export const anthropologySystem = {
           <li>Trauma and displacement.</li>
           <li>Changing family structures.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "anthropology_and_environment",
       name: "42. Anthropology and Human Environment",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Anthropology and Human Environment</h2>
 
         <p>
@@ -1262,14 +1263,14 @@ export const anthropologySystem = {
           <li>Occupational exposure.</li>
           <li>Infectious disease ecology.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "anthropology_and_development",
       name: "43. Anthropology and Community Development",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Anthropology and Community Development</h2>
 
         <p>
@@ -1288,14 +1289,14 @@ export const anthropologySystem = {
           <li>Community ownership.</li>
           <li>Sustainability.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "anthropology_and_clinical_practice",
       name: "44. Anthropology in Clinical Practice",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Anthropology in Clinical Practice</h2>
 
         <p>
@@ -1329,14 +1330,14 @@ export const anthropologySystem = {
             Does language affect communication?
           </li>
         </ul>
-      `
+      `}    
     },
 
     {
       id: "cultural_humility",
       name: "45. Cultural Humility",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Cultural Humility</h2>
 
         <p>
@@ -1356,14 +1357,14 @@ export const anthropologySystem = {
           <li>Patient-centred communication.</li>
           <li>Avoidance of stereotyping.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "cross_cultural_healthcare",
       name: "46. Cross-Cultural Healthcare",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Cross-Cultural Healthcare</h2>
 
         <p>
@@ -1392,14 +1393,14 @@ export const anthropologySystem = {
           <li>Shared decision-making.</li>
           <li>Patient education.</li>
         </ul>
-      `
+      `}
     },
 
     {
       id: "anthropology_revision",
       name: "47. Anthropology Revision Guide",
 
-      notes: `
+      notes:{ anatomy : `
         <h2>Anthropology Revision Guide</h2>
 
         <h3>Core Concepts</h3>
@@ -1437,7 +1438,7 @@ export const anthropologySystem = {
           communication and supports culturally responsive, patient-centred
           care.
         </p>
-      `
+      `}
     }
 
   ]

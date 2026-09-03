@@ -1,6 +1,3 @@
-import {clinicalMethodsGastrointestinal} from "./digestive/clinical_methods.js";
-
-
 export const digestiveSystem = {
   id: "digestive",
   name: "Digestive System",
@@ -1495,7 +1492,6 @@ export const digestiveSystem = {
           </ul>
         `
       }
-    },
-    clinicalMethodsGastrointestinal
+    }
   ]
 };

@@ -1,8 +1,17 @@
+import { conceptsBehaviouralScience } from "./introduction/concepts.js";
+import { determinantsOfBehaviour } from "./introduction/determinants.js";
+import { behaviourAndHealth } from "./introduction/behaviour_health.js";
+import { biopsychosocialApproach } from "./introduction/biopsychosocial_approach.js";
+import { behaviourChange } from "./introduction/behaviour_change.js";
+import { healthPromotion } from "./introduction/health_promotion.js";
+import { clinicalApplication } from "./introduction/clinical_application.js";
+
+
 export const introductionBehaviouralScience = {
   id: "introduction_behavioural_science",
   name: "Introduction to Behavioural Science",
 
-  notes: `
+  notes: { anatomy : `
     <h2>Introduction to Behavioural Science</h2>
 
     <h3>Overview</h3>
@@ -514,55 +523,15 @@ export const introductionBehaviouralScience = {
         <em>Ottawa Charter for Health Promotion</em>.
       </li>
     </ol>
-  `,
+  `},
 
   parts: [
-    {
-      id: "concepts_of_behavioural_science",
-      name: "Concepts of Behavioural Science",
-      notes: ``
-    },
-
-    {
-      id: "determinants_of_behaviour",
-      name: "Determinants of Human Behaviour",
-      notes: ``
-    },
-
-    {
-      id: "disciplines_of_behavioural_science",
-      name: "Disciplines of Behavioural Science",
-      notes: ``
-    },
-
-    {
-      id: "behaviour_and_health",
-      name: "Behaviour and Health",
-      notes: ``
-    },
-
-    {
-      id: "biopsychosocial_approach",
-      name: "Biopsychosocial Approach",
-      notes: ``
-    },
-
-    {
-      id: "behaviour_change",
-      name: "Behaviour Change",
-      notes: ``
-    },
-
-    {
-      id: "health_promotion",
-      name: "Behavioural Science in Health Promotion",
-      notes: ``
-    },
-
-    {
-      id: "clinical_application",
-      name: "Behavioural Science in Clinical Practice",
-      notes: ``
-    }
+    conceptsBehaviouralScience,
+    determinantsOfBehaviour,
+    behaviourAndHealth,
+    biopsychosocialApproach,
+    behaviourChange,
+    healthPromotion,
+    clinicalApplication
   ]
 };
