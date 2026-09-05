@@ -1,8 +1,8 @@
 export const capillaries = {
   id: "capillaries",
   name: "Capillaries",
-  modelPath: "models/blood-vessels/",
-  modelFile: "capillary.glb",
+  modelPath: "models/heart/",
+  modelFile: "capillary_network.glb",
 
   notes:        {
      

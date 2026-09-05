@@ -6,8 +6,8 @@ export const integumentarySystem = {
     {
       id: "skin",
       name: "Skin",
-      modelPath: null,
-      modelFile: null,
+      modelPath: "models/skin/",
+      modelFile: "skin.glb",
 
       notes: {
         anatomy: `
@@ -1018,8 +1018,7 @@ export const integumentarySystem = {
         {
           id: "hypodermis",
           name: "Hypodermis / Subcutaneous Tissue",
-          modelPath: null,
-          modelFile: null,
+
 
           notes: {
             anatomy: `
@@ -1053,8 +1052,8 @@ export const integumentarySystem = {
         {
           id: "hair",
           name: "Hair and Hair Follicle",
-          modelPath: null,
-          modelFile: null,
+          modelPath: "models/skin/",
+          modelFile: "hair.glb",
 
           notes: {
             anatomy: `
@@ -1095,8 +1094,8 @@ export const integumentarySystem = {
         {
           id: "sebaceous-glands",
           name: "Sebaceous Glands",
-          modelPath: null,
-          modelFile: null,
+          modelPath: "models/skin/",
+          modelFile: "skin.glb",
 
           notes: {
             anatomy: `
@@ -1128,8 +1127,8 @@ export const integumentarySystem = {
         {
           id: "sweat-glands",
           name: "Sweat Glands",
-          modelPath: null,
-          modelFile: null,
+          modelPath: "models/skin/",
+          modelFile: "skin.glb",
 
           notes: {
             anatomy: `

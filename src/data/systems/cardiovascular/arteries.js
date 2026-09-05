@@ -1,8 +1,8 @@
 export const arteries = {
   id: "arteries",
   name: "Arteries",
-  modelPath: "models/arteries/",
-  modelFile: "arterial-system.glb",
+  modelPath: "models/heart/",
+  modelFile: "arteries_of_head__neck.glb",
 
   notes: {
 

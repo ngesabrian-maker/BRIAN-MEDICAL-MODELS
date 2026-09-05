@@ -2,7 +2,8 @@ export const cardiointroduction = {
 
   id: "cardiointroduction",
   name: "Introduction",
-
+  modelPath: "models/digestive/",
+  modelFile: "abdomen_anatomy.glb",
   parts: [],
 
   notes: {
@@ -437,6 +438,8 @@ export const cardiointroduction = {
         Capillaries are microscopic vessels with very thin walls. They form the
         principal site of exchange between blood and tissues.
       </p>
+
+    <div class="sketchfab-embed-wrapper"> <iframe title="3D Blood Vessels" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/99850a06fd4d480988be93e6cb83ec3a/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/3d-blood-vessels-99850a06fd4d480988be93e6cb83ec3a" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> 3D Blood Vessels </a> by <a href="https://sketchfab.com/3D4SCI" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> 3D4SCI </a> on <a href="https://sketchfab.com" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>
 
       <h3>Venules</h3>
 

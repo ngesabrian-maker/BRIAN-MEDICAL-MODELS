@@ -1,6 +1,8 @@
 export const AnatomyIntroduction = {
   id: "anatomy_introduction",
   name: "Introduction to Anatomy",
+  modelPath: "models/general/",
+  modelFile: "anatomy.glb",
 
   notes: {
     anatomy: `

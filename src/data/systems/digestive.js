@@ -1,6 +1,8 @@
 export const digestiveSystem = {
   id: "digestive",
   name: "Digestive System",
+  modelPath: "models/digestive/",
+  modelFile: "abdomen_anatomy.glb",
 
   organs: [
 
@@ -433,8 +435,8 @@ export const digestiveSystem = {
     {
       id: "stomach",
       name: "Stomach",
-      modelPath: "models/digestive/stomach/",
-      modelFile: "stomach.glb",
+      modelPath: "models/digestive/",
+      modelFile: "stomach_anatomy.glb",
 
       notes: {
 

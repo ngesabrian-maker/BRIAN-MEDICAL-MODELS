@@ -1,7 +1,7 @@
 export const veins = {
   id: "veins",
   name: "Veins",
-  modelPath: "models/blood-vessels/",
+  modelPath: "models/heart/",
   modelFile: "vein.glb",
   notes:      {
             anatomy: `

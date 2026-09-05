@@ -6,7 +6,7 @@ export const respiratorySystem = {
     {
       id: "lungs",
       name: "Lungs",
-      modelPath: "models/respiratory/lungs/",
+      modelPath: "models/respiratory/",
       modelFile: "lungs.glb",
 
       notes: {

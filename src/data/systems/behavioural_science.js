@@ -28,10 +28,3 @@ export const behaviouralSocialScience = {
 
 
 
-export const behaviouralSocialScienceSystem = {
-  id: "behavioural_social_science",
-  name: "Behavioural and Social Science",
-  organs: [
-    introductionBehaviouralScience
-  ]
-};
