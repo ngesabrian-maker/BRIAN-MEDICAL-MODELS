@@ -23,6 +23,14 @@ function writeLocalStore(obj) {
   }
 }
 
+function mergeLocalStore(input) {
+  const current = readLocalStore();
+  const incoming = (input && typeof input === 'object') ? input : {};
+  const merged = { ...current, ...incoming };
+  writeLocalStore(merged);
+  return merged;
+}
+
 function normalizePartId(value) {
   return value === undefined || value === null ? '' : String(value);
 }
@@ -157,8 +165,8 @@ export async function importDbFile(file) {
       const text = await file.text();
       const parsed = JSON.parse(text);
       if (typeof parsed === 'object') {
-        writeLocalStore(parsed);
-        return { ok: true, fallback: true };
+        const merged = mergeLocalStore(parsed);
+        return { ok: true, fallback: true, merged: Object.keys(merged).length, preserved: true };
       }
     } catch (e2) {
       throw new Error('Import failed');

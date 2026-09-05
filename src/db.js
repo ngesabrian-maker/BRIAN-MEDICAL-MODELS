@@ -2,6 +2,8 @@ let SQL = null;
 let webDb = null; // sql.js DB instance for web
 let nativeConn = null; // Capacitor native DB connection
 const STORAGE_KEY = 'brian_sqlite_db_v1';
+const DB_SCHEMA_VERSION_KEY = 'brian_db_schema_version';
+const CURRENT_DB_SCHEMA_VERSION = 2;
 
 function toBase64(uint8arr) {
   let binary = '';
@@ -34,6 +36,115 @@ function isNativeCapacitor() {
   }
 }
 
+function getStoredVersion() {
+  try {
+    if (typeof localStorage === 'undefined') return 0;
+    const value = localStorage.getItem(DB_SCHEMA_VERSION_KEY);
+    return value ? Number(value) || 0 : 0;
+  } catch (e) {
+    return 0;
+  }
+}
+
+function setStoredVersion(version) {
+  try {
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem(DB_SCHEMA_VERSION_KEY, String(version));
+    }
+  } catch (e) {
+    console.warn('Failed to persist DB schema version', e);
+  }
+}
+
+function getColumnNamesFromPragmaResult(result) {
+  if (!result || !Array.isArray(result) || result.length === 0) return [];
+  const rows = Array.isArray(result[0] && result[0].values) ? result[0].values : [];
+  return rows.map(row => row && row[1] ? String(row[1]) : '').filter(Boolean);
+}
+
+async function ensureNativeSchema() {
+  if (!nativeConn) return { ok: true, version: CURRENT_DB_SCHEMA_VERSION };
+
+  const createStmt = `CREATE TABLE IF NOT EXISTS notes (
+    organId TEXT,
+    partId TEXT DEFAULT '',
+    subject TEXT,
+    content TEXT,
+    embeds TEXT DEFAULT '[]',
+    PRIMARY KEY (organId, partId, subject)
+  );`;
+
+  try {
+    if (typeof nativeConn.execute === 'function') {
+      await nativeConn.execute({ statements: createStmt });
+    } else if (typeof nativeConn.run === 'function') {
+      await nativeConn.run(createStmt);
+    }
+  } catch (e) {
+    console.warn('Failed to create notes table in native DB', e);
+  }
+
+  try {
+    const pragma = typeof nativeConn.query === 'function' ? await nativeConn.query({ statement: "PRAGMA table_info('notes')", values: [] }) : null;
+    const cols = getColumnNamesFromPragmaResult(pragma && pragma.values ? [pragma] : []);
+    if (!cols.includes('partId')) {
+      await nativeConn.run("ALTER TABLE notes ADD COLUMN partId TEXT DEFAULT ''");
+    }
+    if (!cols.includes('embeds')) {
+      await nativeConn.run("ALTER TABLE notes ADD COLUMN embeds TEXT DEFAULT '[]'");
+    }
+  } catch (e) {
+    console.warn('Native notes table migration failed gracefully', e);
+  }
+
+  setStoredVersion(CURRENT_DB_SCHEMA_VERSION);
+  return { ok: true, version: CURRENT_DB_SCHEMA_VERSION };
+}
+
+async function ensureWebSchema() {
+  if (!webDb) return { ok: true, version: CURRENT_DB_SCHEMA_VERSION };
+
+  webDb.run(`CREATE TABLE IF NOT EXISTS notes (
+    organId TEXT,
+    partId TEXT DEFAULT '',
+    subject TEXT,
+    content TEXT,
+    embeds TEXT DEFAULT '[]',
+    PRIMARY KEY (organId, partId, subject)
+  )`);
+
+  try {
+    const info = webDb.exec("PRAGMA table_info('notes')");
+    const cols = getColumnNamesFromPragmaResult(info);
+    if (!cols.includes('partId')) {
+      webDb.run("ALTER TABLE notes ADD COLUMN partId TEXT DEFAULT ''");
+    }
+    if (!cols.includes('embeds')) {
+      webDb.run("ALTER TABLE notes ADD COLUMN embeds TEXT DEFAULT '[]'");
+    }
+  } catch (e) {
+    console.warn('Web notes table migration failed gracefully', e);
+  }
+
+  setStoredVersion(CURRENT_DB_SCHEMA_VERSION);
+  return { ok: true, version: CURRENT_DB_SCHEMA_VERSION };
+}
+
+export async function ensureDbSchema() {
+  const currentVersion = getStoredVersion();
+  if (currentVersion >= CURRENT_DB_SCHEMA_VERSION && (nativeConn || webDb)) {
+    return { ok: true, version: currentVersion };
+  }
+
+  if (nativeConn) {
+    return ensureNativeSchema();
+  }
+  if (webDb) {
+    return ensureWebSchema();
+  }
+  return { ok: true, version: CURRENT_DB_SCHEMA_VERSION };
+}
+
 // initialize DB: prefer native Capacitor SQLite, otherwise use sql.js (in-browser)
 export async function initDB() {
   if (isNativeCapacitor() && !nativeConn) {
@@ -64,25 +175,7 @@ export async function initDB() {
         await nativeConn.open();
       }
 
-      // ensure notes table using the available execute/run API
-      const createStmt = `CREATE TABLE IF NOT EXISTS notes (
-        organId TEXT,
-        partId TEXT DEFAULT '',
-        subject TEXT,
-        content TEXT,
-        PRIMARY KEY (organId, partId, subject)
-      );`;
-
-      if (nativeConn) {
-        if (typeof nativeConn.execute === 'function') {
-          await nativeConn.execute({ statements: createStmt });
-        } else if (typeof nativeConn.run === 'function') {
-          await nativeConn.run(createStmt);
-        } else if (typeof sqlite.execute === 'function') {
-          await sqlite.execute({ statements: createStmt });
-        }
-      }
-
+      await ensureNativeSchema();
       return { type: 'native', conn: nativeConn };
     } catch (e) {
       console.warn('Capacitor SQLite init failed, falling back to web sql.js', e);
@@ -91,7 +184,10 @@ export async function initDB() {
   }
 
   // Web fallback: sql.js
-  if (webDb) return { type: 'web', db: webDb };
+  if (webDb) {
+    await ensureWebSchema();
+    return { type: 'web', db: webDb };
+  }
   if (!SQL) {
     try {
       const mod = await import('sql.js/dist/sql-wasm.js');
@@ -117,14 +213,7 @@ export async function initDB() {
     webDb = new SQL.Database();
   }
 
-  webDb.run(`CREATE TABLE IF NOT EXISTS notes (
-    organId TEXT,
-    partId TEXT DEFAULT '',
-    subject TEXT,
-    content TEXT,
-    PRIMARY KEY (organId, partId, subject)
-  )`);
-
+  await ensureWebSchema();
   return { type: 'web', db: webDb };
 }
 
@@ -134,6 +223,7 @@ export async function saveDB() {
     return;
   }
   if (!webDb) return;
+  await ensureWebSchema();
   const data = webDb.export();
   const b64 = toBase64(data);
   try { localStorage.setItem(STORAGE_KEY, b64); } catch (e) { console.warn('saveDB failed', e); }

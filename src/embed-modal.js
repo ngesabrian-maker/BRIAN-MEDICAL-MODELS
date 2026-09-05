@@ -293,6 +293,8 @@ export function createEmbedController({ notesDrawer, drawerBody, embedModal, emb
       if (event.target === embedModal) closeEmbedModalPanel();
     });
 
+    
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && embedModal && !embedModal.classList.contains('hidden')) {
         closeEmbedModalPanel();
@@ -300,6 +302,23 @@ export function createEmbedController({ notesDrawer, drawerBody, embedModal, emb
     });
     // enable drag-and-drop reordering
     try { setupDragAndDrop(); } catch (e) {}
+  }
+
+  // Filter visible embed tiles by query (matches title, caption, or iframe src/html)
+  function filterEmbedsList(query) {
+    if (!embedsPanel) return;
+    const q = String(query || '').trim().toLowerCase();
+    Array.from(embedsPanel.querySelectorAll('.embedded-item')).forEach(item => {
+      if (!q) {
+        item.style.display = '';
+        return;
+      }
+      const title = (item.querySelector('h4') ? item.querySelector('h4').textContent : '') || '';
+      const caption = (item.querySelector('p') ? item.querySelector('p').textContent : '') || '';
+      const html = item.dataset.embedHtml || '';
+      const hay = (title + ' ' + caption + ' ' + html).toLowerCase();
+      item.style.display = hay.indexOf(q) >= 0 ? '' : 'none';
+    });
   }
 
   // expose helper to build a tile element from embed object (used by drawer)
@@ -322,7 +341,17 @@ export function createEmbedController({ notesDrawer, drawerBody, embedModal, emb
     const img = document.createElement('img');
     img.className = 'embed-thumb-img';
     img.alt = embedObj.title || 'Embed thumbnail';
-    img.src = getThumbnailForEmbed(embedObj.html, embedObj.title);
+    // show a lightweight SVG placeholder immediately, then lazily load a better thumbnail
+    const placeholder = makeSvgDataUrl(embedObj.title || '3D Model');
+    img.src = placeholder;
+    try {
+      const real = getThumbnailForEmbed(embedObj.html, embedObj.title) || '';
+      if (real && real !== placeholder) {
+        img.dataset.realSrc = real;
+        // schedule lazy-load after paint to avoid blocking UI
+        requestAnimationFrame(() => { setTimeout(() => { try { img.src = img.dataset.realSrc; } catch (e) {} }, 60); });
+      }
+    } catch (e) {}
     thumb.appendChild(img);
 
     const meta = document.createElement('div');
@@ -341,6 +370,31 @@ export function createEmbedController({ notesDrawer, drawerBody, embedModal, emb
     // keyboard handlers for accessibility
     [seeBtn, editBtn, delBtn].forEach(btn => {
       btn.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); } });
+    });
+
+    // wire local actions: open viewer, edit, delete
+    seeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      try { document.dispatchEvent(new CustomEvent('embed:open-request', { detail: { id: embedObj.id, el: wrapper } })); } catch (er) {}
+    });
+    editBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      try { openEmbedModal(embedObj, wrapper); } catch (er) {}
+    });
+    delBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      try {
+        // remove tile and update metadata stored in drawerBody
+        if (wrapper && wrapper.parentNode) wrapper.remove();
+        const metaEl = drawerBody && drawerBody.querySelector && drawerBody.querySelector('.embed-metadata');
+        if (metaEl) {
+          let list = [];
+          try { list = JSON.parse(metaEl.textContent || metaEl.getAttribute('data-embeds') || '[]'); } catch (er) { list = []; }
+          list = list.filter(x => x && x.id !== embedObj.id);
+          try { metaEl.textContent = JSON.stringify(list); } catch (er) { metaEl.setAttribute('data-embeds', JSON.stringify(list)); }
+        }
+        try { document.dispatchEvent(new CustomEvent('embed:inserted', { detail: { wasEdit: true } })); } catch (er) {}
+      } catch (err) { console.warn('Failed to delete embed tile', err); }
     });
 
     wrapper.appendChild(handle);

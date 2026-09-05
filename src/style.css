@@ -1,712 +1,794 @@
+
+/* =========================================================
+   BRIAN MEDS — ANATOMY
+   MAIN APPLICATION STYLESHEET
+   ========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL THEME VARIABLES
+   ========================================================= */
+
 :root {
   --sidebar-width: 220px;
   --gap: 16px;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 22px;
+
+  --transition-fast: 160ms ease;
+  --transition-normal: 220ms ease;
+  --transition-slow: 280ms ease;
 }
+
+
+/* ---------- DARK THEME ---------- */
 
 html[data-theme="dark"] {
   --bg: #0f1720;
   --panel: #0b1220;
+  --panel-soft: #111827;
+  --panel-hover: #172033;
+
   --accent: #2dd4bf;
+  --accent-hover: #5eead4;
+
   --muted: #9caaf0;
   --text: #e6eef6;
+  --text-soft: #cbd5e1;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+
+  --shadow: rgba(2, 6, 23, 0.45);
+  --shadow-heavy: rgba(2, 6, 23, 0.7);
+
+  --input-bg: rgba(255, 255, 255, 0.04);
+  --hover-bg: rgba(45, 212, 191, 0.12);
+
+  --drawer-bg: #0b1220;
+  --drawer-header-bg: #0b1220;
+  --drawer-body-bg: #0b1220;
+
+  --code-bg: rgba(0, 0, 0, 0.35);
 }
+
+
+/* ---------- LIGHT THEME ---------- */
 
 html[data-theme="light"] {
   --bg: #f6f7fb;
   --panel: #ffffff;
+  --panel-soft: #f8fafc;
+  --panel-hover: #eef2f7;
+
   --accent: #0b7285;
+  --accent-hover: #095c6b;
+
   --muted: #475569;
   --text: #0b1220;
+  --text-soft: #334155;
+
+  --border: rgba(15, 23, 42, 0.10);
+  --border-strong: rgba(15, 23, 42, 0.18);
+
+  --shadow: rgba(15, 23, 42, 0.14);
+  --shadow-heavy: rgba(15, 23, 42, 0.24);
+
+  --input-bg: rgba(15, 23, 42, 0.04);
+  --hover-bg: rgba(11, 114, 133, 0.10);
+
+  --drawer-bg: #ffffff;
+  --drawer-header-bg: #ffffff;
+  --drawer-body-bg: #ffffff;
+
+  --code-bg: #f1f5f9;
 }
 
-* { box-sizing: border-box; }
 
-html, body {
+/* =========================================================
+   2. RESET / BASE
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
   height: 100%;
-  margin: 0;
-  font-family: Inter, "Segoe UI", Helvetica, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  transition: background 220ms linear, color 220ms linear;
   overflow: hidden;
 }
 
-button, input, textarea {
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: var(--bg);
+  color: var(--text);
+
+  overflow: hidden;
+
+  transition:
+    background var(--transition-normal),
+    color var(--transition-normal);
+}
+
+button,
+input,
+textarea,
+select {
   font: inherit;
 }
 
+button {
+  cursor: pointer;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+/* =========================================================
+   3. APPLICATION LAYOUT
+   ========================================================= */
+
 .app {
-  display: flex;
+  width: 100%;
   height: 100vh;
-  min-height: 100vh;
-  overflow: hidden;
+
+  display: flex;
+
+  background: var(--bg);
+  color: var(--text);
 }
 
-#sidebar {
-  background: var(--panel);
-}
 
-aside#sidebar {
+/* =========================================================
+   4. SIDEBAR
+   ========================================================= */
+
+.sidebar {
+  position: relative;
+
   width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
   padding: 16px;
-  border-right: 1px solid rgba(0, 0, 0, 0.06);
+
+  background: var(--panel);
+
+  border-right: 1px solid var(--border);
+
   overflow-y: auto;
   overflow-x: hidden;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
-  transition: transform 260ms ease, visibility 260ms ease;
-}
 
-aside#sidebar::-webkit-scrollbar,
-.drawer-body::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-aside#sidebar::-webkit-scrollbar-thumb,
-.drawer-body::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.38);
-  border-radius: 999px;
-}
-
-aside#sidebar::-webkit-scrollbar-track,
-.drawer-body::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-html.sidebar-collapsed aside#sidebar {
-  transform: translateX(-100%);
-}
-
-aside h2 {
-  margin: 0 0 12px 0;
-  font-size: 16px;
-  color: var(--accent);
-}
-
-.sidebar-toggle,
-.theme-toggle,
-.drawer-btn,
-.edit-note,
-.save-note,
-.primary-btn {
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.sidebar-toggle,
-.theme-toggle,
-.drawer-btn,
-.edit-note,
-.save-note {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: var(--text);
-  padding: 6px 8px;
-}
-
-.sidebar-toggle {
-  margin-right: 6px;
-}
-
-#organList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.organ-item {
-  padding: 8px 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  color: var(--muted);
-  margin-bottom: 6px;
-}
-
-.organ-item:hover {
-  background: rgba(255, 255, 255, 0.02);
-  color: #fff;
-}
-
-.organ-item.selected {
-  background: linear-gradient(90deg, rgba(45, 212, 191, 0.12), rgba(45, 212, 191, 0.04));
-  color: var(--accent);
-  font-weight: 600;
-}
-
-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  min-height: 0;
-  overflow: hidden;
-}
-
-header {
-  padding: 14px 18px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), transparent);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 16px;
-}
-
-.header-controls {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.viewer {
-  flex: 1;
-  position: relative;
-  display: flex;
-  min-height: 0;
-}
-
-#renderCanvas {
-  width: 100%;
-  height: 100%;
-  display: block;
-  background: var(--panel);
-}
-
-.placeholder {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--muted);
-  padding: 12px 18px;
-  background: rgba(0, 0, 0, 0.03);
-  border-radius: 8px;
-}
-
-.notes {
-  padding: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.02);
-  background: var(--panel);
-}
-
-.notes h2 {
-  margin: 0 0 8px 0;
-}
-
-.notes p,
-.notes li {
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-.navigator {
-  position: absolute;
-  right: 18px;
-  top: 18px;
-  width: 120px;
-  height: 120px;
-  pointer-events: none;
-  z-index: 50;
-}
-
-.navigator .nav-box {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.navigator .nav-label {
-  color: var(--muted);
-  font-size: 12px;
-  text-align: center;
-}
-
-.navigator .nav-top { margin-bottom: 6px; }
-.navigator .nav-bottom { margin-top: 6px; }
-
-.navigator .nav-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.navigator .nav-left,
-.navigator .nav-right {
-  color: var(--muted);
-  width: 40px;
-  text-align: center;
-  font-size: 12px;
-}
-
-.navigator .nav-cross {
-  color: var(--accent);
-  font-weight: 700;
-  font-size: 18px;
-  width: 40px;
-  text-align: center;
-}
-
-.system-wrapper {
-  margin-bottom: 10px;
-}
-
-.system-header {
-  width: 100%;
-  text-align: left;
-  background: transparent;
-  border: none;
-  color: var(--muted);
-  padding: 6px 0;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.system-list {
-  list-style: none;
-  padding-left: 10px;
-  margin: 6px 0 0 0;
-  transition: max-height 180ms ease, opacity 180ms ease;
-}
-
-.system-list.collapsed {
-  display: none;
-}
-
-.system-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.system-header::after {
-  content: "+";
-  font-size: 14px;
-  line-height: 1;
-  color: var(--muted);
-  transform: translateY(-1px);
-}
-
-.system-header[aria-expanded="true"]::after {
-  content: "−";
-}
-
-.parts-list {
-  list-style: none;
-  padding-left: 18px;
-  margin: 6px 0 8px 0;
-}
-
-.part-item {
-  padding: 4px 8px;
-  border-radius: 6px;
-  color: var(--muted);
-  cursor: pointer;
-  font-size: 13px;
-}
-
-.part-item:hover {
-  background: rgba(0, 0, 0, 0.03);
-  color: var(--text);
-}
-
-.part-item.selected {
-  background: rgba(45, 212, 191, 0.08);
-  color: var(--accent);
-  font-weight: 600;
-}
-
-.show-notes {
-  background: var(--accent);
-  color: #012;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.6);
-}
-
-.viewer-actions {
-  position: absolute;
-  left: 18px;
-  bottom: 18px;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  z-index: 20;
-}
-
-.user-notes {
-  background: #facc15;
-  color: #1f2937;
-}
-
-.see-model {
-  background: #0ea5e9;
-  color: #e0f2fe;
-}
-
-.see-model:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-.subject-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-.subject-btn {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  color: var(--muted);
-  padding: 6px 8px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 13px;
-}
-
-.subject-btn.active {
-  background: linear-gradient(90deg, rgba(45, 212, 191, 0.12), rgba(45, 212, 191, 0.04));
-  color: var(--accent);
-  border-color: rgba(45, 212, 191, 0.12);
-}
-
-.note-modal {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(2, 6, 23, 0.6);
   z-index: 100;
 }
 
-.note-modal.hidden {
-  display: none;
-}
-
-.note-content {
-  background: var(--panel);
-  padding: 18px;
-  border-radius: 10px;
-  max-width: 720px;
-  width: 90%;
-  color: var(--text);
-  position: relative;
-  box-shadow: 0 10px 40px rgba(2, 6, 23, 0.08);
-}
-
-.note-content h2 {
-  margin-top: 0;
-}
-
-.note-content p,
-.note-content li {
-  color: var(--muted);
-}
-
-.close-note {
-  position: absolute;
-  right: 10px;
-  top: 8px;
-  background: transparent;
-  border: none;
-  color: var(--muted);
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.note-controls {
-  position: absolute;
-  left: 12px;
-  top: 8px;
-  display: flex;
-  gap: 6px;
-}
-
-.edit-note,
-.save-note {
-  background: transparent;
-}
-
-.note-content [contenteditable="true"] {
-  outline: 2px solid rgba(45, 212, 191, 0.12);
-  padding: 6px;
-}
-
-.embed-modal {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(2, 6, 23, 0.72);
-  z-index: 1000;
-}
-
-/* small inline spinner for show-notes button to indicate loading and prevent double clicks */
-.show-notes.loading {
-  pointer-events: none;
-  opacity: 0.9;
-}
-.show-notes.loading::after {
-  content: '';
-  display: block;
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  border: 2px solid rgba(255,255,255,0.25);
-  border-top-color: rgba(255,255,255,0.85);
-  animation: _brian_spin 0.8s linear infinite;
-}
-@keyframes _brian_spin { from { transform: translateY(-50%) rotate(0deg); } to { transform: translateY(-50%) rotate(360deg); } }
-
-.embed-modal.hidden {
-  display: none;
-}
-
-.embed-panel {
-  width: min(640px, calc(100vw - 32px));
-  background: var(--panel);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
-  box-shadow: 0 26px 80px rgba(2, 6, 23, 0.35);
-}
-
-.embed-panel:focus {
-  outline: 3px solid rgba(45,212,191,0.18);
-  box-shadow: 0 30px 90px rgba(2,6,23,0.45);
-}
-
-/* Keep the main content sharp while modal overlays remain active */
-.overlay-active .notes-drawer {
-  filter: none !important;
-  opacity: 1 !important;
-  pointer-events: none;
-}
-.overlay-active .viewer,
-.overlay-active main {
-  filter: none !important;
-  opacity: 1 !important;
-  backdrop-filter: none !important;
-}
-
-.embed-header {
+.sidebar-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+  margin-bottom: 18px;
 }
 
-.embed-header h3 {
+.sidebar-title {
   margin: 0;
+
+  font-size: 18px;
+  font-weight: 700;
+
   color: var(--text);
 }
 
-.embed-body {
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+.sidebar-section {
+  margin-bottom: 18px;
 }
 
-.embed-field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  color: var(--muted);
-  font-size: 14px;
-}
+.sidebar-section-title {
+  margin: 0 0 8px;
 
-.embed-field input,
-.embed-field textarea {
-  width: 100%;
-  padding: 12px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.02);
-  color: var(--text);
-  font: inherit;
-  resize: vertical;
-}
+  font-size: 11px;
+  font-weight: 700;
 
-.embed-divider {
-  color: var(--muted);
-  font-size: 12px;
-  text-align: center;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
-}
+  letter-spacing: 0.08em;
 
-.embed-help {
-  font-size: 12px;
-  line-height: 1.5;
   color: var(--muted);
 }
 
-.embed-actions {
+.sidebar-list {
   display: flex;
-  justify-content: flex-end;
-  gap: 8px;
-  padding-top: 8px;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar-item {
+  width: 100%;
+
+  padding: 9px 10px;
+
+  border: 0;
+  border-radius: var(--radius-sm);
+
+  background: transparent;
+  color: var(--text);
+
+  text-align: left;
+
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+  background: var(--hover-bg);
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   5. MAIN CONTENT
+   ========================================================= */
+
+.main {
+  position: relative;
+
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--bg);
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   6. TOP BAR
+   ========================================================= */
+
+.topbar {
+  height: 64px;
+  min-height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 18px;
+
+  background: var(--panel);
+
+  border-bottom: 1px solid var(--border);
+
+  z-index: 200;
+}
+
+.topbar-left,
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar-title {
+  margin: 0;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  color: var(--text);
+}
+
+
+/* =========================================================
+   7. VIEWER
+   ========================================================= */
+
+.viewer {
+  position: relative;
+
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+
+  background: var(--bg);
+
+  overflow: hidden;
+
+  transition:
+    filter var(--transition-normal),
+    background var(--transition-normal);
+}
+
+
+/*
+   Used ONLY when the notes drawer is maximized.
+
+   IMPORTANT:
+   This is deliberately separate from theme handling.
+*/
+
+.viewer.drawer-maximized-viewer {
+  filter: brightness(0.56);
+}
+
+
+/* =========================================================
+   8. VIEWER PLACEHOLDER
+   ========================================================= */
+
+.viewer-placeholder {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  text-align: center;
+
+  color: var(--muted);
+
+  pointer-events: none;
+}
+
+.viewer-placeholder h2 {
+  margin: 0 0 8px;
+
+  color: var(--text);
+}
+
+.viewer-placeholder p {
+  margin: 0;
+
+  max-width: 600px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   9. MODEL LOADER
+   ========================================================= */
+
+.model-loader {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.25);
+
+  z-index: 20;
+}
+
+.model-loader.hidden {
+  display: none;
+}
+
+.loader-content {
+  padding: 20px;
+
+  border-radius: var(--radius-md);
+
+  background: var(--panel);
+
+  color: var(--text);
+
+  box-shadow: 0 20px 50px var(--shadow);
+}
+
+
+/* =========================================================
+   10. GENERAL BUTTONS
+   ========================================================= */
+
+.primary-btn,
+.secondary-btn,
+.drawer-btn,
+.sidebar-toggle,
+.theme-toggle {
+  min-height: 36px;
+
+  padding: 7px 12px;
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-sm);
+
+  background: var(--panel);
+  color: var(--text);
+
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .primary-btn {
   background: var(--accent);
-  color: #06222a;
-  border: none;
-  padding: 10px 14px;
-  font-weight: 600;
+  color: #ffffff;
+
+  border-color: var(--accent);
 }
 
-/* Toast */
-.toast {
-  position: fixed;
-  left: 50%;
-  bottom: 28px;
-  transform: translateX(-50%);
-  background: rgba(2,6,23,0.9);
-  color: #f8fafc;
-  padding: 10px 14px;
-  border-radius: 10px;
-  box-shadow: 0 12px 30px rgba(2,6,23,0.5);
-  z-index: 1200;
-  font-size: 14px;
-  opacity: 1;
-  transition: opacity 260ms ease, transform 260ms ease;
+.primary-btn:hover,
+.primary-btn:focus-visible {
+  background: var(--accent-hover);
 }
-.toast.hidden { display: none !important; opacity: 0; transform: translateX(-50%) translateY(6px); }
+
+.secondary-btn:hover,
+.secondary-btn:focus-visible,
+.drawer-btn:hover,
+.drawer-btn:focus-visible,
+.sidebar-toggle:hover,
+.theme-toggle:hover {
+  background: var(--hover-bg);
+  color: var(--accent);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   11. NOTES DRAWER
+   ========================================================= */
 
 .notes-drawer {
   position: fixed;
+
   right: 20px;
   top: 82px;
   bottom: 20px;
+
   width: min(440px, 42vw);
   min-width: 320px;
-  background: rgba(11, 18, 32, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 22px;
-  box-shadow: 0 28px 60px rgba(2, 6, 23, 0.45);
-  backdrop-filter: blur(14px);
-  transform: translateX(calc(100% + 30px));
-  transition: transform 280ms ease, box-shadow 280ms ease, top 220ms ease, right 220ms ease, left 220ms ease, bottom 220ms ease, width 220ms ease;
-  z-index: 400;
+
   display: flex;
   flex-direction: column;
+
+  /*
+     CRITICAL:
+     Never hard-code a dark background here.
+     The drawer follows the application theme.
+  */
+
+  background: var(--drawer-bg);
+  color: var(--text);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-xl);
+
+  box-shadow:
+    0 28px 60px var(--shadow);
+
+  backdrop-filter: blur(14px);
+
+  transform: translateX(calc(100% + 30px));
+
+  transition:
+    transform 280ms ease,
+    box-shadow 280ms ease,
+    top 220ms ease,
+    right 220ms ease,
+    left 220ms ease,
+    bottom 220ms ease,
+    width 220ms ease;
+
+  z-index: 400;
+
   overflow: hidden;
+
+  /*
+     Prevent flex children from forcing
+     the drawer wider than the viewport.
+  */
+  min-height: 0;
+  max-width: calc(100vw - 24px);
 }
 
 .notes-drawer.open {
   transform: translateX(0);
 }
 
-.notes-drawer.is-maximized,
-.notes-drawer.presentation-mode {
+
+/* =========================================================
+   12. MAXIMIZED NOTES DRAWER
+   ========================================================= */
+
+/*
+   IMPORTANT:
+
+   is-maximized controls SIZE only.
+
+   It does NOT control:
+   - light/dark mode
+   - font size
+   - viewer theme
+*/
+
+.notes-drawer.is-maximized {
   left: 14px;
   right: 14px;
   top: 14px;
   bottom: 14px;
+
   width: auto;
   min-width: 0;
-  border-radius: 18px;
+
+  border-radius: var(--radius-lg);
+
   z-index: 500;
-  box-shadow: 0 30px 80px rgba(2, 6, 23, 0.7);
+
+  background: var(--drawer-bg);
+  color: var(--text);
+
+  box-shadow:
+    0 30px 80px var(--shadow-heavy);
+
+  filter: none;
+
+  transform: translateX(0);
 }
 
-.notes-drawer.presentation-mode .drawer-body {
-  padding: 28px 32px;
-  font-size: 1.08rem;
-  line-height: 1.7;
-}
 
-.notes-drawer.presentation-mode .drawer-header {
-  background: rgba(17, 24, 39, 0.96);
-}
-
-.viewer.presentation-mode {
-  filter: brightness(0.56);
-  transition: filter 220ms ease;
-}
+/* =========================================================
+   13. DRAWER HEADER
+   ========================================================= */
 
 .drawer-header {
+  flex-shrink: 0;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  gap: 12px;
+
   padding: 12px 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.02);
+
+  background: var(--drawer-header-bg);
+
+  color: var(--text);
+
+  border-bottom: 1px solid var(--border);
+
+  min-width: 0;
+}
+
+.drawer-title {
+  min-width: 0;
+  flex: 1;
 }
 
 .drawer-title h2 {
   margin: 0;
+
   font-size: 18px;
+  font-weight: 700;
+
+  color: var(--text);
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .drawer-subtitle {
+  margin-top: 3px;
+
   font-size: 12px;
+
   color: var(--muted);
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .drawer-controls {
+  flex-shrink: 0;
+
   display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: flex-end;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
 }
 
 .drawer-btn[hidden] {
   display: none !important;
 }
 
-.drawer-btn:hover,
-.drawer-btn:focus-visible,
-.primary-btn:hover,
-.primary-btn:focus-visible,
-.sidebar-toggle:hover,
-.theme-toggle:hover {
-  background: rgba(45, 212, 191, 0.12);
-}
+
+/* =========================================================
+   14. DRAWER BODY
+   ========================================================= */
 
 .drawer-body {
+  flex: 1;
+
+  min-width: 0;
+  min-height: 0;
+
+  width: 100%;
+  max-width: 100%;
+
   padding: 18px;
-  overflow: auto;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background: var(--drawer-body-bg);
+
+  color: var(--text);
+
   font-size: 16px;
   line-height: 1.6;
+
+  /*
+     Large text must wrap instead of expanding
+     the drawer horizontally.
+  */
+
+  overflow-wrap: anywhere;
+  word-wrap: break-word;
+  word-break: normal;
+
+  white-space: normal;
+
+  scrollbar-width: thin;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+
+/* Maximized body */
+
+.notes-drawer.is-maximized .drawer-body {
+  padding: 28px 32px;
+
+  background: var(--drawer-body-bg);
   color: var(--text);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.03));
+
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-.drawer-body[contenteditable="true"] {
-  outline: 2px solid rgba(45, 212, 191, 0.12);
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 10px;
+
+/* =========================================================
+   15. FONT CONTROLLED NOTES
+   ========================================================= */
+
+/*
+   drawer.js can set:
+
+   --drawer-note-font-size
+
+   Example:
+   --drawer-note-font-size: 28px;
+*/
+
+.drawer-body.note-font-controlled {
+  font-size: var(--drawer-note-font-size, 16px);
+
+  overflow-x: hidden;
+
+  overflow-wrap: anywhere;
+  word-wrap: break-word;
+
+  white-space: normal;
 }
 
-.drawer-body:not([contenteditable="true"]) .media-remove-btn {
-  display: none !important;
+
+/*
+   Make sure maximization DOES NOT overwrite
+   the user's selected font size.
+*/
+
+.notes-drawer.is-maximized .drawer-body.note-font-controlled {
+  font-size: var(--drawer-note-font-size, 16px);
 }
 
-.drawer-body[contenteditable="true"] .media-remove-btn {
-  display: flex !important;
+
+/* =========================================================
+   16. NOTE TYPOGRAPHY
+   ========================================================= */
+
+.drawer-body h1,
+.drawer-body h2,
+.drawer-body h3,
+.drawer-body h4,
+.drawer-body h5,
+.drawer-body h6,
+.drawer-body p,
+.drawer-body ul,
+.drawer-body ol,
+.drawer-body li,
+.drawer-body blockquote,
+.drawer-body dl,
+.drawer-body dt,
+.drawer-body dd {
+  max-width: 100%;
+
+  overflow-wrap: anywhere;
+  word-wrap: break-word;
+
+  white-space: normal;
+}
+
+.drawer-body h1,
+.drawer-body h2,
+.drawer-body h3,
+.drawer-body h4,
+.drawer-body h5,
+.drawer-body h6 {
+  color: var(--text);
+
+  line-height: 1.3;
+}
+
+.drawer-body h1 {
+  font-size: 1.8em;
+}
+
+.drawer-body h2 {
+  font-size: 1.5em;
+}
+
+.drawer-body h3 {
+  font-size: 1.25em;
+}
+
+.drawer-body h4 {
+  font-size: 1.1em;
 }
 
 .drawer-body p,
@@ -722,279 +804,912 @@ header h1 {
   margin-bottom: 0.8em;
 }
 
-.drawer-body p + p,
-.drawer-body ul + p,
-.drawer-body ol + p,
-.drawer-body blockquote + p {
-  margin-top: 0.9em;
+.drawer-body ul,
+.drawer-body ol {
+  padding-left: 1.5em;
 }
+
+
+/* =========================================================
+   17. NOTE LINKS
+   ========================================================= */
 
 .drawer-body a {
   color: var(--accent);
+
   text-decoration: underline;
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
-.drawer-body figure {
-  margin: 1rem 0;
+.drawer-body a:hover {
+  color: var(--accent-hover);
 }
+
+
+/* =========================================================
+   18. NOTE BLOCKQUOTES
+   ========================================================= */
+
+.drawer-body blockquote {
+  margin-left: 0;
+  margin-right: 0;
+
+  padding: 12px 16px;
+
+  border-left: 4px solid var(--accent);
+
+  background: var(--input-bg);
+
+  color: var(--text-soft);
+}
+
+
+/* =========================================================
+   19. NOTE TABLES
+   ========================================================= */
+
+.drawer-body table {
+  display: table;
+
+  width: 100%;
+  max-width: 100%;
+
+  table-layout: fixed;
+
+  border-collapse: collapse;
+
+  margin: 18px 0;
+
+  font-size: inherit;
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.drawer-body thead {
+  background: var(--input-bg);
+}
+
+.drawer-body th,
+.drawer-body td {
+  max-width: 100%;
+
+  padding: 9px 10px;
+
+  border: 1px solid var(--border);
+
+  text-align: left;
+  vertical-align: top;
+
+  overflow-wrap: anywhere;
+  word-wrap: break-word;
+  word-break: break-word;
+
+  white-space: normal;
+}
+
+.drawer-body th {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.drawer-body td {
+  color: var(--text-soft);
+}
+
+
+/* =========================================================
+   20. NOTE IMAGES / MEDIA
+   ========================================================= */
 
 .drawer-body img,
 .drawer-body video,
 .drawer-body iframe,
-.drawer-body audio {
+.drawer-body audio,
+.drawer-body canvas,
+.drawer-body svg {
   display: block;
+
   max-width: 100%;
+
   margin: 14px auto;
-  border-radius: 12px;
-  background: #000;
+
+  border-radius: var(--radius-md);
+}
+
+.drawer-body img {
+  height: auto;
+  object-fit: contain;
+}
+
+.drawer-body iframe {
+  width: 100%;
+
+  border: 0;
+
+  min-height: 300px;
 }
 
 .drawer-body video {
   width: 100%;
-  max-height: 420px;
+  height: auto;
 }
 
-.drawer-body img {
-  box-shadow: 0 14px 30px rgba(15, 23, 32, 0.28);
-}
-
-.drawer-body .note-media-wrap {
-  margin: 1rem 0;
-}
-
-.drawer-body .note-media-wrap img,
-.drawer-body .note-media-wrap video {
-  margin: 0;
-}
-
-.drawer-body .note-media-item {
-  position: relative;
-  margin: 1rem 0;
-  padding: 12px 12px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.drawer-body .media-remove-btn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  border: none;
-  background: rgba(15, 23, 32, 0.8);
-  color: #fff;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 14px;
-  line-height: 1;
-  z-index: 2;
-}
-
-.drawer-body .note-media-item img,
-.drawer-body .note-media-item video {
+.drawer-body audio {
   width: 100%;
-  max-height: 420px;
-  margin: 0;
 }
 
-.drawer-body .note-media-item a {
-  display: inline-block;
-  margin-top: 8px;
-}
 
-.drawer-body .embedded-scene {
-  margin: 1rem 0;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(15, 23, 32, 0.32);
-  padding: 12px;
-  border-radius: 14px;
-}
+/* =========================================================
+   21. CODE / PRE
+   ========================================================= */
 
-.drawer-body .embedded-scene iframe {
+.drawer-body pre {
   width: 100%;
-  min-height: 440px;
+  max-width: 100%;
+
+  margin: 16px 0;
+
+  padding: 14px;
+
+  border-radius: var(--radius-md);
+
+  background: var(--code-bg);
+
+  overflow-x: auto;
+
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+
+  font-family:
+    "Cascadia Code",
+    "Fira Code",
+    Consolas,
+    monospace;
+
+  font-size: 0.9em;
+}
+
+.drawer-body code {
+  max-width: 100%;
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
+
+  white-space: pre-wrap;
+
+  font-family:
+    "Cascadia Code",
+    "Fira Code",
+    Consolas,
+    monospace;
+}
+
+.drawer-body :not(pre) > code {
+  padding: 2px 5px;
+
+  border-radius: 5px;
+
+  background: var(--code-bg);
+}
+
+
+/* =========================================================
+   22. HORIZONTAL RULE
+   ========================================================= */
+
+.drawer-body hr {
+  height: 1px;
+
+  margin: 24px 0;
+
   border: 0;
-  border-radius: 10px;
-  background: #000;
-  display: block;
+
+  background: var(--border);
 }
 
-.drawer-body .embedded-scene figcaption {
-  margin-top: 8px;
-  color: var(--muted);
-  font-size: 12px;
+
+/* =========================================================
+   23. DEFINITION LISTS
+   ========================================================= */
+
+.drawer-body dt {
+  margin-top: 12px;
+
+  font-weight: 700;
+
+  color: var(--text);
 }
 
-.drawer-body .permanent-note,
-#modalBody .permanent-note {
-  opacity: 0.96;
+.drawer-body dd {
+  margin-left: 0;
+
+  color: var(--text-soft);
 }
 
-.drawer-body .user-sticker-note,
-#modalBody .user-sticker-note {
-  position: relative;
-  margin-top: 1.2rem;
-  padding: 18px 18px 16px;
-  border: 1px solid rgba(180, 135, 40, 0.6);
-  border-left: 6px solid rgba(245, 180, 20, 0.9);
-  background:
-    linear-gradient(180deg, rgba(255, 252, 233, 0.95), rgba(250, 244, 180, 0.9)),
-    repeating-linear-gradient(
-      to bottom,
-      rgba(110, 83, 0, 0.06),
-      rgba(110, 83, 0, 0.06) 2px,
-      transparent 2px,
-      transparent 9px
-    );
-  border-radius: 14px 14px 12px 12px;
-  box-shadow: 0 14px 26px rgba(146, 110, 18, 0.14), 0 3px 10px rgba(15, 23, 42, 0.18);
-  color: #3d2b00;
-  transform: rotate(-0.8deg);
-  font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", "Marker Felt", cursive;
-  line-height: 1.55;
-  letter-spacing: 0.02em;
+
+/* =========================================================
+   24. NOTE EMPHASIS
+   ========================================================= */
+
+.drawer-body strong,
+.drawer-body b {
+  color: var(--text);
 }
 
-.drawer-body .user-sticker-note::before,
-#modalBody .user-sticker-note::before {
-  content: "";
+.drawer-body em,
+.drawer-body i {
+  color: var(--text-soft);
+}
+
+
+/* =========================================================
+   25. PRESENTATION MODE
+   ========================================================= */
+
+/*
+   presentation-mode is deliberately THEME-NEUTRAL.
+
+   It must NEVER set a dark background.
+
+   If drawer.js still adds this class, it will follow
+   the active light/dark theme.
+*/
+
+.notes-drawer.presentation-mode {
+  background: var(--drawer-bg);
+  color: var(--text);
+
+  filter: none;
+}
+
+.notes-drawer.presentation-mode .drawer-header {
+  background: var(--drawer-header-bg);
+  color: var(--text);
+}
+
+.notes-drawer.presentation-mode .drawer-body {
+  background: var(--drawer-body-bg);
+  color: var(--text);
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+/*
+   Do NOT define:
+
+   .presentation-mode .drawer-body {
+      font-size: 1.08rem;
+   }
+
+   Font size is controlled by drawer.js.
+*/
+
+
+/* =========================================================
+   26. EXPLICIT LIGHT THEME DRAWER PROTECTION
+   ========================================================= */
+
+html[data-theme="light"] .notes-drawer,
+html[data-theme="light"] .notes-drawer.is-maximized,
+html[data-theme="light"] .notes-drawer.presentation-mode {
+  background: var(--drawer-bg);
+  color: var(--text);
+}
+
+html[data-theme="light"] .notes-drawer .drawer-header,
+html[data-theme="light"] .notes-drawer.is-maximized .drawer-header,
+html[data-theme="light"] .notes-drawer.presentation-mode .drawer-header {
+  background: var(--drawer-header-bg);
+  color: var(--text);
+}
+
+html[data-theme="light"] .notes-drawer .drawer-body,
+html[data-theme="light"] .notes-drawer.is-maximized .drawer-body,
+html[data-theme="light"] .notes-drawer.presentation-mode .drawer-body {
+  background: var(--drawer-body-bg);
+  color: var(--text);
+}
+
+
+/* =========================================================
+   27. EXPLICIT DARK THEME DRAWER PROTECTION
+   ========================================================= */
+
+html[data-theme="dark"] .notes-drawer,
+html[data-theme="dark"] .notes-drawer.is-maximized,
+html[data-theme="dark"] .notes-drawer.presentation-mode {
+  background: var(--drawer-bg);
+  color: var(--text);
+}
+
+html[data-theme="dark"] .notes-drawer .drawer-header,
+html[data-theme="dark"] .notes-drawer.is-maximized .drawer-header,
+html[data-theme="dark"] .notes-drawer.presentation-mode .drawer-header {
+  background: var(--drawer-header-bg);
+  color: var(--text);
+}
+
+html[data-theme="dark"] .notes-drawer .drawer-body,
+html[data-theme="dark"] .notes-drawer.is-maximized .drawer-body,
+html[data-theme="dark"] .notes-drawer.presentation-mode .drawer-body {
+  background: var(--drawer-body-bg);
+  color: var(--text);
+}
+
+
+/* =========================================================
+   28. EMBEDS PANEL
+   ========================================================= */
+
+#embedsPanel {
   position: absolute;
+
+  right: 18px;
+  bottom: 18px;
+
+  max-width: min(420px, calc(100vw - 36px));
+
+  padding: 14px;
+
+  border-radius: var(--radius-lg);
+
+  background: var(--panel);
+
+  border: 1px solid var(--border);
+
+  box-shadow: 0 20px 50px var(--shadow);
+
+  z-index: 250;
+
+  overflow: hidden;
+}
+
+#embedsPanel.hidden {
+  display: none !important;
+}
+
+
+/* =========================================================
+   29. EMBEDDED SCENES
+   ========================================================= */
+
+.embedded-scene {
+  width: 100%;
+  max-width: 100%;
+
+  overflow: hidden;
+
+  border-radius: var(--radius-md);
+}
+
+.embedded-scene iframe {
+  width: 100%;
+  max-width: 100%;
+
+  border: 0;
+}
+
+
+/* =========================================================
+   30. NOTE MODAL
+   ========================================================= */
+
+.note-modal,
+.about-modal,
+.embed-modal {
+  position: fixed;
+
   inset: 0;
-  background:
-    linear-gradient(135deg, rgba(255,255,255,0.25), transparent 32%, rgba(120,87,0,0.04)),
-    radial-gradient(circle at 12% 14%, rgba(120,87,0,0.04), transparent 22%);
-  pointer-events: none;
-  border-radius: inherit;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  z-index: 1000;
 }
 
-.drawer-body .user-sticker-note::after,
-#modalBody .user-sticker-note::after {
-  content: "";
+.note-modal.hidden,
+.about-modal.hidden,
+.embed-modal.hidden {
+  display: none !important;
+}
+
+.note-panel,
+.about-panel,
+.embed-panel {
+  width: min(900px, 100%);
+
+  max-height: calc(100vh - 40px);
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--panel);
+  color: var(--text);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: 0 30px 80px var(--shadow-heavy);
+
+  overflow: hidden;
+}
+
+.note-modal-header,
+.about-header,
+.embed-header {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 18px;
+
+  background: var(--panel);
+
+  border-bottom: 1px solid var(--border);
+}
+
+.note-modal-body,
+.about-body,
+.embed-body {
+  flex: 1;
+
+  min-height: 0;
+
+  padding: 18px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  color: var(--text);
+}
+
+
+/* =========================================================
+   31. FORM ELEMENTS
+   ========================================================= */
+
+input,
+textarea,
+select {
+  width: 100%;
+
+  padding: 9px 11px;
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-sm);
+
+  background: var(--input-bg);
+
+  color: var(--text);
+
+  outline: none;
+
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent);
+}
+
+textarea {
+  min-height: 120px;
+
+  resize: vertical;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   32. STICKER NOTES
+   ========================================================= */
+
+.sticker-note {
   position: absolute;
-  inset: 6px 10px 6px 10px;
-  border-radius: 10px;
-  border: 1px solid rgba(133, 93, 0, 0.12);
-  pointer-events: none;
+
+  max-width: 260px;
+
+  padding: 14px;
+
+  border-radius: var(--radius-md);
+
+  background: var(--panel);
+
+  border: 1px solid var(--border);
+
+  color: var(--text);
+
+  box-shadow: 0 15px 35px var(--shadow);
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
+
+  z-index: 300;
 }
 
-.drawer-body .user-sticker-note.is-editing,
-#modalBody .user-sticker-note.is-editing {
-  outline: 2px solid rgba(250, 204, 21, 0.5);
-  outline-offset: 3px;
-  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.12), 0 16px 30px rgba(250, 204, 21, 0.2);
+.sticker-note-title {
+  margin: 0 0 6px;
+
+  font-weight: 700;
+
+  color: var(--text);
 }
 
-.drawer-body .sticker-header,
-#modalBody .sticker-header {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 0.75rem;
-  padding: 5px 10px;
-  border-radius: 999px;
-  background: rgba(120, 87, 0, 0.08);
-  color: #7a5300;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  z-index: 1;
+.sticker-note-content {
+  color: var(--text-soft);
+
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
 }
 
-.drawer-body .user-sticker-note p,
-#modalBody .user-sticker-note p,
-.drawer-body .user-sticker-note li,
-#modalBody .user-sticker-note li,
-.drawer-body .user-sticker-note h1,
-#modalBody .user-sticker-note h1,
-.drawer-body .user-sticker-note h2,
-#modalBody .user-sticker-note h2,
-.drawer-body .user-sticker-note h3,
-#modalBody .user-sticker-note h3,
-.drawer-body .user-sticker-note h4,
-#modalBody .user-sticker-note h4 {
-  position: relative;
-  z-index: 1;
-  color: inherit;
-  font-family: inherit;
-  font-weight: 600;
+
+/* =========================================================
+   33. TOAST
+   ========================================================= */
+
+.toast {
+  position: fixed;
+
+  left: 50%;
+  bottom: 24px;
+
+  transform: translateX(-50%);
+
+  max-width: min(420px, calc(100vw - 30px));
+
+  padding: 10px 16px;
+
+  border-radius: var(--radius-md);
+
+  background: var(--panel);
+
+  color: var(--text);
+
+  border: 1px solid var(--border);
+
+  box-shadow: 0 15px 40px var(--shadow);
+
+  z-index: 2000;
+
+  overflow-wrap: anywhere;
+  text-align: center;
 }
 
-.drawer-body .user-sticker-note p,
-#modalBody .user-sticker-note p {
-  margin: 0.4rem 0;
+.toast.hidden {
+  display: none !important;
 }
 
-.drawer-body .user-sticker-note ul,
-#modalBody .user-sticker-note ul,
-.drawer-body .user-sticker-note ol,
-#modalBody .user-sticker-note ol {
-  margin: 0.5rem 0 0.5rem 1.2rem;
-  padding-left: 0.8rem;
+
+/* =========================================================
+   34. SCROLLBARS
+   ========================================================= */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
 }
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+
+  border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+
+/* =========================================================
+   35. RESPONSIVE — TABLETS
+   ========================================================= */
 
 @media (max-width: 900px) {
-  .notes-drawer {
-    right: 12px;
-    left: 12px;
-    width: auto;
-    min-width: 0;
-    top: 72px;
-    bottom: 12px;
-    border-radius: 18px;
+
+  :root {
+    --sidebar-width: 190px;
   }
 
-  .notes-drawer.is-maximized,
-  .notes-drawer.presentation-mode {
+  .notes-drawer {
+    left: 12px;
+    right: 12px;
+
+    width: auto;
+    min-width: 0;
+
+    top: 72px;
+    bottom: 12px;
+
+    border-radius: var(--radius-lg);
+  }
+
+  .notes-drawer.is-maximized {
     left: 12px;
     right: 12px;
     top: 12px;
     bottom: 12px;
   }
+
+  .notes-drawer.is-maximized .drawer-body {
+    padding: 24px;
+  }
 }
 
+
+/* =========================================================
+   36. RESPONSIVE — MOBILE
+   ========================================================= */
+
 @media (max-width: 800px) {
-  aside#sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    transform: translateX(-100%);
-    z-index: 240;
-    width: var(--sidebar-width);
-    box-shadow: 6px 0 30px rgba(2, 6, 23, 0.5);
+
+  .sidebar {
+    width: 190px;
+    min-width: 190px;
   }
 
-  html:not(.sidebar-collapsed) aside#sidebar {
-    transform: translateX(0);
+  .topbar {
+    padding: 0 12px;
   }
 
-  .app {
+  .notes-drawer {
+    left: 10px;
+    right: 10px;
+
+    width: auto;
+    min-width: 0;
+
+    top: 68px;
+    bottom: 10px;
+
+    border-radius: 16px;
+  }
+
+  .notes-drawer.is-maximized {
+    left: 8px;
+    right: 8px;
+    top: 8px;
+    bottom: 8px;
+
+    border-radius: 14px;
+  }
+
+  .drawer-header {
+    padding: 10px 12px;
+
+    align-items: flex-start;
+  }
+
+  .drawer-controls {
+    gap: 5px;
+  }
+
+  .drawer-btn {
+    min-height: 32px;
+
+    padding: 5px 8px;
+
+    font-size: 13px;
+  }
+
+  .drawer-body {
+    padding: 14px;
+  }
+
+  .notes-drawer.is-maximized .drawer-body {
+    padding: 18px;
+  }
+}
+
+
+/* =========================================================
+   37. SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+  .sidebar {
+    width: 170px;
+    min-width: 170px;
+  }
+
+  .topbar-title {
+    font-size: 16px;
+  }
+
+  .drawer-header {
     flex-direction: column;
   }
 
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 260;
+  .drawer-title {
+    width: 100%;
+  }
+
+  .drawer-controls {
+    width: 100%;
+
+    justify-content: flex-start;
   }
 
   .notes-drawer {
-    right: 12px;
-    left: 12px;
-    width: auto;
-    min-width: 0;
-    top: 72px;
-    bottom: 12px;
-    border-radius: 18px;
+    left: 6px;
+    right: 6px;
+    top: 64px;
+    bottom: 6px;
+
+    border-radius: 14px;
   }
 
-  .notes-drawer.is-maximized,
-  .notes-drawer.presentation-mode {
-    left: 12px;
-    right: 12px;
-    top: 12px;
-    bottom: 12px;
+  .notes-drawer.is-maximized {
+    left: 5px;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+  }
+
+  .drawer-body,
+  .notes-drawer.is-maximized .drawer-body {
+    padding: 14px;
+  }
+
+  .drawer-body table {
+    font-size: 0.9em;
+  }
+
+  .drawer-body th,
+  .drawer-body td {
+    padding: 7px;
   }
 }
+
+
+/* =========================================================
+   38. VERY LARGE PRESENTATION TEXT
+   ========================================================= */
+
+/*
+   When drawer.js increases:
+
+   --drawer-note-font-size: 24px
+   --drawer-note-font-size: 32px
+   --drawer-note-font-size: 40px
+
+   the following guarantees wrapping.
+*/
+
+.drawer-body[style*="font-size"],
+.drawer-body.note-font-controlled {
+  max-width: 100%;
+
+  overflow-x: hidden;
+
+  overflow-wrap: anywhere;
+  word-wrap: break-word;
+
+  white-space: normal;
+}
+
+.drawer-body[style*="font-size"] p,
+.drawer-body[style*="font-size"] li,
+.drawer-body[style*="font-size"] td,
+.drawer-body[style*="font-size"] th,
+.drawer-body[style*="font-size"] h1,
+.drawer-body[style*="font-size"] h2,
+.drawer-body[style*="font-size"] h3,
+.drawer-body[style*="font-size"] h4 {
+  max-width: 100%;
+
+  overflow-wrap: anywhere;
+  word-break: normal;
+
+  white-space: normal;
+}
+
+
+/* =========================================================
+   39. ACCESSIBILITY
+   ========================================================= */
+
+[aria-hidden="true"] {
+  pointer-events: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   40. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+
+/* =========================================================
+   41. FINAL DRAWER GUARANTEES
+   ========================================================= */
+
+/*
+   These rules intentionally come last.
+
+   They protect the drawer from accidental styles elsewhere
+   in the application.
+*/
+
+.notes-drawer,
+.notes-drawer.is-maximized,
+.notes-drawer.presentation-mode {
+  color: var(--text);
+}
+
+.notes-drawer .drawer-header,
+.notes-drawer.is-maximized .drawer-header,
+.notes-drawer.presentation-mode .drawer-header {
+  background: var(--drawer-header-bg);
+  color: var(--text);
+}
+
+.notes-drawer .drawer-body,
+.notes-drawer.is-maximized .drawer-body,
+.notes-drawer.presentation-mode .drawer-body {
+  background: var(--drawer-body-bg);
+  color: var(--text);
+
+  max-width: 100%;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+/*
+   NEVER allow presentation/maximize classes to force
+   the drawer into dark mode.
+*/
+
+.notes-drawer.presentation-mode,
+.notes-drawer.is-maximized {
+  filter: none;
+}
+
