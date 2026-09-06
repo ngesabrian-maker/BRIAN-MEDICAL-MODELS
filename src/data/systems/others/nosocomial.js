@@ -6,8 +6,6 @@ import { introductionNosocomial } from "./nosocomial/introdction.js";
 export const nosocomial = {
   id: "nosocomial",
   name: "Nosocomial",
-  modelPath: "models/theatre/",
-  modelFile: "theatre.glb",
 
   parts: [
     introductionNosocomial,

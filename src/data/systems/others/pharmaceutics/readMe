@@ -1,0 +1,29 @@
+💊 PHARMACEUTICS
+
+01  Introduction
+02  Unit Operations
+03  Solid Dosage Forms
+04  Liquid Dosage Forms
+05  Semi-Solid Dosage Forms
+06  Sterile Dosage Forms
+07  Novel Drug Delivery
+08  Pharmaceutical Packaging
+09  Drug Stability
+10  GMP
+11  Practical Laboratory
+12  Calculations
+13  Quality Control
+14  Revision & Assessment
+
+
+
+
+images/
+└── pharmaceutics/
+    ├── dosage-forms-overview.jpg
+    ├── pharmaceutics-process-flow.jpg
+    ├── dosage-form-classification.jpg
+    ├── api-excipients.jpg
+    ├── routes-of-administration.jpg
+    ├── unit-operations-flow.jpg
+    └── pharmacopoeias.jpg
