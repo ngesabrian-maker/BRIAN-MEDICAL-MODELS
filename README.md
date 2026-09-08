@@ -1,8 +1,8 @@
-# Brian Meds Documentation
+# Brian NOTES Documentation
 
 ## 1. Overview
 
-Brian Meds is a web and desktop anatomy learning application built to explore human organ systems, view 3D model previews when available, and maintain study notes by organ and subject area. The project combines a Vite frontend, a Babylon.js 3D viewer, an Express API for note storage, and a Tauri desktop shell for packaged application distribution.
+Brian NOTES is a web and desktop anatomy learning application built to explore human organ systems, view 3D model previews when available, and maintain study notes by organ and subject area. The project combines a Vite frontend, a Babylon.js 3D viewer, an Express API for note storage, and a Tauri desktop shell for packaged application distribution.
 
 The interface is organized around:
 
@@ -449,7 +449,7 @@ Desktop configuration is defined in [src-tauri/tauri.conf.json](src-tauri/tauri.
 
 The app metadata includes:
 
-- product name: Brian Meds
+- product name: Brian NOTES
 - application identifier: com.brian.app
 - window width/height
 - bundle settings for desktop packaging
@@ -578,7 +578,7 @@ Confirm dependencies are installed and Rust toolchain is available for the Tauri
 
 ## 20. Summary
 
-Brian Meds is an anatomy-focused educational application combining 3D visualization, structured note-taking, and cross-platform deployment. It is designed for study workflows where a learner needs quick access to organ information, subject-specific notes, and persistent data storage.
+Brian NOTES is an anatomy-focused educational application combining 3D visualization, structured note-taking, and cross-platform deployment. It is designed for study workflows where a learner needs quick access to organ information, subject-specific notes, and persistent data storage.
 
 The project is practical, modular, and well-suited for future expansion into richer educational content and data management features.
 
