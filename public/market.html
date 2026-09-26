@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f3ec">
+  <meta name="description" content="Meet BRIAN MEDS, a medical learning app for exploring organ systems, available interactive 3D models, and organized subject-based study notes. In active development, overseen by FhETCH.online.">
+  <meta property="og:title" content="BRIAN MEDS | Medical learning, connected">
+  <meta property="og:description" content="Explore medical subjects, organ systems, interactive 3D models, and study notes. Development is in progress and overseen by FhETCH.online.">
+  <meta property="og:type" content="website">
+  <title>BRIAN MEDS | Medical learning, connected</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f2f3ec;
+      --ink: #172527;
+      --muted: #586766;
+      --green: #137c69;
+      --green-dark: #0c544c;
+      --lime: #d4e66a;
+      --coral: #e47c63;
+      --line: rgba(23, 37, 39, .18);
+      --display: "Space Grotesk", "Trebuchet MS", sans-serif;
+      --body: "DM Sans", "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--coral); outline-offset: 4px; }
+    img { display: block; max-width: 100%; }
+    .wrap { width: min(1160px, calc(100% - 64px)); margin-inline: auto; }
+
+    .topbar {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font: 700 18px/1 var(--display);
+    }
+    .brand-mark {
+      width: 34px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ink);
+      color: var(--green-dark);
+      font: 700 24px/1 var(--display);
+    }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .nav-links a:hover { color: var(--green); }
+    .nav-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding-left: 20px;
+      border-left: 1px solid var(--line);
+      color: var(--green-dark);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .status-dot {
+      width: 9px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--coral);
+      box-shadow: 0 0 0 4px rgba(228, 124, 99, .15);
+    }
+
+    .hero {
+      min-height: 680px;
+      min-height: min(790px, calc(100svh - 82px));
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      isolation: isolate;
+      background: #172527 url("images/organs.jpg") center 38% / cover no-repeat;
+      color: #fff;
+    }
+    .hero::before {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      content: "";
+      background: rgba(10, 27, 29, .68);
+    }
+    .hero-content {
+      width: min(1160px, calc(100% - 64px));
+      margin: 0 auto;
+      padding: 108px 0 72px;
+      animation: arrive .8s ease-out both;
+    }
+    .eyebrow {
+      margin: 0 0 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--lime);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { width: 32px; height: 1px; content: ""; background: currentColor; }
+    h1, h2, h3, p { margin-top: 0; }
+    .hero h1 {
+      max-width: 880px;
+      margin-bottom: 20px;
+      font: 700 80px/.98 var(--display);
+    }
+    .hero-copy {
+      max-width: 610px;
+      margin-bottom: 32px;
+      color: rgba(255, 255, 255, .88);
+      font-size: 20px;
+      line-height: 1.5;
+    }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; }
+    .button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 21px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      transition: background .18s ease, color .18s ease, transform .18s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--lime); color: var(--ink); }
+    .button-primary:hover { background: #e5f18e; }
+    .button-secondary { border-color: rgba(255, 255, 255, .7); color: #fff; }
+    .button-secondary:hover { background: rgba(255, 255, 255, .12); }
+    .hero-note {
+      max-width: 590px;
+      margin: 24px 0 0;
+      color: rgba(255,255,255,.74);
+      font-size: 13px;
+    }
+    .hero-index {
+      position: absolute;
+      right: 32px;
+      bottom: 31px;
+      color: rgba(255,255,255,.72);
+      font: 500 12px/1 var(--display);
+    }
+
+    .intro-band {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 36px;
+      padding-block: 28px;
+      border-bottom: 1px solid var(--line);
+    }
+    .intro-band p { margin: 0; font-size: 14px; }
+    .intro-band strong { color: var(--green-dark); }
+    .intro-band a { color: var(--green-dark); font-size: 14px; font-weight: 700; }
+
+    .section { padding-block: 110px; }
+    .section-kicker {
+      margin-bottom: 18px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .section-heading {
+      max-width: 770px;
+      margin-bottom: 56px;
+      font: 600 50px/1.08 var(--display);
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .feature {
+      min-height: 264px;
+      padding: 30px 28px 34px 0;
+    }
+    .feature + .feature { padding-left: 28px; border-left: 1px solid var(--line); }
+    .feature-number { margin-bottom: 48px; color: var(--coral); font: 600 14px/1 var(--display); }
+    .feature h3 { margin-bottom: 12px; font: 600 23px/1.2 var(--display); }
+    .feature p { max-width: 320px; margin: 0; color: var(--muted); font-size: 15px; }
+
+    .subjects {
+      background: var(--green-dark);
+      color: #fff;
+    }
+    .subjects-inner { padding-block: 92px; }
+    .subjects .section-kicker { color: var(--lime); }
+    .subjects .section-heading { max-width: 820px; margin-bottom: 42px; }
+    .subject-list {
+      display: flex;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,.28);
+      border-bottom: 1px solid rgba(255,255,255,.28);
+    }
+    .subject-list span {
+      flex: 1 1 190px;
+      padding: 21px 18px 21px 0;
+      border-right: 1px solid rgba(255,255,255,.2);
+      font: 500 18px/1.3 var(--display);
+    }
+    .subject-list span + span { padding-left: 18px; }
+
+    .progress-section {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(240px, .85fr);
+      gap: 90px;
+      align-items: start;
+      padding-block: 106px;
+    }
+    .progress-section .section-heading { margin-bottom: 20px; }
+    .progress-copy { max-width: 600px; color: var(--muted); font-size: 17px; }
+    .progress-aside {
+      padding: 26px 0 0 25px;
+      border-left: 3px solid var(--coral);
+    }
+    .progress-aside strong { display: block; margin-bottom: 8px; font: 600 19px/1.3 var(--display); }
+    .progress-aside p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .closing {
+      padding-block: 65px;
+      background: var(--lime);
+    }
+    .closing-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .closing h2 { max-width: 650px; margin: 0; font: 600 36px/1.12 var(--display); }
+    .closing .button { background: var(--ink); color: #fff; }
+    .closing .button:hover { background: var(--green-dark); }
+
+    footer { padding-block: 30px; background: var(--ink); color: #fff; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .footer-brand { font: 700 14px/1.2 var(--display); }
+    .footer-credit { margin: 0; color: rgba(255,255,255,.7); font-size: 13px; }
+    .footer-credit a { color: var(--lime); font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+    @keyframes arrive {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 40px, 560px); }
+      .topbar { min-height: 72px; }
+      .nav-links { gap: 15px; }
+      .nav-links a { font-size: 12px; }
+      .nav-status { display: none; }
+      .hero { min-height: 690px; min-height: min(760px, calc(100svh - 72px)); background-position: 56% center; }
+      .hero-content { width: min(100% - 40px, 560px); padding-block: 80px 70px; }
+      .hero h1 { max-width: 560px; font-size: 58px; }
+      .hero-copy { max-width: 500px; font-size: 18px; }
+      .hero-index { right: 20px; bottom: 19px; }
+      .intro-band { grid-template-columns: 1fr; gap: 13px; padding-block: 21px; }
+      .section { padding-block: 75px; }
+      .section-heading { margin-bottom: 38px; font-size: 39px; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .feature { min-height: auto; padding: 24px 0 30px; }
+      .feature + .feature { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+      .feature-number { margin-bottom: 24px; }
+      .subjects-inner { padding-block: 72px; }
+      .subject-list span { flex-basis: 50%; border-bottom: 1px solid rgba(255,255,255,.2); }
+      .subject-list span + span { padding-left: 0; }
+      .subject-list span:nth-child(even) { padding-left: 14px; border-right: 0; }
+      .progress-section { grid-template-columns: 1fr; gap: 28px; padding-block: 76px; }
+      .progress-section .section-heading { margin-bottom: 18px; }
+      .closing { padding-block: 42px; }
+      .closing-inner { align-items: flex-start; flex-direction: column; }
+      .closing h2 { font-size: 31px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; gap: 8px; }
+    }
+    @media (max-width: 420px) {
+      .wrap { width: calc(100% - 32px); }
+      .brand { gap: 8px; font-size: 16px; }
+      .brand-mark { width: 30px; }
+      .nav-links { gap: 10px; }
+      .nav-links a { font-size: 11px; }
+      .hero-content { width: calc(100% - 32px); }
+      .hero h1 { font-size: 48px; }
+      .hero-copy { font-size: 16px; }
+      .hero-actions { align-items: stretch; flex-direction: column; max-width: 280px; }
+      .button { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar wrap">
+    <a class="brand" href="#top" aria-label="BRIAN MEDS home">
+      <span class="brand-mark" aria-hidden="true">+</span>
+      <span>BRIAN MEDS</span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#experience">The experience</a>
+      <a href="#subjects">Subjects</a>
+      <a href="#progress">Development</a>
+    </nav>
+    <div class="nav-status"><span class="status-dot" aria-hidden="true"></span>In development</div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="eyebrow">Medical learning, connected</p>
+        <h1 id="hero-title">BRIAN<br>MEDS</h1>
+        <p class="hero-copy">Explore medical subjects, connect study notes to organ systems, and step into interactive 3D anatomy where models are available.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="../index.html">Explore the application</a>
+          <a class="button button-secondary" href="#experience">Discover the experience</a>
+        </div>
+        <p class="hero-note">An evolving medical study platform. Development is underway; features and model coverage continue to grow.</p>
+      </div>
+      <span class="hero-index" aria-hidden="true">01 / MEDICAL STUDY PLATFORM</span>
+    </section>
+
+    <div class="intro-band wrap">
+      <p><strong>Built for curious minds.</strong> Designed to bring medical subjects, structured notes, and available 3D learning models into one place.</p>
+      <a href="#progress">See development status <span aria-hidden="true">&darr;</span></a>
+    </div>
+
+    <section class="section wrap" id="experience" aria-labelledby="experience-title">
+      <p class="section-kicker">A connected way to study</p>
+      <h2 class="section-heading" id="experience-title">Move from the big picture to the details that matter.</h2>
+      <div class="feature-grid">
+        <article class="feature">
+          <p class="feature-number">01 / EXPLORE</p>
+          <h3>Navigate organ systems</h3>
+          <p>Move through organized systems and select structures to open the relevant study material.</p>
+        </article>
+        <article class="feature">
+          <p class="feature-number">02 / VISUALIZE</p>
+          <h3>Learn with available 3D models</h3>
+          <p>Inspect supported anatomy models in an interactive Babylon.js viewer. Model availability varies as development continues.</p>
+        </article>
+        <article class="feature">
+          <p class="feature-number">03 / ORGANIZE</p>
+          <h3>Keep notes by subject</h3>
+          <p>Connect notes to an organ or structure and organize them across different medical subjects.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="subjects" id="subjects" aria-labelledby="subjects-title">
+      <div class="subjects-inner wrap">
+        <p class="section-kicker">More than one lens</p>
+        <h2 class="section-heading" id="subjects-title">One study space for connected medical subjects.</h2>
+        <div class="subject-list" aria-label="Available subject areas">
+          <span>Anatomy</span>
+          <span>Biochemistry</span>
+          <span>Physiology</span>
+          <span>Parasitology</span>
+          <span>Microbiology</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="progress-section wrap" id="progress" aria-labelledby="progress-title">
+      <div>
+        <p class="section-kicker">Work in progress</p>
+        <h2 class="section-heading" id="progress-title">Being built with learners in mind.</h2>
+        <p class="progress-copy">BRIAN MEDS is actively being developed. The experience, educational content, and 3D model coverage are still evolving. Some systems and models may be incomplete while work continues.</p>
+      </div>
+      <aside class="progress-aside" aria-label="Development oversight">
+        <strong>Development overseen by FhETCH.online</strong>
+        <p>FhETCH.online oversees the development of the application as it continues to take shape.</p>
+      </aside>
+    </section>
+
+    <section class="closing" aria-label="Open BRIAN MEDS">
+      <div class="closing-inner wrap">
+        <h2>Explore a more connected way to study medicine.</h2>
+        <a class="button" href="../index.html">Open BRIAN MEDS <span aria-hidden="true">&nbsp;&rarr;</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner wrap">
+      <span class="footer-brand">BRIAN MEDS <span aria-hidden="true">/</span> Medical learning in progress</span>
+      <p class="footer-credit">Development overseen by <a href="https://FhETCH.online" target="_blank" rel="noopener noreferrer">FhETCH.online</a></p>
+    </div>
+  </footer>
+</body>
+</html>
