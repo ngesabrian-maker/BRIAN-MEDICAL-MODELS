@@ -1,8 +1,8 @@
-# Brian NOTES Documentation
+# Brian Meds Documentation
 
 ## 1. Overview
 
-Brian NOTES is a web and desktop anatomy learning application built to explore human organ systems, view 3D model previews when available, and maintain study notes by organ and subject area. The project combines a Vite frontend, a Babylon.js 3D viewer, an Express API for note storage, and a Tauri desktop shell for packaged application distribution.
+Brian Meds is a cross-platform medical learning and study application that brings together subject-based notes, organ-system exploration, and an interactive 3D learning experience when models are available. Anatomy is a core part of the app, alongside related medical subjects such as biochemistry, physiology, parasitology, and microbiology. The project combines a Vite frontend, a Babylon.js 3D viewer, an Express API for note storage, and desktop packaging through Tauri and Electron.
 
 The interface is organized around:
 
@@ -17,7 +17,7 @@ The interface is organized around:
 
 ## 2. Project Goals
 
-This application is designed for medical and anatomy study workflows, especially when learners want to:
+This application supports medical education across anatomy and related subject areas. Learners can:
 
 - browse organ systems visually
 - inspect organ-specific details
@@ -83,6 +83,43 @@ The project has three major layers:
 3. Desktop app layer
    - Tauri wraps the web frontend into a desktop application
    - The desktop config points to the built frontend assets and runs the app in a native window
+
+### Android packaging
+
+The project includes a Capacitor Android app. Install Android Studio with the Android SDK Platform 36, Android SDK Build-Tools, and the bundled JDK. From the project root on Windows, run:
+
+```powershell
+npm install
+```
+
+For a development install, use the debug flow instead of a direct release APK install:
+
+```powershell
+npm run android:sync
+npm run android:debug
+```
+
+The debug build produces `android/app/build/outputs/apk/debug/app-debug.apk`, which is the artifact you can install during development or push to a device with `adb install -r`. The release helper builds the web app, synchronizes Capacitor, detects Android Studio's bundled JDK, and builds release artifacts:
+
+```powershell
+tauri-target/release/app.exe
+tauri-target/release/bundle/
+```
+
+The release helper writes:
+
+- `android/app/build/outputs/apk/release/app-release.apk`
+- `android/app/build/outputs/bundle/release/app-release.aab`
+
+> Directly installing the plain release APK will fail with the Android error "Installation error" unless the APK is signed. The project currently does not configure a release signing key, so those artifacts are unsigned until you supply one in Android Studio or Gradle.
+
+To continue in Android Studio:
+
+1. Open the `android` folder, not the repository root.
+2. Let Gradle finish syncing and select the `app` run configuration.
+3. Set Gradle JDK to Android Studio's bundled JDK in **Settings > Build, Execution, Deployment > Build Tools > Gradle**.
+4. Use **Build > Generate Signed Bundle / APK** for a distributable signed build.
+5. For a quick local install, use the debug build or press Run in Android Studio.
 
 In practical terms, the browser client talks to the backend API at http://localhost:3001 while the desktop version uses the same frontend logic inside Tauri.
 
@@ -449,10 +486,30 @@ Desktop configuration is defined in [src-tauri/tauri.conf.json](src-tauri/tauri.
 
 The app metadata includes:
 
-- product name: Brian NOTES
-- application identifier: com.brian.app
+- product name: BRIAN-NOTES
+- application identifier: com.brian.notes
 - window width/height
 - bundle settings for desktop packaging
+
+The Tauri production build uses `npm run build:tauri` to keep the large 3D models out of the embedded frontend bundle. It packages `public/models/` as app resources instead; the desktop viewer resolves model files from that resource directory. Web and Android builds continue to use the regular Vite public-asset paths.
+
+### Windows installer
+
+The NSIS installer displays [LICENSE.txt](LICENSE.txt) before installation. Its installer and uninstaller icons use `src-tauri/icons/icon.ico`, generated from `src-tauri/icons/254.jpg`; the welcome/sidebar and header artwork are generated from the same source.
+
+If the 254 artwork changes, regenerate the application and installer icons before building:
+
+```powershell
+npm run generate:icons
+npm run build:desktop
+```
+
+The generated Windows installers are:
+
+- NSIS setup: `src-tauri/target/release/bundle/nsis/BRIAN-NOTES_0.1.0_x64-setup.exe`
+- MSI: `src-tauri/target/release/bundle/msi/BRIAN-NOTES_0.1.0_x64_en-US.msi`
+
+Use the NSIS setup when the user must review and accept the terms before installing. The current MSI UI skips the license dialog.
 
 ---
 
@@ -526,7 +583,7 @@ From the current code and structure:
 
 - Some models are present while others are intentionally unset with null paths.
 - The app supports both backend persistence and local fallback.
-- The project is meant to be flexible for educational content and anatomy-focused note taking.
+- The project is meant to support a range of medical learning content and subject-specific study notes.
 - The frontend UI is modular and easy to extend for additional anatomy systems or media.
 
 ---
@@ -564,7 +621,7 @@ npm run start:server
 
 ### Model not rendering
 
-Verify that the organ has valid model metadata in [src/organs.js](src/organs.js).
+Verify the organ's model metadata in `src/data/systems/` and confirm the referenced file exists under `public/models/`. For Tauri, rebuild and install the latest desktop package so the updated model resources are included.
 
 ### Notes not saving
 
@@ -578,7 +635,7 @@ Confirm dependencies are installed and Rust toolchain is available for the Tauri
 
 ## 20. Summary
 
-Brian NOTES is an anatomy-focused educational application combining 3D visualization, structured note-taking, and cross-platform deployment. It is designed for study workflows where a learner needs quick access to organ information, subject-specific notes, and persistent data storage.
+Brian Meds is a medical education application combining interactive 3D visualization, structured subject-specific notes, and cross-platform access. It supports anatomy and other medical study areas, helping learners explore organ systems, inspect available 3D models, and keep study material organized.
 
 The project is practical, modular, and well-suited for future expansion into richer educational content and data management features.
 
@@ -591,7 +648,7 @@ npm install
 npm run dev
 ```
 
-Then open the app in the browser and interact with the anatomy system list.
+Then open the app in the browser to explore medical subjects, organ systems, and available 3D models.
 
 For desktop use:
 
@@ -605,9 +662,13 @@ npm run build:desktop
 
 ## 22. Notes for Maintainers
 
-- Prefer adding new anatomy content in [src/organs.js](src/organs.js)
+- Prefer adding anatomy and organ-system content in [src/organs.js](src/organs.js), and related medical subject content in `src/data/systems/`
 - Keep API compatibility consistent in [src/api.js](src/api.js)
 - Validate note structure before adding new subject labels
 - Rebuild the app after major data or UI changes
 
 This documentation reflects the current implementation as seen in the repository structure and source files.
+
+```bash
+npm run build:electron
+```
