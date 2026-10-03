@@ -1,17 +1,13 @@
 {
   "app": "BRIAN NOTES",
-  "release": "V0.0.1",
   "version": "0.0.1",
-  "releaseUrl": "https://github.com/ngesabrian-maker/BRIAN-MEDICAL-MODELS/releases/tag/V0.0.1",
-  "message": "A newer version of BRIAN NOTES is available. Please update the application to continue using the latest version and content.",
+  "release": "V0.0.1",
+  "message": "A newer version of BRIAN NOTES is available. Please update to the latest version.",
   "android": {
-    "version": "0.0.1",
-    "sha256": "795be2356e814ace099538ae6817dcd4bdd1c5091bc1c625fff4cc7cfe7da0ef",
     "downloadUrl": "https://github.com/ngesabrian-maker/BRIAN-MEDICAL-MODELS/releases/download/V0.0.1/app-release.apk"
   },
   "windows": {
-    "version": "0.0.1",
-    "sha256": "f8f8d4de0b595c3b11aa7af106fa4eb455ff26f833d75cc8a144153408327b47",
     "downloadUrl": "https://github.com/ngesabrian-maker/BRIAN-MEDICAL-MODELS/releases/download/V0.0.1/BRIAN-NOTES_0.1.0_x64-setup.exe"
-  }
+  },
+  "releaseUrl": "https://github.com/ngesabrian-maker/BRIAN-MEDICAL-MODELS/releases/tag/V0.0.1"
 }
