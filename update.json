@@ -1,7 +1,7 @@
 {
   "app": "BRIAN NOTES",
-  "version": "0.0.6",
-  "release": "V0.0.6",
+  "version": "0.0.3",
+  "release": "V0.0.3",
   "message": "A newer version of BRIAN NOTES is available. Please update to the latest version.",
   "android": {
     "downloadUrl": "https://github.com/ngesabrian-maker/BRIAN-MEDICAL-MODELS/releases/download/V0.0.1/app-release.apk"
