@@ -11,7 +11,8 @@ The interface is organized around:
 - Interactive organ selection from the sidebar
 - Notes drawer for reading and editing notes
 - SQLite-backed note persistence with local fallback and synchronization support
-- Optional desktop packaging through Tauri
+- Desktop packaging through Tauri and Electron
+- Android packaging through Capacitor
 
 ---
 
@@ -44,11 +45,11 @@ This application supports medical education across anatomy and related subject a
 - SQLite via sqlite3
 - CORS and multipart upload support via multer
 
-### Desktop wrapper
+### Native wrappers and packaging
 
-- Tauri 2
-- Rust backend
-- Desktop packaging configuration
+- Capacitor 8 for Android
+- Electron for desktop distribution
+- Tauri 2 with a Rust shell for native desktop builds
 
 ### Key dependencies
 
@@ -61,7 +62,10 @@ From [package.json](package.json):
 - sql.js
 - multer
 - cors
+- @capacitor/core and @capacitor-community/sqlite
 - @tauri-apps/cli
+- electron
+- piper-tts-web
 - vite
 - concurrently
 
@@ -69,59 +73,102 @@ From [package.json](package.json):
 
 ## 4. High-Level Architecture
 
-The project has three major layers:
+BRIAN NOTES is a layered, single-page application delivered through several runtimes:
 
-1. Frontend UI layer
-   - Managed by Vite and browser JavaScript
-   - Contains the organ tree, subject selectors, notes drawer, and 3D canvas
+1. **Presentation and study experience** — [index.html](index.html) and the modules under [src/](src/) render subjects, organs, the Babylon.js viewer, notes drawer, editor, media embeds, theme controls, quizzes, and offline speech.
+2. **Application orchestration** — [src/main.js](src/main.js) wires the medical content catalog, viewer lifecycle, UI state, drawers, and controllers together.
+3. **Persistence adapters** — [src/api.js](src/api.js) coordinates server storage, [src/db.js](src/db.js) provides browser-native SQLite storage, and `localStorage` is the final offline fallback.
+4. **Local service and media API** — [server.js](server.js) exposes note, database import/export, and upload endpoints, backed by [data/notes.db](data/notes.db).
+5. **Native shells** — Vite output can run in a browser, Android through Capacitor, Windows/macOS/Linux through Electron, or Windows through Tauri.
 
-2. Data/notes layer
-   - Express API stores notes in SQLite
-   - Client falls back to localStorage when the backend is unavailable
-   - Export/import endpoints support database transfer
+```mermaid
+flowchart LR
+    User[User] --> UI[Vite UI / src modules]
+    UI --> Catalog[Organ and subject catalog]
+    UI --> Viewer[Babylon.js 3D viewer]
+    UI --> Notes[Notes controllers and editor]
+    Notes --> Api[src/api.js persistence facade]
+    Api --> SQLiteWeb[sql.js or Capacitor SQLite]
+    Api --> Local[Browser localStorage]
+    Api --> Express[Express API :3001]
+    Express --> ServerDB[(data/notes.db)]
+    UI -. bundled assets .-> Shell[Browser / Android / Electron / Tauri]
+```
 
-3. Desktop app layer
-   - Tauri wraps the web frontend into a desktop application
-   - The desktop config points to the built frontend assets and runs the app in a native window
+### Runtime sequence: opening and saving a note
+
+```mermaid
+sequenceDiagram
+    actor Learner
+    participant UI as Notes Drawer
+    participant API as src/api.js
+    participant LocalDB as Browser SQLite
+    participant Storage as localStorage
+    participant Express as Express API
+    participant SQLite as data/notes.db
+
+    Learner->>UI: Select organ, part, and subject
+    UI->>API: getNoteRemote(organId, partId, subject)
+    API->>LocalDB: Read matching note
+    alt Local SQLite has the note
+        LocalDB-->>API: Note content and embeds
+    else Local SQLite has no match
+        API->>Express: GET /api/note
+        alt Server responds
+            Express->>SQLite: SELECT note
+            SQLite-->>Express: Note row
+            Express-->>API: content and embeds
+        else Server unavailable
+            API->>Storage: Read composite local key
+            Storage-->>API: Cached note
+        end
+    end
+    API-->>UI: display note
+
+    Learner->>UI: Edit and save
+    UI->>API: upsertNoteRemote(...)
+    API->>Express: POST /api/note
+    alt Server reachable
+        Express->>SQLite: INSERT OR REPLACE
+        SQLite-->>Express: Saved
+        Express-->>API: { ok: true, savedTo: server }
+    else Server unavailable
+        API->>Storage: Save cached note
+        Storage-->>API: Saved locally
+    end
+    API-->>UI: Confirm save
+```
+
+A browser or native client normally tries a local SQLite adapter first, then the Express API, with browser `localStorage` as the offline cache. Android uses Capacitor SQLite where available; browser builds use sql.js and persist the database encoded in `localStorage`.
 
 ### Android packaging
 
-The project includes a Capacitor Android app. Install Android Studio with the Android SDK Platform 36, Android SDK Build-Tools, and the bundled JDK. From the project root on Windows, run:
+The project includes a Capacitor Android app. Install Android Studio, Android SDK Platform 36, Android SDK Build Tools, and a supported JDK (17-25). From the project root on Windows:
 
 ```powershell
 npm install
-```
-
-For a development install, use the debug flow instead of a direct release APK install:
-
-```powershell
 npm run android:sync
-npm run android:debug
 ```
 
-The debug build produces `android/app/build/outputs/apk/debug/app-debug.apk`, which is the artifact you can install during development or push to a device with `adb install -r`. The release helper builds the web app, synchronizes Capacitor, detects Android Studio's bundled JDK, and builds release artifacts:
+- `npm run android:sync` runs the production build and copies its output into the Android project.
+- `npm run android:debug` builds and synchronizes the app, then creates a debug APK.
+- `npm run android:apk` creates a release APK without invoking the signing-key helper.
+- `npm run android:aab` creates a release Android App Bundle.
+- `npm run android:release` runs the signing helper, which builds/synchronizes the web app and creates both APK and AAB outputs.
 
-```powershell
-tauri-target/release/app.exe
-tauri-target/release/bundle/
-```
-
-The release helper writes:
+The release helper creates or uses a local signing configuration and writes:
 
 - `android/app/build/outputs/apk/release/app-release.apk`
 - `android/app/build/outputs/bundle/release/app-release.aab`
 
-> Directly installing the plain release APK will fail with the Android error "Installation error" unless the APK is signed. The project currently does not configure a release signing key, so those artifacts are unsigned until you supply one in Android Studio or Gradle.
+The helper also creates `android/key.properties` and `android/app/release-key.jks` when they are not present. Keep the keystore and its passwords private and replace this development signing setup before publishing.
 
 To continue in Android Studio:
 
 1. Open the `android` folder, not the repository root.
 2. Let Gradle finish syncing and select the `app` run configuration.
 3. Set Gradle JDK to Android Studio's bundled JDK in **Settings > Build, Execution, Deployment > Build Tools > Gradle**.
-4. Use **Build > Generate Signed Bundle / APK** for a distributable signed build.
-5. For a quick local install, use the debug build or press Run in Android Studio.
-
-In practical terms, the browser client talks to the backend API at http://localhost:3001 while the desktop version uses the same frontend logic inside Tauri.
+4. Use **Build > Generate Signed Bundle / APK** for a store-distributable build, or press Run for local development.
 
 ---
 
@@ -286,7 +333,8 @@ Response:
 
 ```json
 {
-  "content": "<p>Left ventricle: ...</p>"
+  "content": "<p>Left ventricle: ...</p>",
+  "embeds": []
 }
 ```
 
@@ -301,7 +349,8 @@ Body:
   "organId": "heart",
   "partId": "left-ventricle",
   "subject": "anatomy",
-  "content": "<p>Example note content</p>"
+  "content": "<p>Example note content</p>",
+  "embeds": []
 }
 ```
 
@@ -325,7 +374,8 @@ Response:
     "organId": "heart",
     "partId": "left-ventricle",
     "subject": "anatomy",
-    "content": "<p>Example note</p>"
+    "content": "<p>Example note</p>",
+    "embeds": []
   }
 ]
 ```
@@ -344,11 +394,26 @@ Expected multipart field:
 
 ---
 
-## 9. Data Model
+## 9. Database Design
 
-Notes are stored in a SQLite table named notes.
+The persisted application database currently contains one logical entity: a subject-specific note. The same schema is maintained by the Express server, Capacitor SQLite, and sql.js implementations.
 
-Schema:
+### Entity relationship diagram
+
+```mermaid
+erDiagram
+    NOTES {
+        TEXT organId PK "Organ identifier; composite key"
+        TEXT partId PK "Part identifier; empty string means whole organ"
+        TEXT subject PK "Subject identifier"
+        TEXT content "HTML or rich-text note body"
+        TEXT embeds "JSON array of embed metadata, default []"
+    }
+```
+
+The three-part composite key uniquely identifies a note across organ, anatomical part, subject, and fallback content location. There are no foreign-key tables for organs or subjects: [src/organs.js](src/organs.js) and the frontend subject catalog are the source of truth, while SQLite stores only user-created note content.
+
+### Physical schema
 
 ```sql
 CREATE TABLE IF NOT EXISTS notes (
@@ -356,11 +421,29 @@ CREATE TABLE IF NOT EXISTS notes (
   partId TEXT DEFAULT '',
   subject TEXT,
   content TEXT,
+  embeds TEXT DEFAULT '[]',
   PRIMARY KEY (organId, partId, subject)
-)
+);
 ```
 
-This allows per-topic note records for each organ or part.
+Column details:
+
+| Column | Meaning |
+|---|---|
+| `organId` | Stable identifier for an organ or top-level study item, such as `heart`. |
+| `partId` | Stable substructure identifier. An empty string represents the whole organ. |
+| `subject` | Subject namespace, such as Anatomy, Physiology, or Biochemistry. |
+| `content` | Note body stored as HTML/rich text after editor sanitization. |
+| `embeds` | JSON-serialized array containing embedded media or iframe metadata; legacy databases default it to `[]`. |
+
+### Storage copies and synchronization
+
+- **Server copy:** `data/notes.db`, managed by [server.js](server.js).
+- **Web copy:** the sql.js database is serialized to Base64 and persisted under `brian_sqlite_db_v1` in `localStorage`.
+- **Android copy:** Capacitor SQLite database `notes_db`, with schema migrations handled in [src/db.js](src/db.js).
+- **Offline cache:** browser fallback records are stored under `brian_notes_local_v1`, keyed by `organId||partId||subject`.
+
+The server's `GET /api/export` and `POST /api/import` routes transfer a complete SQLite database, while `syncLocalToServer()` migrates offline cache entries into the server database.
 
 ---
 
@@ -492,6 +575,10 @@ The app metadata includes:
 - bundle settings for desktop packaging
 
 The Tauri production build uses `npm run build:tauri` to keep the large 3D models out of the embedded frontend bundle. It packages `public/models/` as app resources instead; the desktop viewer resolves model files from that resource directory. Web and Android builds continue to use the regular Vite public-asset paths.
+
+### Offline Piper voice
+
+The notes reader includes Piper's LJSpeech medium voice as an optional offline neural voice. Its ONNX model and metadata are bundled under `public/piper/models/`; Piper's ONNX and phonemizer WebAssembly assets are copied into each Vite build. Speech synthesis runs locally, with no voice download or server request at playback time. Existing browser-provided voices remain available. The bundled voice model is about 63.5 MB; its upstream [model card](https://huggingface.co/rhasspy/piper-voices/tree/main/en/en_US/ljspeech/medium) identifies the LJSpeech training data as public domain.
 
 ### Windows installer
 
