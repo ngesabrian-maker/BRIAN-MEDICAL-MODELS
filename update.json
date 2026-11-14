@@ -5,7 +5,7 @@
   "message": "A newer version of BRIAN NOTES is available. Please update to the latest version.",
   "android": {
     "downloadUrl": "https://github.com/ngesabrian-maker/BRIAN-MEDICAL-MODELS/releases/download/V0.0.1/app-release.apk"
-  },
+  }, 
   "windows": {
     "downloadUrl": "https://github.com/ngesabrian-maker/BRIAN-MEDICAL-MODELS/releases/download/V0.0.1/BRIAN-NOTES_0.0.126_x64-setup.exe"
   },
