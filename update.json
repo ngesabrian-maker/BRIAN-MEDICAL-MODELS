@@ -12,7 +12,7 @@
   "models": {
     "version": "V0.0.1",
     "downloadUrl": "https://github.com/ngesabrian-maker/BRIAN-MEDICAL-MODELS/releases/download/V0.0.1/models.0.0.1.zip",
-    "sha256": "875e14389f303adfe9b142ede7fa2fddb09387eae372967593effe9b5d2c7e59"
+    "sha256": "sha256:875e14389f303adfe9b142ede7fa2fddb09387eae372967593effe9b5d2c7e59"
   },
   "releaseUrl": "https://github.com/ngesabrian-maker/BRIAN-MEDICAL-MODELS/releases/tag/V0.0.1"
 }
