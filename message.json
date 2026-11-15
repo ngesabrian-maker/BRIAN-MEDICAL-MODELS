@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "messages": [
+    {
+      "id": "announcement-2026-11-15-01",
+      "type": "announcements",
+      "title": "New study material",
+      "body": "The cardiovascular notes have been updated.",
+      "url": "/",
+      "published": true
+    },
+    {
+      "id": "content-2026-11-15-01",
+      "type": "content-updates",
+      "title": "New respiratory content",
+      "body": "Open the app to review the new material.",
+      "published": false
+    }
+  ]
+}
