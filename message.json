@@ -2,19 +2,19 @@
   "version": 1,
   "messages": [
     {
-      "id": "annuncement-2026-11-15-01",
+      "id": "announcement-2026-11-15-01",
       "type": "announcements",
-      "title": "New study material",
-      "body": "The cardiovascular notes have been updated.",
+      "title": "EXAM WEEK",
+      "body": "Wishing you success in your ongoing examinations. Stay focused, remain confident, and give your best!",
       "url": "/",
       "published": true
     },
     {
-      "id": "contet-2026-11-15-01",
+      "id": "content-2026-11-15-01",
       "type": "content-updates",
-      "title": "New respiratory content",
-      "body": "Open the app to review the new material.",
-      "published": true
+      "title": "New Respiratory Content",
+      "body": "New respiratory system learning materials are now available. Open the app to explore and review the updated content.",
+      "published": false
     }
   ]
 }
