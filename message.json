@@ -2,8 +2,8 @@
   "version": 1,
   "messages": [
     {
-      "id": "announcement-2026-11-15-01",
-      "type": "nounceents",
+      "id": "nouncement-2026-11-15-01",
+      "type": "announcments",
       "title": "EXAM WEEK",
       "body": "Wishing you success in your ongoing examinations. Stay focused, remain confident, and give your best!",
       "url": "/",
