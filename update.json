@@ -1,13 +1,13 @@
 {
   "app": "BRIAN NOTES",
-  "version": "0.0.149",
-  "release": "V0.0.149",
+  "version": "0.0.152",
+  "release": "V0.0.152",
   "message": "A newer version of BRIAN NOTES is available. Please update to the latest version.",
   "android": {
     "downloadUrl": "https://github.com/ngesabrian-maker/BRIAN-MEDICAL-MODELS/releases/download/V0.0.1/app-release.apk"
   }, 
   "windows": {
-    "downloadUrl": "https://github.com/ngesabrian-maker/BRIAN-MEDICAL-MODELS/releases/download/V0.0.1/BRIAN-NOTES_0.0.149_x64-setup.exe"
+    "downloadUrl": "https://github.com/ngesabrian-maker/BRIAN-MEDICAL-MODELS/releases/download/V0.0.1/BRIAN-NOTES_0.0.152_x64-setup.exe"
   },
   "models": {
     "version": "V0.0.1",
